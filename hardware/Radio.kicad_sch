@@ -1,0 +1,35 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid ce2286de-b2ee-40ed-a815-ba7a08803d9f)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "~{CS}" (shape input) (at 25.4 35.56 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 041bcf3d-69d0-451c-9f7a-b92b86e93125)
+  )
+  (hierarchical_label "IRQ" (shape output) (at 25.4 38.1 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 1a02abcf-63cb-4052-bdfe-f3d2b131ba16)
+  )
+  (hierarchical_label "MISO" (shape output) (at 25.4 30.48 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 6b50a40e-40a4-47cf-a07d-ae95973d3551)
+  )
+  (hierarchical_label "MOSI" (shape input) (at 25.4 27.94 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 7815032a-4cb0-4691-9f9a-e43eef8ec6be)
+  )
+  (hierarchical_label "SCK" (shape input) (at 25.4 33.02 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 87dab53b-c49d-4d4e-b834-5db19ae305a8)
+  )
+  (hierarchical_label "~{RESET}" (shape input) (at 25.4 25.4 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid c5f9e77e-dac5-4e0f-9e2d-2983439ba5f3)
+  )
+)

@@ -11,4 +11,5 @@
   (lib (name "LCSC_Communication_Interface_Chip_UART_485_232")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Communication_Interface_Chip_UART_485_232.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Regulator")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Regulator.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Power_Inductor")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Power_Inductor.kicad_sym")(options "")(descr ""))
+  (lib (name "LCSC_Transistor")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Transistor.kicad_sym")(options "")(descr ""))
 )
