@@ -1,0 +1,27 @@
+(kicad_sch (version 20211123) (generator eeschema)
+
+  (uuid e3f11bdb-abd7-4eaa-a715-89683dc042e2)
+
+  (paper "A4")
+
+  (lib_symbols
+  )
+
+
+  (hierarchical_label "HCI_RTS" (shape input) (at 31.75 36.195 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 0db7d8a7-0ea0-4d4f-9436-8e4594507a1e)
+  )
+  (hierarchical_label "HCI_RX" (shape input) (at 31.75 34.29 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 92527ddf-2538-48bd-945c-aedfcf56307a)
+  )
+  (hierarchical_label "HCI_TX" (shape output) (at 31.75 32.385 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid 9fc882e4-4126-4f45-9556-e0aba67f6b72)
+  )
+  (hierarchical_label "HCI_CTS" (shape input) (at 31.75 38.1 0)
+    (effects (font (size 1.27 1.27)) (justify left))
+    (uuid d47af540-61c8-4595-bf99-0260c2c3a957)
+  )
+)

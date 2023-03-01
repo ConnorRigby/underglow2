@@ -352,10 +352,8 @@
     "pinned_footprint_libs": [],
     "pinned_symbol_libs": [
       "LCSC_Capacitor",
-      "LCSC_Communication_Interface_Chip_UART_485_232",
       "LCSC_Crystal",
       "LCSC_DCDC_Converter",
-      "LCSC_ESD",
       "LCSC_Fuse",
       "LCSC_LED",
       "LCSC_Microcontroller",
@@ -494,6 +492,26 @@
     [
       "51e4e0b8-920f-4548-a9c8-d97d830c9625",
       "Power"
+    ],
+    [
+      "d698d388-4189-4a55-a8ce-744fe305194e",
+      "RGB"
+    ],
+    [
+      "d5721a02-112a-4ac6-b068-821a8e1fc3da",
+      "CAN"
+    ],
+    [
+      "f11066f7-65e1-4360-b792-c6d8a0045fba",
+      "Application"
+    ],
+    [
+      "f6dd0682-1649-403c-b931-941640049f3a",
+      "BLE"
+    ],
+    [
+      "3a8e0646-c833-45b3-b944-10815ae65a47",
+      "Digital Input"
     ]
   ],
   "text_variables": {}
