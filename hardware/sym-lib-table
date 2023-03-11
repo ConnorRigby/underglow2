@@ -12,4 +12,7 @@
   (lib (name "LCSC_Regulator")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Regulator.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Power_Inductor")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Power_Inductor.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Transistor")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Transistor.kicad_sym")(options "")(descr ""))
+  (lib (name "LCSC_Inductor")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Inductor.kicad_sym")(options "")(descr ""))
+  (lib (name "LCSC_RF_Transciever_ICs")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_RF_Transciever_ICs.kicad_sym")(options "")(descr ""))
+  (lib (name "LCSC_Tactile_Switch")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Tactile_Switch.kicad_sym")(options "")(descr ""))
 )

@@ -1,5 +1,6 @@
 {
   "board": {
+    "3dviewports": [],
     "design_settings": {
       "defaults": {
         "board_outline_line_width": 0.09999999999999999,
@@ -33,9 +34,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.3,
-          "height": 0.6,
-          "width": 0.6
+          "drill": 0.0,
+          "height": 0.2,
+          "width": 0.350013
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -137,7 +138,8 @@
       "zones_allow_external_fillets": false,
       "zones_use_no_outline": true
     },
-    "layer_presets": []
+    "layer_presets": [],
+    "viewports": []
   },
   "boards": [],
   "cvpcb": {
@@ -321,18 +323,23 @@
     "rule_severities": {
       "bus_definition_conflict": "error",
       "bus_entry_needed": "error",
-      "bus_label_syntax": "error",
       "bus_to_bus_conflict": "error",
       "bus_to_net_conflict": "error",
+      "conflicting_netclasses": "error",
       "different_unit_footprint": "error",
       "different_unit_net": "error",
       "duplicate_reference": "error",
       "duplicate_sheet_names": "error",
+      "endpoint_off_grid": "warning",
       "extra_units": "error",
       "global_label_dangling": "warning",
       "hier_label_mismatch": "error",
       "label_dangling": "error",
       "lib_symbol_issues": "warning",
+      "missing_bidi_pin": "warning",
+      "missing_input_pin": "warning",
+      "missing_power_pin": "error",
+      "missing_unit": "warning",
       "multiple_net_names": "warning",
       "net_not_bus_member": "warning",
       "no_connect_connected": "warning",
@@ -342,6 +349,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
+      "simulation_model_issue": "error",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -349,18 +357,22 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [],
+    "pinned_footprint_libs": [
+      "Button"
+    ],
     "pinned_symbol_libs": [
-      "LCSC_Resistor",
       "LCSC_Capacitor",
       "LCSC_Crystal",
       "LCSC_DCDC_Converter",
       "LCSC_Fuse",
+      "LCSC_Inductor",
       "LCSC_LED",
       "LCSC_Microcontroller",
       "LCSC_MOSFET",
       "LCSC_Power_Inductor",
       "LCSC_Regulator",
+      "LCSC_Resistor",
+      "LCSC_RF_Transciever_ICs",
       "LCSC_Transistor"
     ]
   },
@@ -371,7 +383,7 @@
   "net_settings": {
     "classes": [
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -385,10 +397,10 @@
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -397,21 +409,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "CAN",
-        "nets": [
-          "/Application/CAN_RX",
-          "/Application/CAN_TX",
-          "/CAN/CAN_H",
-          "/CAN/CAN_L"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(0, 194, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -420,21 +426,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "DIGITAL_INPUT_PWR",
-        "nets": [
-          "/Digital Input/DI_1",
-          "/Digital Input/DI_2",
-          "/Digital Input/DI_3",
-          "/Digital Input/DI_4"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(128, 77, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -443,19 +443,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "NZR_OUT",
-        "nets": [
-          "/RGB/PIXEL_1",
-          "/RGB/PIXEL_2"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(132, 0, 132)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -464,21 +460,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power",
-        "nets": [
-          "+12V",
-          "/Power/EN",
-          "/Power/VIN",
-          "/RGB/RGB1_G_GATE"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -487,19 +477,32 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power_HF",
-        "nets": [
-          "+VSW",
-          "/Power/SW"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(221, 133, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "RF",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgb(255, 255, 0)",
+        "track_width": 0.25,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -508,23 +511,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "RGB_PWR",
-        "nets": [
-          "/RGB/RGB1_B",
-          "/RGB/RGB1_G",
-          "/RGB/RGB1_R",
-          "/RGB/RGB2_B",
-          "/RGB/RGB2_G",
-          "/RGB/RGB2_R"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(255, 153, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -533,19 +528,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "RGB_PWR_FET",
-        "nets": [
-          "/RGB/RGB1_12V",
-          "/RGB/RGB2_12V"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(194, 0, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -554,23 +545,15 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "SPI",
-        "nets": [
-          "/Application/SPI1_IRQ",
-          "/Application/SPI1_MISO",
-          "/Application/SPI1_MOSI",
-          "/Application/SPI1_NSS",
-          "/Application/SPI1_RESET",
-          "/Application/SPI1_SCK"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(0, 194, 194)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       },
       {
-        "bus_width": 12.0,
+        "bus_width": 12,
         "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
@@ -579,24 +562,165 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "UART",
-        "nets": [
-          "/Application/LPUART1_CTS",
-          "/Application/LPUART1_RTS",
-          "/Application/LPUART1_RX",
-          "/Application/LPUART1_TX"
-        ],
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgb(0, 132, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
-        "wire_width": 6.0
+        "wire_width": 6
       }
     ],
     "meta": {
-      "version": 2
+      "version": 3
     },
-    "net_colors": null
+    "net_colors": null,
+    "netclass_assignments": null,
+    "netclass_patterns": [
+      {
+        "netclass": "CAN",
+        "pattern": "/Application/CAN_RX"
+      },
+      {
+        "netclass": "CAN",
+        "pattern": "/Application/CAN_TX"
+      },
+      {
+        "netclass": "CAN",
+        "pattern": "/CAN/CAN_H"
+      },
+      {
+        "netclass": "CAN",
+        "pattern": "/CAN/CAN_L"
+      },
+      {
+        "netclass": "DIGITAL_INPUT_PWR",
+        "pattern": "/Digital Input/DI_1"
+      },
+      {
+        "netclass": "DIGITAL_INPUT_PWR",
+        "pattern": "/Digital Input/DI_2"
+      },
+      {
+        "netclass": "DIGITAL_INPUT_PWR",
+        "pattern": "/Digital Input/DI_3"
+      },
+      {
+        "netclass": "DIGITAL_INPUT_PWR",
+        "pattern": "/Digital Input/DI_4"
+      },
+      {
+        "netclass": "NZR_OUT",
+        "pattern": "/RGB/PIXEL_1"
+      },
+      {
+        "netclass": "NZR_OUT",
+        "pattern": "/RGB/PIXEL_2"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+12V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/EN"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VIN"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/RGB/RGB1_G_GATE"
+      },
+      {
+        "netclass": "Power_HF",
+        "pattern": "+VSW"
+      },
+      {
+        "netclass": "Power_HF",
+        "pattern": "/Power/SW"
+      },
+      {
+        "netclass": "RF",
+        "pattern": "/BLE/BT_ANT"
+      },
+      {
+        "netclass": "RF",
+        "pattern": "/BLE/RFIOp"
+      },
+      {
+        "netclass": "RGB_PWR",
+        "pattern": "/RGB/RGB1_B"
+      },
+      {
+        "netclass": "RGB_PWR",
+        "pattern": "/RGB/RGB1_G"
+      },
+      {
+        "netclass": "RGB_PWR",
+        "pattern": "/RGB/RGB1_R"
+      },
+      {
+        "netclass": "RGB_PWR",
+        "pattern": "/RGB/RGB2_B"
+      },
+      {
+        "netclass": "RGB_PWR",
+        "pattern": "/RGB/RGB2_G"
+      },
+      {
+        "netclass": "RGB_PWR",
+        "pattern": "/RGB/RGB2_R"
+      },
+      {
+        "netclass": "RGB_PWR_FET",
+        "pattern": "/RGB/RGB1_12V"
+      },
+      {
+        "netclass": "RGB_PWR_FET",
+        "pattern": "/RGB/RGB2_12V"
+      },
+      {
+        "netclass": "SPI",
+        "pattern": "/Application/SPI1_IRQ"
+      },
+      {
+        "netclass": "SPI",
+        "pattern": "/Application/SPI1_MISO"
+      },
+      {
+        "netclass": "SPI",
+        "pattern": "/Application/SPI1_MOSI"
+      },
+      {
+        "netclass": "SPI",
+        "pattern": "/Application/SPI1_NSS"
+      },
+      {
+        "netclass": "SPI",
+        "pattern": "/Application/SPI1_RESET"
+      },
+      {
+        "netclass": "SPI",
+        "pattern": "/Application/SPI1_SCK"
+      },
+      {
+        "netclass": "UART",
+        "pattern": "/Application/LPUART1_CTS"
+      },
+      {
+        "netclass": "UART",
+        "pattern": "/Application/LPUART1_RTS"
+      },
+      {
+        "netclass": "UART",
+        "pattern": "/Application/LPUART1_RX"
+      },
+      {
+        "netclass": "UART",
+        "pattern": "/Application/LPUART1_TX"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
@@ -612,6 +736,8 @@
   "schematic": {
     "annotate_start_num": 0,
     "drawing": {
+      "dashed_lines_dash_length_ratio": 12.0,
+      "dashed_lines_gap_length_ratio": 3.0,
       "default_line_thickness": 6.0,
       "default_text_size": 50.0,
       "field_names": [],
@@ -643,7 +769,11 @@
     "page_layout_descr_file": "",
     "plot_directory": "",
     "spice_adjust_passive_values": false,
+    "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
+    "spice_model_current_sheet_as_root": true,
+    "spice_save_all_currents": false,
+    "spice_save_all_voltages": false,
     "subpart_first_id": 65,
     "subpart_id_separator": 0
   },
