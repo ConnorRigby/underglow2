@@ -46,7 +46,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.25
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -179,7 +179,9 @@
       ],
       "track_widths": [
         0.0,
+        0.0,
         0.2,
+        0.23,
         0.254,
         0.3,
         0.4,
@@ -417,7 +419,9 @@
   },
   "libraries": {
     "pinned_footprint_libs": [
-      "Button"
+      "Button",
+      "LCSC_Antenna",
+      "LCSC_Microcontroller"
     ],
     "pinned_symbol_libs": [
       "LCSC_Capacitor",
@@ -432,7 +436,8 @@
       "LCSC_Regulator",
       "LCSC_Resistor",
       "LCSC_RF_Transciever_ICs",
-      "LCSC_Transistor"
+      "LCSC_Transistor",
+      "LCSC_Antenna"
     ]
   },
   "meta": {
@@ -787,8 +792,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
-      "vrml": ""
+      "step": "underglow2.step",
+      "vrml": "underglow2.wrl"
     },
     "page_layout_descr_file": ""
   },
