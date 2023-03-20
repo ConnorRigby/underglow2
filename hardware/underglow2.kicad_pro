@@ -46,7 +46,7 @@
         "silk_text_upright": false,
         "zones": {
           "45_degree_only": false,
-          "min_clearance": 0.39999999999999997
+          "min_clearance": 0.25
         }
       },
       "diff_pair_dimensions": [
@@ -57,8 +57,9 @@
         }
       ],
       "drc_exclusions": [
+        "courtyards_overlap|81198664|58950001|2c096481-7fea-49d3-91b1-eca8f3d5d0e7|3981cc91-8eb2-4af8-ac09-c5d5531d3108",
         "courtyards_overlap|81198664|58950001|3981cc91-8eb2-4af8-ac09-c5d5531d3108|2c096481-7fea-49d3-91b1-eca8f3d5d0e7",
-        "lib_footprint_issues|64160000|34768749|f3489cad-65f6-4e8c-879b-4ea8df753c21|00000000-0000-0000-0000-000000000000"
+        "isolated_copper|91058487|90666465|fcc1298f-c92c-4703-afa5-6640ef4ae773|00000000-0000-0000-0000-000000000000"
       ],
       "meta": {
         "version": 2
@@ -84,7 +85,7 @@
         "item_on_disabled_layer": "error",
         "items_not_allowed": "error",
         "length_out_of_range": "error",
-        "lib_footprint_issues": "warning",
+        "lib_footprint_issues": "ignore",
         "lib_footprint_mismatch": "ignore",
         "malformed_courtyard": "error",
         "microvia_drill_out_of_range": "error",
@@ -97,7 +98,7 @@
         "shorting_items": "error",
         "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
-        "silk_overlap": "warning",
+        "silk_overlap": "ignore",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "ignore",
@@ -126,8 +127,8 @@
         "min_microvia_drill": 0.09999999999999999,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.7999999999999999,
-        "min_text_thickness": 0.08,
+        "min_text_height": 0.0,
+        "min_text_thickness": 0.0,
         "min_through_hole_diameter": 0.3,
         "min_track_width": 0.15,
         "min_via_annular_width": 0.15,
@@ -144,7 +145,7 @@
           "td_on_pad_in_zone": false,
           "td_onpadsmd": true,
           "td_onroundshapesonly": false,
-          "td_ontrackend": false,
+          "td_ontrackend": true,
           "td_onviapad": true
         }
       ],
@@ -200,7 +201,15 @@
       "zones_use_no_outline": true
     },
     "layer_presets": [],
-    "viewports": []
+    "viewports": [
+      {
+        "h": 16865934.3207592,
+        "name": "color",
+        "w": 44028753.27462227,
+        "x": 46295698.59228196,
+        "y": 60277108.06917208
+      }
+    ]
   },
   "boards": [],
   "cvpcb": {
@@ -473,7 +482,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "CAN",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgba(0, 255, 0, 0.502)",
         "schematic_color": "rgb(0, 194, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -490,7 +499,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "DIGITAL_INPUT_PWR",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgba(128, 77, 0, 0.502)",
         "schematic_color": "rgb(128, 77, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -506,8 +515,25 @@
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
+        "name": "GPIO",
+        "pcb_color": "rgba(0, 255, 0, 0.502)",
+        "schematic_color": "rgb(0, 255, 0)",
+        "track_width": 0.25,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
         "name": "NZR_OUT",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(132, 0, 132)",
         "schematic_color": "rgb(132, 0, 132)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -524,7 +550,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(255, 0, 0)",
         "schematic_color": "rgb(255, 0, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -541,7 +567,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power_HF",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(255, 153, 0)",
         "schematic_color": "rgb(221, 133, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -558,7 +584,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "RF",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgba(255, 255, 0, 0.502)",
         "schematic_color": "rgb(255, 255, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -575,7 +601,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "RGB_PWR",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(255, 153, 0)",
         "schematic_color": "rgb(255, 153, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -592,7 +618,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "RGB_PWR_FET",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(194, 0, 0)",
         "schematic_color": "rgb(194, 0, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -609,7 +635,7 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "SPI",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgb(0, 194, 194)",
         "schematic_color": "rgb(0, 194, 194)",
         "track_width": 0.25,
         "via_diameter": 0.8,
@@ -626,8 +652,25 @@
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "UART",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "pcb_color": "rgba(0, 72, 0, 0.502)",
         "schematic_color": "rgb(0, 132, 0)",
+        "track_width": 0.25,
+        "via_diameter": 0.8,
+        "via_drill": 0.4,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "USB",
+        "pcb_color": "rgb(0, 255, 0)",
+        "schematic_color": "rgb(0, 255, 0)",
         "track_width": 0.25,
         "via_diameter": 0.8,
         "via_drill": 0.4,
@@ -638,7 +681,39 @@
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "/Application/BOOT0": "GPIO",
+      "/Application/LED_GREEN": "GPIO",
+      "/Application/LED_GREEN_CSR": "GPIO",
+      "/Application/LED_YELLOW": "GPIO",
+      "/Application/LED_YELLOW_CSR": "GPIO",
+      "/Application/SWCLK": "SPI",
+      "/Application/SWDIO": "SPI",
+      "/Application/SWO": "SPI",
+      "/Application/USART1_RX": "UART",
+      "/Application/USART1_TX": "UART",
+      "/Application/USB_DN": "USB",
+      "/Application/USB_DP": "USB",
+      "/Application/~{RST}": "GPIO",
+      "/BLE/BLE_ANT": "RF",
+      "/Radio/J1": "RF",
+      "/Radio/J3": "RF",
+      "/Radio/PA_BOOST": "RF",
+      "/Radio/PA_BOOST_PA": "RF",
+      "/Radio/PA_BOOST_PA_FILTER": "RF",
+      "/Radio/PA_BOOST_PA_MATCH": "RF",
+      "/Radio/RF69_ANTENNA": "RF",
+      "/Radio/RF69_ANT_MATCH": "RF",
+      "/Radio/RFIO_MATCH": "RF",
+      "/Radio/RF_IO": "RF",
+      "/Radio/RXTX": "GPIO",
+      "/Radio/RXTX_NOR": "GPIO",
+      "/Radio/V1": "GPIO",
+      "/Radio/V2": "GPIO",
+      "/Radio/VR_ANA": "Power_HF",
+      "/Radio/VR_DIG": "Power",
+      "/Radio/VR_PA": "RF"
+    },
     "netclass_patterns": [
       {
         "netclass": "CAN",
