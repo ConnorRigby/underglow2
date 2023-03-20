@@ -24,9 +24,7 @@
   (fp_line (start 2.026213 1.541199) (end -2.026213 1.541199)
     (stroke (width 0.1524) (type solid)) (layer "F.SilkS") (tstamp ec0454f2-922f-4af2-8619-3a02600135d8))
   (fp_circle (center -0.000025 -0.000025) (end 0.899975 -0.000025)
-    (stroke (width 0.254001) (type solid)) (fill none) (layer "F.SilkS") (tstamp 1a5f6aad-35b6-43a2-853b-ae94fa278cf3))
-  (fp_circle (center 2.500127 -1.465075) (end 2.530099 -1.465075)
-    (stroke (width 0.059995) (type solid)) (fill none) (layer "F.SilkS") (tstamp 6b2cbc1b-b869-4bb4-8a31-88756ad81146))
+    (stroke (width 0.254) (type solid)) (fill none) (layer "F.SilkS") (tstamp 1a5f6aad-35b6-43a2-853b-ae94fa278cf3))
   (pad "1" smd rect (at -2.184912 0) (size 1.229997 1.359995) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp 473dde07-8554-4176-8a3a-401cac287aab))
   (pad "2" smd rect (at 2.184912 0) (size 1.229997 1.359995) (layers "F.Cu" "F.Paste" "F.Mask") (tstamp c05504e7-4412-4269-a330-285329c8786e))
   (model "${KIPRJMOD}/library/Button.pretty/packages3d/SW-SMD_L3.9-W3.0-P4.45.wrl"

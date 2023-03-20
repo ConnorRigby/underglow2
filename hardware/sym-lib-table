@@ -17,4 +17,5 @@
   (lib (name "LCSC_RF_Transciever_ICs")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_RF_Transciever_ICs.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Tactile_Switch")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Tactile_Switch.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Antenna")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Antenna.kicad_sym")(options "")(descr ""))
+  (lib (name "LCSC_Transistor1")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Transistor.kicad_sym")(options "")(descr ""))
 )
