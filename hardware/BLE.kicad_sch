@@ -4,6 +4,17 @@
 
   (paper "A4")
 
+  (title_block
+    (title "coneRGB2")
+    (date "2023-03-20")
+    (rev "1")
+    (company "https://cone.codes")
+    (comment 1 "https://github.com/connorrigby/underglow2")
+    (comment 2 "Designed by Connor Rigby")
+    (comment 3 "handles the HCI and lower layers of the BLE stack")
+    (comment 4 "BLE Radio")
+  )
+
   (lib_symbols
     (symbol "Connector:Conn_ARM_SWD_TagConnect_TC2030-NL" (in_bom no) (on_board yes)
       (property "Reference" "J" (at 2.54 11.43 0)
@@ -1189,9 +1200,19 @@
     (uuid ff0ef496-c314-42f1-abbb-a44d21cef722)
   )
 
-  (text "Ball out" (at 83.82 81.28 0)
-    (effects (font (size 1.27 1.27)) (justify left bottom))
-    (uuid 0e41e658-3337-4b15-91ae-a23b086b1453)
+  (text_box "Matching network just in  case.\nNot populated, jumper resistor instead of an inductor."
+    (at 91.44 22.86 0) (size 34.29 7.62)
+    (stroke (width 0) (type default))
+    (fill (type none))
+    (effects (font (size 1.27 1.27)) (justify left top))
+    (uuid 4384377b-897b-4eb6-9893-92b464ddfd26)
+  )
+  (text_box "SWD Required for programming the HCI program and potential debugging"
+    (at 132.08 107.95 0) (size 17.78 13.97)
+    (stroke (width 0) (type default))
+    (fill (type none))
+    (effects (font (size 1.27 1.27)) (justify left top))
+    (uuid ff73abca-b0fe-45d7-8e46-18d773b0d5e7)
   )
 
   (label "XTAL32Mm" (at 85.09 71.12 0) (fields_autoplaced)

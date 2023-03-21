@@ -5,7 +5,14 @@
   (paper "A5")
 
   (title_block
-    (date "2023-02-28")
+    (title "coneRGB2")
+    (date "2023-03-20")
+    (rev "1")
+    (company "https://cone.codes")
+    (comment 1 "https://github.com/connorrigby/underglow2")
+    (comment 2 "Designed by Connor Rigby")
+    (comment 3 "Buck regulator taking ~8-20v and steps down to 3.3v")
+    (comment 4 "Voltage Regulator")
   )
 
   (lib_symbols
@@ -923,6 +930,14 @@
   (wire (pts (xy 152.4 59.69) (xy 152.4 62.23))
     (stroke (width 0) (type default))
     (uuid fffd287c-115f-4a8f-b5d3-b5fb9af6ff6e)
+  )
+
+  (text_box "PGOOD can be used as a fault indicator or similar functionality\nTODO: add an LED"
+    (at 15.24 60.96 0) (size 43.18 7.62)
+    (stroke (width 0) (type default))
+    (fill (type none))
+    (effects (font (size 1.27 1.27)) (justify left top))
+    (uuid 85f6ea77-12fd-4187-bf6d-ee1ad5f4aa05)
   )
 
   (label "SW" (at 97.79 50.8 0) (fields_autoplaced)

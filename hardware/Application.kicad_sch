@@ -4,6 +4,17 @@
 
   (paper "A4")
 
+  (title_block
+    (title "coneRGB2")
+    (date "2023-03-20")
+    (rev "1")
+    (company "https://cone.codes")
+    (comment 1 "https://github.com/connorrigby/underglow2")
+    (comment 2 "Designed by Connor Rigby")
+    (comment 3 "Main microcontroller handles all core functionality of the device")
+    (comment 4 "STM32G4 Microcontroller")
+  )
+
   (lib_symbols
     (symbol "Connector:Conn_ARM_SWD_TagConnect_TC2030" (in_bom no) (on_board yes)
       (property "Reference" "J" (at 2.54 11.43 0)
@@ -2302,7 +2313,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 171.45 90.17 180) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 3de58ee1-a52c-4dfc-9f74-33658078b741)
     (property "Reference" "TP503" (at 168.91 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -2704,7 +2715,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 160.02 90.17 180) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 6d5312f8-1c1b-412c-8113-833409ee667d)
     (property "Reference" "TP501" (at 157.48 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))
@@ -2729,7 +2740,7 @@
   )
 
   (symbol (lib_id "Connector:TestPoint") (at 153.67 90.17 180) (unit 1)
-    (in_bom yes) (on_board yes) (dnp no)
+    (in_bom no) (on_board yes) (dnp no)
     (uuid 706de9a5-acad-466b-9e59-aa7cdab958df)
     (property "Reference" "TP502" (at 151.13 96.52 0)
       (effects (font (size 1.27 1.27)) (justify right))

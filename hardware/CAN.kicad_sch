@@ -4,6 +4,17 @@
 
   (paper "A4")
 
+  (title_block
+    (title "coneRGB2")
+    (date "2023-03-20")
+    (rev "1")
+    (company "https://cone.codes")
+    (comment 1 "https://github.com/connorrigby/underglow2")
+    (comment 2 "Designed by Connor Rigby")
+    (comment 3 "Handles CAN TX/RX => H/L differential signaling")
+    (comment 4 "CAN Transciever")
+  )
+
   (lib_symbols
     (symbol "LCSC_Capacitor:C_0402_100nf_X7R" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom no) (on_board yes)
       (property "Reference" "C" (at 0.254 1.778 0)
@@ -455,6 +466,14 @@
   (wire (pts (xy 101.6 41.91) (xy 101.6 38.1))
     (stroke (width 0) (type default))
     (uuid fdbe7181-1f60-4c3f-b6ea-0b1005ab66c0)
+  )
+
+  (text_box "TODO: Consider ESD protection"
+    (at 38.1 55.88 0) (size 33.02 3.81)
+    (stroke (width 0) (type default))
+    (fill (type none))
+    (effects (font (size 1.27 1.27)) (justify left top))
+    (uuid 6d986023-af41-4967-b458-1b8838b1c8c7)
   )
 
   (label "STB" (at 80.01 63.5 0) (fields_autoplaced)

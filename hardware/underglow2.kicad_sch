@@ -4,6 +4,17 @@
 
   (paper "A4")
 
+  (title_block
+    (title "coneRGB2")
+    (date "2023-03-20")
+    (rev "1")
+    (company "https://cone.codes")
+    (comment 1 "https://github.com/connorrigby/underglow2")
+    (comment 2 "Designed by Connor Rigby")
+    (comment 3 "2 channel, 8 output, 4 input automotive PMU with wirless syncing and BLE control")
+    (comment 4 "Automotive RGB and NZR controller")
+  )
+
   (lib_symbols
     (symbol "bom:J_Delphi_Sicma_24" (pin_names (offset 1.016)) (in_bom yes) (on_board yes)
       (property "Reference" "J" (at 0 17.78 0)
@@ -877,6 +888,14 @@
   (wire (pts (xy 189.23 43.18) (xy 191.77 45.72))
     (stroke (width 0) (type default))
     (uuid ff6a9896-0b0d-4e72-8d2c-2a40dcbd0207)
+  )
+
+  (text_box "Main Connector\nCompatibility to be retained with V1 devices of the same connector\n"
+    (at 90.17 140.97 0) (size 36.83 7.62)
+    (stroke (width 0) (type default))
+    (fill (type none))
+    (effects (font (size 1.27 1.27)) (justify left top))
+    (uuid 25d18316-aa3e-48aa-b2e9-1828e1eefd11)
   )
 
   (text "3V3 TTL Input" (at 245.745 115.57 0)

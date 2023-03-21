@@ -4,6 +4,17 @@
 
   (paper "A5")
 
+  (title_block
+    (title "coneRGB2")
+    (date "2023-03-20")
+    (rev "1")
+    (company "https://cone.codes")
+    (comment 1 "https://github.com/connorrigby/underglow2")
+    (comment 2 "Designed by Connor Rigby")
+    (comment 3 "Steps between 10 and 20 volts down to a save 3.3v for the MCU")
+    (comment 4 "Digital External 12v Input")
+  )
+
   (lib_symbols
     (symbol "LCSC_Capacitor:C_0603_DNP" (pin_numbers hide) (pin_names (offset 0.254) hide) (in_bom no) (on_board yes)
       (property "Reference" "C" (at 0.254 1.778 0)
@@ -317,6 +328,14 @@
   (wire (pts (xy 76.2 52.07) (xy 76.2 67.31))
     (stroke (width 0) (type default))
     (uuid f0464348-a3ee-4a16-8ce9-22276be70a31)
+  )
+
+  (text_box "Simple resistor divider to prevent excess voltage and current from entering the MCU's GPIO pins.\nCapacitors placed but not populated in case future installs need debouncing\nor additional filtering"
+    (at 76.2 85.09 0) (size 53.34 11.43)
+    (stroke (width 0) (type default))
+    (fill (type none))
+    (effects (font (size 1.27 1.27)) (justify left top))
+    (uuid 471a0ab9-a085-4152-ac18-fe447c39892b)
   )
 
   (text "(V_{s} x R_{2}Ω) / (R_{1}Ω + R_{2}Ω) = V_{out}\nV_{s} = 12 | R_{1} = 100kΩ | R_{2} = 20kΩ\n\n@ 10v = 1.7V (low)\n\n@ 12v = 2V (nominal)\n\n@ 20v = 3.~{33} (high)"
