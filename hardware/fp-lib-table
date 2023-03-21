@@ -3,4 +3,5 @@
   (lib (name "LCSC_Microcontroller")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Microcontroller.pretty")(options "")(descr ""))
   (lib (name "Button")(type "KiCad")(uri "${KIPRJMOD}/library/Button.pretty")(options "")(descr ""))
   (lib (name "LCSC_Antenna")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Antenna.pretty")(options "")(descr ""))
+  (lib (name "Enclosure")(type "KiCad")(uri "${KIPRJMOD}/library/Enclosure.pretty")(options "")(descr ""))
 )
