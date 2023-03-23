@@ -25,8 +25,5 @@ pub fn log_to_uart2(
 }
 
 export fn entry() callconv(.C) void {
-    // for (&log_buffer) |*c| {
-    //     c.* = 0;
-    // }
     std.log.info("hello, from {s}", .{"logger"});
 }

@@ -63,6 +63,9 @@ Core/Src/system_stm32f4xx.c
 ASM_SOURCES =  \
 startup_stm32f407xx.s
 
+ZIG_SOURCES = \
+Core/Src/entry.zig
+
 
 #######################################
 # binaries
@@ -80,6 +83,7 @@ CC = $(PREFIX)gcc
 AS = $(PREFIX)gcc -x assembler-with-cpp
 CP = $(PREFIX)objcopy
 SZ = $(PREFIX)size
+ZIG = zig
 endif
 HEX = $(CP) -O ihex
 BIN = $(CP) -O binary -S
@@ -127,6 +131,8 @@ ASFLAGS = $(MCU) $(AS_DEFS) $(AS_INCLUDES) $(OPT) -Wall -fdata-sections -ffuncti
 
 CFLAGS = $(MCU) $(C_DEFS) $(C_INCLUDES) $(OPT) -Wall -fdata-sections -ffunction-sections
 
+ZIGFLAGS = -target arm-freestanding-gnueabihf -mcpu=cortex_m4 -O ReleaseSmall $(C_DEFS) $(C_INCLUDES)
+
 ifeq ($(DEBUG), 1)
 CFLAGS += -g -gdwarf-2
 endif
@@ -159,15 +165,20 @@ OBJECTS = $(addprefix $(BUILD_DIR)/,$(notdir $(C_SOURCES:.c=.o)))
 vpath %.c $(sort $(dir $(C_SOURCES)))
 # list of ASM program objects
 OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ASM_SOURCES:.s=.o)))
-OBJECTS +=  $(BUILD_DIR)/entry.o
+# list of zig program objects
+OBJECTS += $(addprefix $(BUILD_DIR)/,$(notdir $(ZIG_SOURCES:.zig=.o)))
 
 vpath %.s $(sort $(dir $(ASM_SOURCES)))
+vpath %.zig $(sort $(dir $(ZIG_SOURCES)))
 
 $(BUILD_DIR)/%.o: %.c Makefile | $(BUILD_DIR) 
 	$(CC) -c $(CFLAGS) -Wa,-a,-ad,-alms=$(BUILD_DIR)/$(notdir $(<:.c=.lst)) $< -o $@
 
 $(BUILD_DIR)/%.o: %.s Makefile | $(BUILD_DIR)
 	$(AS) -c $(CFLAGS) $< -o $@
+
+$(BUILD_DIR)/%.o: %.zig Makefile | $(BUILD_DIR)
+	$(ZIG) build-obj $(ZIGFLAGS) $< -femit-bin=$@
 
 $(BUILD_DIR)/$(TARGET).elf: $(OBJECTS) Makefile
 	$(CC) $(OBJECTS) $(LDFLAGS) -o $@
@@ -181,9 +192,6 @@ $(BUILD_DIR)/%.bin: $(BUILD_DIR)/%.elf | $(BUILD_DIR)
 	
 $(BUILD_DIR):
 	mkdir $@	
-
-build/entry.o: Core/Src/entry.zig
-	zig build-obj -target arm-freestanding-gnueabihf -mcpu=cortex_m4 -O ReleaseSmall Core/Src/entry.zig -femit-bin=build/entry
 
 #######################################
 # clean up
