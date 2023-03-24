@@ -103,7 +103,6 @@ int main(void)
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
-  // HAL_UART_Transmit(&huart2, "hello, world\r\n", 13, 1000);
   entry();
 
   /* USER CODE END 2 */
