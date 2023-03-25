@@ -1,4 +1,8 @@
 const std = @import("std");
+const builtin = @import("builtin");
+const c = @import("c.zig");
+
+const hal = @import("stm32f4xx_hal.zig");
 const rf69 = @import("lib/rf69/src/main.zig");
 
 var log_buffer: [255]u8 = undefined;
@@ -13,13 +17,8 @@ pub const std_options = struct {
 var huart2 = @extern(?*anyopaque, .{ .name = "huart2" });
 extern fn HAL_UART_Transmit(?*anyopaque, [*c]const u8, u16, u32) c_int;
 
-const c = @cImport({
-    @cInclude("main.h");
-    @cInclude("stm32f4xx_hal.h");
-    @cInclude("stm32f4xx_hal_gpio.h");
-});
-
 var hspi1 = @extern(?*c.SPI_HandleTypeDef, .{ .name = "hspi1" });
+var hspi2 = @extern(?*c.SPI_HandleTypeDef, .{ .name = "hspi2" });
 
 pub fn log_to_uart2(
     comptime level: std.log.Level,
@@ -33,41 +32,64 @@ pub fn log_to_uart2(
     _ = nosuspend HAL_UART_Transmit(huart2, printed.ptr, @intCast(u16, printed.len), 1000);
 }
 
+pub fn panic(msg: []const u8, error_return_trace: ?*std.builtin.StackTrace, return_address: ?usize) noreturn {
+    @setCold(true);
+    _ = error_return_trace;
+    _ = return_address;
+    switch (builtin.os.tag) {
+        .freestanding => {
+            var printed = std.fmt.bufPrint(&log_buffer, "PANIC: {s}\r\n", .{msg}) catch while (true) @breakpoint();
+            _ = HAL_UART_Transmit(huart2, printed.ptr, @intCast(u16, printed.len), 1000);
+            while (true) @breakpoint();
+        },
+        else => @compileError("Only supported on freestanding"),
+    }
+}
+
 export fn entry() callconv(.C) void {
     std.log.info("hello, from {s}", .{"logger"});
-    var GPIO_InitStruct: c.GPIO_InitTypeDef = undefined;
 
-    GPIO_InitStruct.Pin = c.GPIO_PIN_15;
-    GPIO_InitStruct.Mode = c.GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull = c.GPIO_NOPULL;
-    GPIO_InitStruct.Speed = c.GPIO_SPEED_FREQ_LOW;
-    c.HAL_GPIO_Init(c.GPIOD, &GPIO_InitStruct);
+    var pd15 = hal.gpio.init(.{ .D = .{ .pin = .@"15", .mode = .OutputPushPull, .pull = .None, .speed = .Low } });
+    defer pd15.deinit();
 
-    GPIO_InitStruct.Pin = c.GPIO_PIN_5;
-    GPIO_InitStruct.Mode = c.GPIO_MODE_OUTPUT_PP;
-    GPIO_InitStruct.Pull = c.GPIO_NOPULL;
-    GPIO_InitStruct.Speed = c.GPIO_SPEED_FREQ_LOW;
-    c.HAL_GPIO_Init(c.GPIOB, &GPIO_InitStruct);
+    var pb5 = hal.gpio.init(.{ .B = .{ .pin = .@"5", .mode = .OutputPushPull, .pull = .None, .speed = .Low } });
+    defer pb5.deinit();
+
+    var pa15 = hal.gpio.init(.{ .A = .{ .pin = .@"15", .mode = .OutputPushPull, .pull = .None, .speed = .Low } });
+    defer pa15.deinit();
 
     // toggle RF69 reset pin
-    c.HAL_GPIO_WritePin(c.GPIOB, c.GPIO_PIN_5, c.GPIO_PIN_RESET);
-    c.HAL_GPIO_WritePin(c.GPIOB, c.GPIO_PIN_5, c.GPIO_PIN_SET);
-    c.HAL_Delay(10);
-    c.HAL_GPIO_WritePin(c.GPIOB, c.GPIO_PIN_5, c.GPIO_PIN_RESET);
-    var spi_tx_buffer: [128:0]u8 = undefined;
-    var spi_rx_buffer: [255:0]u8 = undefined;
-    spi_tx_buffer[0] = 0x10;
-    _ = c.HAL_SPI_TransmitReceive(hspi1, &spi_tx_buffer, &spi_rx_buffer, spi_tx_buffer[0..1].len, 1000);
-    std.log.info("tx: {x} rx: {x}", .{ spi_tx_buffer[0], spi_rx_buffer[0] });
-    var s: bool = false;
+    var spi1 = hal.spi.init(hspi1);
+
+    var tx = [_:0]u8{ 0x10, 0xff };
+    var rx = [_:0]u8{ 0x10, 0x10 };
+
+    // spi2.transcieve(&tx, &rx, 1000) catch @panic("SPI TRX failed");
+    // hal.delay(1000);
+    // @panic("uwu Something mega cringe happened :( ");
+    pb5.write(.Set);
+    hal.delay(11);
+    pb5.write(.Reset);
+    // hal.delay(10);
+
     while (true) {
-        c.HAL_Delay(250);
-        if (s) {
-            c.HAL_GPIO_WritePin(c.GPIOD, c.GPIO_PIN_15, c.GPIO_PIN_SET);
-            s = false;
-        } else {
-            c.HAL_GPIO_WritePin(c.GPIOD, c.GPIO_PIN_15, c.GPIO_PIN_RESET);
-            s = true;
-        }
+        // pd15.toggle();
+        // pb5.toggle();
+
+        pa15.write(.Reset);
+        spi1.transcieve(&tx, &rx, 10) catch @panic("trx");
+        // spi1.transmit(&tx, 10) catch @panic("tx");
+        // pa15.write(.Set);
+        // // hal.delay(1);
+
+        // pa15.write(.Reset);
+        // spi1.receive(&rx, 10) catch @panic("rx");
+        pa15.write(.Set);
+
+        // std.log.info("tx={{0x{x}, 0x{x}}} rx={{0x{x},0x{x}}}", .{ tx[0], tx[1], rx[0], rx[1] });
+        std.log.info("tx={{0x{x}, 0x{x}}} rx={{0x{x}, 0x{x}}}", .{ tx[0], tx[1], rx[0], rx[1] });
+        // while (true) {}
+        // tx[0] += 1;
+        hal.delay(1000);
     }
 }
