@@ -1,0 +1,20 @@
+(footprint "NintendoDS" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (fp_text reference "REF**" (at 0 -0.5 unlocked) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 03e92d42-0f5e-4435-b209-3d1db1d2f16c)
+  )
+  (fp_text value "NintendoDS" (at 0 0 unlocked) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp c0359119-fb7e-4684-b27a-68cce1c47b22)
+  )
+  (fp_text user "${REFERENCE}" (at 0 2.5 unlocked) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 419e1bd1-b5a0-4fe6-95d1-c194c9319f46)
+  )
+  (model "${KIPRJMOD}/library/NintendoDS.pretty/packages3d/nintendo ds.stp"
+    (opacity 0.1800)    (offset (xyz -120 108.5 -18))
+    (scale (xyz 1 1 1))
+    (rotate (xyz -90 0 0))
+  )
+)
