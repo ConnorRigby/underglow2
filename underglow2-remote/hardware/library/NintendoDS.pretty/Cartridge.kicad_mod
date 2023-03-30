@@ -1,0 +1,20 @@
+(footprint "Cartridge" (version 20221018) (generator pcbnew)
+  (layer "F.Cu")
+  (fp_text reference "REF**" (at 0 -0.5 unlocked) (layer "F.SilkS") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 02b6d8c9-c9dd-4632-bd8a-aacea938344d)
+  )
+  (fp_text value "Cartridge" (at 0 1 unlocked) (layer "F.Fab")
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 62928d75-b907-442b-b035-13b4799b3f24)
+  )
+  (fp_text user "${REFERENCE}" (at 0 2.5 unlocked) (layer "F.Fab") hide
+      (effects (font (size 1 1) (thickness 0.15)))
+    (tstamp 5f9174ed-d735-4a8a-9485-bd9aa95b691f)
+  )
+  (model "${KIPRJMOD}/library/NintendoDS.pretty/packages3d/gba_cart_bottom.stl"
+    (offset (xyz 0 0 0))
+    (scale (xyz 1 1 1))
+    (rotate (xyz 0 0 0))
+  )
+)
