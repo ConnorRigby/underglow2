@@ -80,8 +80,6 @@ void entry(void);
 #define RF69_NRESET_GPIO_Port GPIOB
 #define CH2_R_Pin GPIO_PIN_1
 #define CH2_R_GPIO_Port GPIOB
-#define RF69_IRQ_Pin GPIO_PIN_2
-#define RF69_IRQ_GPIO_Port GPIOB
 #define HCI_RX_Pin GPIO_PIN_10
 #define HCI_RX_GPIO_Port GPIOB
 #define HCI_TX_Pin GPIO_PIN_11
