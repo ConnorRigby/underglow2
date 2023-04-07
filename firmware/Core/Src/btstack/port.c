@@ -73,14 +73,14 @@ static void (*stdin_handler)(char c);
 void hal_stdin_setup(void (*handler)(char c)){
     stdin_handler = handler;
     // start receiving
-	HAL_UART_Receive_IT(&hlpuart1, &stdin_buffer[0], 1);
+	HAL_UART_Receive_IT(&huart1, &stdin_buffer[0], 1);
 }
 
 static void stdin_rx_complete(void){
     if (stdin_handler){
         (*stdin_handler)(stdin_buffer[0]);
     }
-    HAL_UART_Receive_IT(&hlpuart1, &stdin_buffer[0], 1);
+    HAL_UART_Receive_IT(&huart1, &stdin_buffer[0], 1);
 }
 
 // hal_uart_dma.h
