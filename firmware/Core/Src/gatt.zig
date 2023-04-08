@@ -159,13 +159,13 @@ pub fn Server(
                     },
                     .digital_input => |input_handle| switch (input_handle) {
                         .digital_input1, .digital_input2, .digital_input3, .digital_input4 => |i| if (i == .digital_input1) {
-                            return digital_input1_state.handle_write(slice);
+                            return digital_input1_state.handle_write(slice, channel1_state, channel2_state);
                         } else if (i == .digital_input2) {
-                            return digital_input2_state.handle_write(slice);
+                            return digital_input2_state.handle_write(slice, channel1_state, channel2_state);
                         } else if (i == .digital_input3) {
-                            return digital_input3_state.handle_write(slice);
+                            return digital_input3_state.handle_write(slice, channel1_state, channel2_state);
                         } else if (i == .digital_input4) {
-                            return digital_input4_state.handle_write(slice);
+                            return digital_input4_state.handle_write(slice, channel1_state, channel2_state);
                         } else unreachable,
                     },
                     .sync => |sync_handle| switch (sync_handle) {

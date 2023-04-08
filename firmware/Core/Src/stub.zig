@@ -36,6 +36,7 @@ var digital_input1: DigitalInputState = .{};
 var digital_input2: DigitalInputState = .{};
 var digital_input3: DigitalInputState = .{};
 var digital_input4: DigitalInputState = .{};
+
 const gatt = @import("gatt.zig").Server(
     &channel1_state,
     &channel2_state,

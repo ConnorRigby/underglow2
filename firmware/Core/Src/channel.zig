@@ -1,14 +1,11 @@
 const std = @import("std");
 const Color = @import("color.zig").Color;
 
-pub const Patern = enum(u8) {
-    off,
-    rainbow,
-    snake,
-};
+pub const Pattern = enum(u8) { off, rainbow, snake, _ };
 
 pixel_buffer: [300]Color = undefined,
 rgb: Color = .{ .raw = 0x0000 },
+pattern: ?Pattern = null,
 
 /// Fill buffer with the contents of rgb
 pub fn handle_read_rgb(self: *@This(), buffer: []u8) u16 {
@@ -34,4 +31,17 @@ pub fn handle_write_nzr(self: *@This(), buffer: []u8) u16 {
     _ = buffer;
     _ = self;
     return 0;
+}
+
+pub fn pattern_start(self: *@This(), pattern: Pattern) void {
+    _ = pattern;
+    _ = self;
+}
+
+pub fn pattern_stop(self: *@This()) void {
+    _ = self;
+}
+
+pub fn pattern_update(self: *@This()) void {
+    _ = self;
 }
