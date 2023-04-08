@@ -22,14 +22,21 @@ const c = @cImport({
     @cInclude("bluetooth_data_types.h");
     @cInclude("ble/gatt-service/device_information_service_server.h");
 });
+
 const gatt_profile = @import("coneRGB.gatt.zig");
-const ChannelState = @import("channel.zig");
 const sync = @import("sync.zig");
+
+const ChannelState = @import("channel.zig");
+const DigitalInputState = @import("digital_input.zig");
 
 pub fn Server(
     comptime channel1_state: *ChannelState,
     comptime channel2_state: *ChannelState,
     comptime sync_state: *?sync.Sync,
+    comptime digital_input1_state: *DigitalInputState,
+    comptime digital_input2_state: *DigitalInputState,
+    comptime digital_input3_state: *DigitalInputState,
+    comptime digital_input4_state: *DigitalInputState,
 ) type {
     return struct {
         const local_name: []const u8 = "coneRGB";
@@ -40,6 +47,14 @@ pub fn Server(
             0x20, 0x69,
             // sync
             0x30, 0x69,
+            // digital input 1
+            0x41, 0x69,
+            // digital input 2
+            0x42, 0x69,
+            // digital input 3
+            0x43, 0x69,
+            // digital input 4
+            0x44, 0x69,
         };
         var adv_data = [_]u8{} ++
             // type flags
@@ -71,6 +86,17 @@ pub fn Server(
                         .nzr => return channel2_state.handle_read_nzr(slice),
                         .rgb => return channel2_state.handle_read_rgb(slice),
                         else => {},
+                    },
+                    .digital_input => |input_handle| switch (input_handle) {
+                        .digital_input1, .digital_input2, .digital_input3, .digital_input4 => |i| if (i == .digital_input1) {
+                            return digital_input1_state.handle_read(slice);
+                        } else if (i == .digital_input2) {
+                            return digital_input2_state.handle_read(slice);
+                        } else if (i == .digital_input3) {
+                            return digital_input3_state.handle_read(slice);
+                        } else if (i == .digital_input4) {
+                            return digital_input4_state.handle_read(slice);
+                        } else unreachable,
                     },
                     .sync => |sync_handle| switch (sync_handle) {
                         .network_id => if (sync_state.*) |s| switch (s) {
@@ -130,6 +156,17 @@ pub fn Server(
                         .nzr => return channel2_state.handle_write_nzr(slice),
                         .rgb => return channel2_state.handle_write_rgb(slice),
                         else => return 0,
+                    },
+                    .digital_input => |input_handle| switch (input_handle) {
+                        .digital_input1, .digital_input2, .digital_input3, .digital_input4 => |i| if (i == .digital_input1) {
+                            return digital_input1_state.handle_write(slice);
+                        } else if (i == .digital_input2) {
+                            return digital_input2_state.handle_write(slice);
+                        } else if (i == .digital_input3) {
+                            return digital_input3_state.handle_write(slice);
+                        } else if (i == .digital_input4) {
+                            return digital_input4_state.handle_write(slice);
+                        } else unreachable,
                     },
                     .sync => |sync_handle| switch (sync_handle) {
                         .network_id => if (sync_state.*) |*s| switch (s.*) {

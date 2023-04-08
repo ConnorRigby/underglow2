@@ -1,6 +1,12 @@
 const std = @import("std");
 const Color = @import("color.zig").Color;
 
+pub const Patern = enum(u8) {
+    off,
+    rainbow,
+    snake,
+};
+
 pixel_buffer: [300]Color = undefined,
 rgb: Color = .{ .raw = 0x0000 },
 

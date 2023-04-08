@@ -1,3 +1,5 @@
+const std = @import("std");
+
 const c = @cImport({
     @cInclude("coneRGB-gatt.h");
 });
@@ -44,13 +46,25 @@ pub const LedStripCharacteristic = struct {
     pub const Channel1 = enum(u16) { nzr = c.ATT_CHARACTERISTIC_00006911_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE, rgb = c.ATT_CHARACTERISTIC_00006912_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE, _ };
     pub const Channel2 = enum(u16) { nzr = c.ATT_CHARACTERISTIC_00006921_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE, rgb = c.ATT_CHARACTERISTIC_00006922_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE, _ };
 };
-pub const HandleTag = enum { channel1, channel2, sync };
 
-const std = @import("std");
+pub const DigitalInputService = enum(u16) {
+    pub const start = c.ATT_SERVICE_00006940_0000_1000_8000_00805F9B34FB_START_HANDLE;
+    pub const end = c.ATT_SERVICE_00006940_0000_1000_8000_00805F9B34FB_END_HANDLE;
+};
+
+pub const DigitalInputCharacteristic = enum(u16) {
+    digital_input1 = c.ATT_CHARACTERISTIC_00006941_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE,
+    digital_input2 = c.ATT_CHARACTERISTIC_00006942_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE,
+    digital_input3 = c.ATT_CHARACTERISTIC_00006943_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE,
+    digital_input4 = c.ATT_CHARACTERISTIC_00006944_0000_1000_8000_00805F9B34FB_01_VALUE_HANDLE,
+};
+
+pub const HandleTag = enum { channel1, channel2, sync, digital_input };
 pub const Handle = union(HandleTag) {
     channel1: LedStripCharacteristic.Channel1,
     channel2: LedStripCharacteristic.Channel2,
     sync: SyncCharacteristic,
+    digital_input: DigitalInputCharacteristic,
     pub fn inspect(handle: u16) void {
         std.log.info(
             \\handle: 0x{x}
@@ -82,6 +96,8 @@ pub const Handle = union(HandleTag) {
         } else if (handle > SyncService.start and handle <= SyncService.end) switch (@intToEnum(SyncCharacteristic, handle)) {
             .network_id, .role, .status, .node_id => |t| return .{ .sync = t },
             else => return null,
+        } else if (handle > DigitalInputService.start and handle <= DigitalInputService.end) switch (@intToEnum(DigitalInputCharacteristic, handle)) {
+            .digital_input1, .digital_input2, .digital_input3, .digital_input4 => |t| return .{ .digital_input = t },
         } else return null;
     }
 };

@@ -26,12 +26,25 @@ const c = @cImport({
 });
 
 const ChannelState = @import("channel.zig");
+const DigitalInputState = @import("digital_input.zig");
 const sync = @import("sync.zig");
 
 var channel1_state: ChannelState = .{};
 var channel2_state: ChannelState = .{};
 var sync_state: ?sync.Sync = null;
-const gatt = @import("gatt.zig").Server(&channel1_state, &channel2_state, &sync_state);
+var digital_input1: DigitalInputState = .{};
+var digital_input2: DigitalInputState = .{};
+var digital_input3: DigitalInputState = .{};
+var digital_input4: DigitalInputState = .{};
+const gatt = @import("gatt.zig").Server(
+    &channel1_state,
+    &channel2_state,
+    &sync_state,
+    &digital_input1,
+    &digital_input2,
+    &digital_input3,
+    &digital_input4,
+);
 
 var tlv_db_path: [:0]const u8 = "tlv.db";
 var tlv_reset: bool = undefined;
