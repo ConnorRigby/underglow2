@@ -76,9 +76,10 @@ pub fn state_packet_handler(packet_type: u8, channel: u16, packet: [*c]u8, size:
                 c.btstack_tlv_set_instance(tlv_impl, &tlv_context);
                 c.le_device_db_tlv_configure(tlv_impl, &tlv_context);
                 digital_input1.mode = .pattern_start;
-                digital_input1.pattern = .rainbow;
+                digital_input1.pattern = .fill;
                 digital_input1.channel = &channel1_state;
                 digital_input1.channel_id = .channel1;
+                channel1_state.pattern = .{ .snake = .{} };
                 std.log.info("HCI_STATE_WORKING\n", .{});
             },
             c.HCI_STATE_OFF => {
@@ -221,13 +222,95 @@ const Context = struct {
 
         std.log.info("entering UI loop", .{});
         var input1_triggered = false;
+        var input1_mode = if (digital_input1.mode) |m| @intCast(c_int, @enumToInt(m)) else @as(c_int, 0);
+        var input1_mode_change = false;
+        var input1_pattern = if (digital_input1.pattern) |p| @intCast(c_int, @enumToInt(p)) else @as(c_int, 0);
+        var input1_pattern_change = false;
+
         var input2_triggered = false;
+        var input2_mode = if (digital_input2.mode) |m| @intCast(c_int, @enumToInt(m)) else @as(c_int, 0);
+        var input2_mode_change = false;
+        var input2_pattern = if (digital_input2.pattern) |p| @intCast(c_int, @enumToInt(p)) else @as(c_int, 0);
+        var input2_pattern_change = false;
+
         var input3_triggered = false;
+        var input3_mode = if (digital_input3.mode) |m| @intCast(c_int, @enumToInt(m)) else @as(c_int, 0);
+        var input3_mode_change = false;
+        var input3_pattern = if (digital_input3.pattern) |p| @intCast(c_int, @enumToInt(p)) else @as(c_int, 0);
+        var input3_pattern_change = false;
+
         var input4_triggered = false;
+        var input4_mode = if (digital_input4.mode) |m| @intCast(c_int, @enumToInt(m)) else @as(c_int, 0);
+        var input4_mode_change = false;
+        var input4_pattern = if (digital_input4.pattern) |p| @intCast(c_int, @enumToInt(p)) else @as(c_int, 0);
+        var input4_pattern_change = false;
+
+        var rgb_buffer1 = try std.heap.c_allocator.alloc(u32, 10);
+        defer std.heap.c_allocator.free(rgb_buffer1);
+        var rgb1: u32 = 0;
+        var channel1_pattern = channel1_state.get_current_pattern();
+
+        var rgb_buffer2 = try std.heap.c_allocator.alloc(u32, 10);
+        defer std.heap.c_allocator.free(rgb_buffer2);
+        var rgb2: u32 = 0;
+        var channel2_pattern = channel2_state.get_current_pattern();
 
         // Wait for the user to close the window.
         while (!window.shouldClose()) {
             if (context.mut.tryLock()) {
+                if (input1_mode_change) {
+                    input1_mode_change = false;
+                    digital_input1.mode = @intToEnum(DigitalInputState.Mode, input1_mode);
+                } else if (digital_input1.mode) |m| {
+                    input1_mode = @intCast(c_int, @enumToInt(m));
+                } else input1_mode = 0;
+
+                if (input1_pattern_change) {
+                    input1_pattern_change = false;
+                    digital_input1.pattern = @intToEnum(ChannelState.Pattern, input1_pattern);
+                } else if (digital_input1.pattern) |p| {
+                    input1_pattern = @intCast(c_int, @enumToInt(p));
+                } else input1_pattern = 0;
+
+                if (input2_mode_change) {
+                    input2_mode_change = false;
+                    digital_input2.mode = @intToEnum(DigitalInputState.Mode, input2_mode);
+                } else if (digital_input2.mode) |m| {
+                    input2_mode = @intCast(c_int, @enumToInt(m));
+                } else input2_mode = 0;
+                if (input2_pattern_change) {
+                    input2_pattern_change = false;
+                    digital_input2.pattern = @intToEnum(ChannelState.Pattern, input2_pattern);
+                } else if (digital_input2.pattern) |p| {
+                    input2_pattern = @intCast(c_int, @enumToInt(p));
+                } else input2_pattern = 0;
+
+                if (input3_mode_change) {
+                    input3_mode_change = false;
+                    digital_input3.mode = @intToEnum(DigitalInputState.Mode, input3_mode);
+                } else if (digital_input3.mode) |m| {
+                    input3_mode = @intCast(c_int, @enumToInt(m));
+                } else input3_mode = 0;
+                if (input3_pattern_change) {
+                    input3_pattern_change = false;
+                    digital_input3.pattern = @intToEnum(ChannelState.Pattern, input3_pattern);
+                } else if (digital_input3.pattern) |p| {
+                    input3_pattern = @intCast(c_int, @enumToInt(p));
+                } else input3_pattern = 0;
+
+                if (input4_mode_change) {
+                    input4_mode_change = false;
+                    digital_input4.mode = @intToEnum(DigitalInputState.Mode, input4_mode);
+                } else if (digital_input4.mode) |m| {
+                    input4_mode = @intCast(c_int, @enumToInt(m));
+                } else input4_mode = 0;
+                if (input4_pattern_change) {
+                    input4_pattern_change = false;
+                    digital_input4.pattern = @intToEnum(ChannelState.Pattern, input4_pattern);
+                } else if (digital_input4.pattern) |p| {
+                    input4_pattern = @intCast(c_int, @enumToInt(p));
+                } else input4_pattern = 0;
+
                 // std.log.info("lock aquired", .{});
                 if (input1_triggered) {
                     std.log.info("input1_triggered", .{});
@@ -246,6 +329,20 @@ const Context = struct {
                     digital_input4_needs_service = true;
                     input4_triggered = false;
                 }
+                for (rgb_buffer1, 0..rgb_buffer1.len) |_, i| rgb_buffer1[i] = channel1_state.pixel_buffer[i].raw;
+                rgb1 = channel1_state.rgb.raw;
+                channel1_pattern = if (channel1_state.get_current_pattern()) |p| switch (p) {
+                    .off, .rainbow, .snake, .fill => @as(ChannelState.Pattern, p),
+                    else => null,
+                } else null;
+
+                for (rgb_buffer1, 0..rgb_buffer1.len) |_, i| rgb_buffer2[i] = channel2_state.pixel_buffer[i].raw;
+                rgb2 = channel2_state.rgb.raw;
+                channel1_pattern = if (channel1_state.get_current_pattern()) |p| switch (p) {
+                    .off, .rainbow, .snake, .fill => @as(ChannelState.Pattern, p),
+                    else => null,
+                } else null;
+
                 context.mut.unlock();
             }
             glfw.pollEvents();
@@ -258,11 +355,10 @@ const Context = struct {
             _ = cimgui.ImGui_DockSpaceOverViewport();
             if (showDemoWindow) cimgui.ImGui_ShowDemoWindow(&showDemoWindow);
             if (cimgui.ImGui_Begin("RGB Tester", null, cimgui.ImGuiWindowFlags_HorizontalScrollbar | cimgui.ImGuiWindowFlags_MenuBar)) {
-                if (cimgui.ImGui_BeginTable("table", 4, cimgui.ImGuiTableFlags_Borders)) {
+                if (cimgui.ImGui_BeginTable("DigitalInput", 4, cimgui.ImGuiTableFlags_Borders)) {
                     for (1..5) |index| {
                         _ = cimgui.ImGui_TableNextColumn();
                         cimgui.ImGui_Text("Input%d", index);
-                        // ImGui::Text("Width %.2f", ImGui::GetContentRegionAvail().x);
                     }
                     cimgui.ImGui_TableNextRow();
 
@@ -278,13 +374,60 @@ const Context = struct {
                     cimgui.ImGui_TableNextRow();
 
                     _ = cimgui.ImGui_TableNextColumn();
-                    cimgui.ImGui_Text("mode=%d", if (digital_input1.mode) |m| @enumToInt(m) else 255);
+                    input1_mode_change = cimgui.ImGui_Combo("Channel 1 Mode", @ptrCast(*c_int, &input1_mode), @tagName(DigitalInputState.Mode.disabled) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_start) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_stop) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_next) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_prev) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_trigger) ++ .{0});
+
                     _ = cimgui.ImGui_TableNextColumn();
-                    cimgui.ImGui_Text("mode=%d", if (digital_input2.mode) |m| @enumToInt(m) else 255);
+                    input2_mode_change = cimgui.ImGui_Combo("Channel 2 Mode", @ptrCast(*c_int, &input2_mode), @tagName(DigitalInputState.Mode.disabled) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_start) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_stop) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_next) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_prev) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_trigger) ++ .{0});
+
                     _ = cimgui.ImGui_TableNextColumn();
-                    cimgui.ImGui_Text("mode=%d", if (digital_input3.mode) |m| @enumToInt(m) else 255);
+                    input3_mode_change = cimgui.ImGui_Combo("Channel 3 Mode", @ptrCast(*c_int, &input3_mode), @tagName(DigitalInputState.Mode.disabled) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_start) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_stop) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_next) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_prev) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_trigger) ++ .{0});
+
                     _ = cimgui.ImGui_TableNextColumn();
-                    cimgui.ImGui_Text("mode=%d", if (digital_input4.mode) |m| @enumToInt(m) else 255);
+                    input4_mode_change = cimgui.ImGui_Combo("Channel 4 Mode", @ptrCast(*c_int, &input4_mode), @tagName(DigitalInputState.Mode.disabled) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_start) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_stop) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_next) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_prev) ++ .{0} ++
+                        @tagName(DigitalInputState.Mode.pattern_trigger) ++ .{0});
+
+                    cimgui.ImGui_TableNextRow();
+
+                    _ = cimgui.ImGui_TableNextColumn();
+                    input1_pattern_change = cimgui.ImGui_Combo("Input Channel 1 Pattern", @ptrCast(*c_int, &input1_pattern), @tagName(ChannelState.Pattern.off) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.rainbow) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.snake) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.fill) ++ .{0});
+
+                    _ = cimgui.ImGui_TableNextColumn();
+                    input2_pattern_change = cimgui.ImGui_Combo("Input Channel 2 Pattern", @ptrCast(*c_int, &input2_pattern), @tagName(ChannelState.Pattern.off) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.rainbow) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.snake) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.fill) ++ .{0});
+                    _ = cimgui.ImGui_TableNextColumn();
+                    input3_pattern_change = cimgui.ImGui_Combo("Input Channel 3 Pattern", @ptrCast(*c_int, &input3_pattern), @tagName(ChannelState.Pattern.off) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.rainbow) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.snake) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.fill) ++ .{0});
+                    _ = cimgui.ImGui_TableNextColumn();
+                    input4_pattern_change = cimgui.ImGui_Combo("Input Channel 4 Pattern", @ptrCast(*c_int, &input4_pattern), @tagName(ChannelState.Pattern.off) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.rainbow) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.snake) ++ .{0} ++
+                        @tagName(ChannelState.Pattern.fill) ++ .{0});
 
                     cimgui.ImGui_TableNextRow();
 
@@ -296,6 +439,63 @@ const Context = struct {
                     if (cimgui.ImGui_Button("Trigger")) input3_triggered = true;
                     _ = cimgui.ImGui_TableNextColumn();
                     if (cimgui.ImGui_Button("Trigger")) input4_triggered = true;
+
+                    cimgui.ImGui_EndTable();
+                }
+
+                if (cimgui.ImGui_BeginTable("RGB Channels", @intCast(c_int, rgb_buffer1.len), cimgui.ImGuiTableFlags_Borders)) {
+                    cimgui.ImGui_TableNextRow();
+                    for (rgb_buffer1, 0..rgb_buffer1.len) |color, n| {
+                        _ = cimgui.ImGui_TableSetColumnIndex(@intCast(c_int, n));
+                        cimgui.ImGui_Text("%x", color);
+                        cimgui.ImGui_TableSetBgColor(cimgui.ImGuiTableBgTarget_CellBg, color, -1);
+                    }
+                    cimgui.ImGui_TableNextRow();
+                    for (rgb_buffer1, 0..rgb_buffer2.len) |_, n| {
+                        _ = cimgui.ImGui_TableSetColumnIndex(@intCast(c_int, n));
+                        cimgui.ImGui_Text("%x", rgb1);
+                        cimgui.ImGui_TableSetBgColor(cimgui.ImGuiTableBgTarget_CellBg, rgb1, -1);
+                    }
+
+                    cimgui.ImGui_TableNextRow();
+                    for (rgb_buffer1, 0..rgb_buffer2.len) |_, n| {
+                        _ = cimgui.ImGui_TableSetColumnIndex(@intCast(c_int, n));
+                        cimgui.ImGui_Text("----------");
+                        cimgui.ImGui_TableSetBgColor(cimgui.ImGuiTableBgTarget_CellBg, 0, -1);
+                    }
+
+                    cimgui.ImGui_TableNextRow();
+                    for (rgb_buffer2, 0..rgb_buffer2.len) |color, n| {
+                        _ = cimgui.ImGui_TableSetColumnIndex(@intCast(c_int, n));
+                        cimgui.ImGui_Text("%x", color);
+                        cimgui.ImGui_TableSetBgColor(cimgui.ImGuiTableBgTarget_CellBg, color, -1);
+                    }
+                    cimgui.ImGui_TableNextRow();
+                    for (rgb_buffer2, 0..rgb_buffer2.len) |_, n| {
+                        _ = cimgui.ImGui_TableSetColumnIndex(@intCast(c_int, n));
+                        cimgui.ImGui_Text("%x", rgb2);
+                        cimgui.ImGui_TableSetBgColor(cimgui.ImGuiTableBgTarget_CellBg, rgb2, -1);
+                    }
+
+                    cimgui.ImGui_EndTable();
+                }
+                if (cimgui.ImGui_BeginTable("RGB Channel state", 2, cimgui.ImGuiTableFlags_Borders)) {
+                    _ = cimgui.ImGui_TableNextColumn();
+                    cimgui.ImGui_Text("channel 1 state");
+
+                    _ = cimgui.ImGui_TableNextColumn();
+                    cimgui.ImGui_Text("channel 2 state");
+
+                    _ = cimgui.ImGui_TableNextColumn();
+                    if (channel1_pattern) |pattern| switch (pattern) {
+                        inline .off, .rainbow, .snake, .fill => |p| cimgui.ImGui_Text("Channel 1 " ++ @tagName(p)),
+                        else => cimgui.ImGui_Text("Unknown pattern"),
+                    } else cimgui.ImGui_Text("disabled");
+                    _ = cimgui.ImGui_TableNextColumn();
+                    if (channel2_pattern) |pattern| switch (pattern) {
+                        inline .off, .rainbow, .snake, .fill => |p| cimgui.ImGui_Text("Channel 2 " ++ @tagName(p)),
+                        else => cimgui.ImGui_Text("Unknown pattern"),
+                    } else cimgui.ImGui_Text("disabled");
 
                     cimgui.ImGui_EndTable();
                 }

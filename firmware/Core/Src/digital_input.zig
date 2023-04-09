@@ -1,6 +1,6 @@
 const std = @import("std");
 pub const ChannelState = @import("channel.zig");
-pub const Mode = enum(u8) { disabled, pattern_start, pattern_stop, pattern_next, pattern_prev, _ };
+pub const Mode = enum(u8) { disabled, pattern_start, pattern_stop, pattern_next, pattern_prev, pattern_trigger, _ };
 pub const ChannelId = enum(u8) { channel1 = 1, channel2 = 2, _ };
 
 mode: ?Mode = null,
@@ -59,7 +59,7 @@ pub fn handle_write(self: *@This(), buffer: []u8, channel1_state: *ChannelState,
     }
 
     switch (@intToEnum(ChannelState.Pattern, std.mem.readIntLittle(u8, buffer[2..3]))) {
-        .off, .rainbow, .snake => |pattern| self.pattern = pattern,
+        .off, .rainbow, .snake, .fill => |pattern| self.pattern = pattern,
         else => self.pattern = null,
     }
     return 0;
@@ -84,11 +84,18 @@ pub fn state_run(self: *@This()) void {
             self.needs_service.* = false;
         },
         .pattern_next => if (self.channel) |channel| {
+            std.log.info("pattern next", .{});
             channel.pattern_next();
             self.needs_service.* = false;
         },
         .pattern_prev => if (self.channel) |channel| {
+            std.log.info("pattern prev", .{});
             channel.pattern_prev();
+            self.needs_service.* = false;
+        },
+        .pattern_trigger => if (self.channel) |channel| if (self.pattern) |pattern| {
+            std.log.info("pattern trigger", .{});
+            channel.pattern_trigger(pattern);
             self.needs_service.* = false;
         },
         else => {},
