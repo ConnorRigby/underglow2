@@ -3,9 +3,16 @@ const Color = @import("color.zig").Color;
 
 pub const Pattern = enum(u8) { off, rainbow, snake, _ };
 
+pub const Rainbow = @import("patterns/rainbow.zig");
+pub const Snake = @import("patterns/snake.zig");
+
 pixel_buffer: [300]Color = undefined,
 rgb: Color = .{ .raw = 0x0000 },
-pattern: ?Pattern = null,
+pattern: ?union(Pattern) {
+    off: void,
+    rainbow: Rainbow,
+    snake: Snake,
+} = null,
 
 /// Fill buffer with the contents of rgb
 pub fn handle_read_rgb(self: *@This(), buffer: []u8) u16 {
@@ -42,6 +49,28 @@ pub fn pattern_stop(self: *@This()) void {
     _ = self;
 }
 
-pub fn pattern_update(self: *@This()) void {
+pub fn pattern_push(self: *@This(), pattern: Pattern) void {
+    _ = pattern;
     _ = self;
+}
+
+pub fn pattern_pop(self: *@This()) void {
+    _ = self;
+}
+
+pub fn pattern_prev(self: *@This()) void {
+    _ = self;
+}
+
+pub fn pattern_next(self: *@This()) void {
+    _ = self;
+}
+
+pub fn state_run(self: *@This()) void {
+    if (self.pattern) |pattern| switch (pattern) {
+        .off => return,
+        .rainbow => self.pattern.?.rainbow.state_run(),
+        .snake => self.pattern.?.snake.state_run(),
+        else => return,
+    } else return;
 }

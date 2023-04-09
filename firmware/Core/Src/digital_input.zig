@@ -1,13 +1,16 @@
 const std = @import("std");
 pub const ChannelState = @import("channel.zig");
-pub const Mode = enum(u8) { disabled, pattern_start, pattern_stop, pattern_toggle, pattern_next, pattern_prev, _ };
+pub const Mode = enum(u8) { disabled, pattern_start, pattern_stop, pattern_next, pattern_prev, _ };
 pub const ChannelId = enum(u8) { channel1 = 1, channel2 = 2, _ };
 
 mode: ?Mode = null,
 channel_id: ?ChannelId = null,
 channel: ?*ChannelState = null,
 pattern: ?ChannelState.Pattern = null,
+needs_service: *bool,
 
+/// fills buffer with current digital input state
+/// called by gatt server
 pub fn handle_read(self: *@This(), buffer: []u8) u16 {
     if (self.mode) |mode| {
         std.mem.writeIntLittle(u8, buffer[0..1], @enumToInt(mode));
@@ -29,10 +32,12 @@ pub fn handle_read(self: *@This(), buffer: []u8) u16 {
     return 3;
 }
 
+/// fills current digital input state from buffer
+/// called by gatt server
 pub fn handle_write(self: *@This(), buffer: []u8, channel1_state: *ChannelState, channel2_state: *ChannelState) u16 {
     if (buffer.len != 3) return 0;
     switch (@intToEnum(Mode, std.mem.readIntLittle(u8, buffer[0..1]))) {
-        .disabled, .pattern_start, .pattern_stop, .pattern_toggle, .pattern_next, .pattern_prev => |mode| {
+        .disabled, .pattern_start, .pattern_stop, .pattern_next, .pattern_prev => |mode| {
             self.mode = mode;
         },
         else => self.mode = null,
@@ -58,4 +63,31 @@ pub fn handle_write(self: *@This(), buffer: []u8, channel1_state: *ChannelState,
         else => self.pattern = null,
     }
     return 0;
+}
+
+/// main run loop call
+pub fn state_run(self: *@This()) void {
+    // early exit if no mode configured
+    if (self.mode) |_| {} else return;
+    if (self.needs_service.*) switch (self.mode.?) {
+        .disabled => self.needs_service.* = false,
+        .pattern_start => if (self.channel) |channel| if (self.pattern) |pattern| {
+            channel.pattern_push(pattern);
+            self.mode = .pattern_stop;
+            self.needs_service.* = false;
+        },
+        .pattern_stop => if (self.channel) |channel| {
+            channel.pattern_pop();
+            self.needs_service.* = false;
+        },
+        .pattern_next => if (self.channel) |channel| {
+            channel.pattern_next();
+            self.needs_service.* = false;
+        },
+        .pattern_prev => if (self.channel) |channel| {
+            channel.pattern_prev();
+            self.needs_service.* = false;
+        },
+        else => {},
+    } else return;
 }

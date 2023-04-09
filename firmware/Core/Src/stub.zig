@@ -32,10 +32,16 @@ const sync = @import("sync.zig");
 var channel1_state: ChannelState = .{};
 var channel2_state: ChannelState = .{};
 var sync_state: ?sync.Sync = null;
-var digital_input1: DigitalInputState = .{};
-var digital_input2: DigitalInputState = .{};
-var digital_input3: DigitalInputState = .{};
-var digital_input4: DigitalInputState = .{};
+
+var digital_input1_needs_service: bool = false;
+var digital_input2_needs_service: bool = false;
+var digital_input3_needs_service: bool = false;
+var digital_input4_needs_service: bool = false;
+
+var digital_input1: DigitalInputState = .{ .needs_service = &digital_input1_needs_service };
+var digital_input2: DigitalInputState = .{ .needs_service = &digital_input2_needs_service };
+var digital_input3: DigitalInputState = .{ .needs_service = &digital_input3_needs_service };
+var digital_input4: DigitalInputState = .{ .needs_service = &digital_input4_needs_service };
 
 const gatt = @import("gatt.zig").Server(
     &channel1_state,
@@ -82,6 +88,20 @@ pub fn trigger_shutdown() callconv(.C) void {
     _ = c.hci_power_control(c.HCI_POWER_OFF);
 }
 
+var ds: c.btstack_data_source = undefined;
+pub fn state_run(data_source: [*c]c.btstack_data_source, callback_type: c.btstack_data_source_callback_type_t) callconv(.C) void {
+    _ = callback_type;
+    _ = data_source;
+    channel1_state.state_run();
+    channel2_state.state_run();
+    digital_input1.state_run();
+    digital_input2.state_run();
+    digital_input3.state_run();
+    digital_input4.state_run();
+    if (sync_state) |*s| s.state_run();
+    c.btstack_run_loop_poll_data_sources_from_irq();
+}
+
 pub fn main() !void {
     c.btstack_memory_init();
     c.btstack_run_loop_init(c.btstack_run_loop_posix_get_instance());
@@ -99,6 +119,10 @@ pub fn main() !void {
     c.sm_init();
 
     gatt.init();
+
+    c.btstack_run_loop_set_data_source_handler(&ds, &state_run);
+    c.btstack_run_loop_enable_data_source_callbacks(&ds, c.DATA_SOURCE_CALLBACK_POLL);
+    c.btstack_run_loop_add_data_source(&ds);
 
     // uint16_t realtek_num_controllers = btstack_chipset_realtek_get_num_usb_controllers();
     _ = c.hci_power_control(c.HCI_POWER_ON);

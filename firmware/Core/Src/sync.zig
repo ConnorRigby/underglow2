@@ -2,6 +2,7 @@ const std = @import("std");
 const testing = std.testing;
 
 const Color = @import("color.zig").Color;
+const Channel = @import("channel.zig");
 
 pub const Address = enum(u8) {
     gateway = 0x0,
@@ -282,13 +283,11 @@ pub const Sync = union(State) {
     client: Client,
 
     pub const OpCode = enum(u8) { whois, solid, start, stop, fill, _ };
-    pub const Patern = enum(u8) { off = 0, rainbow = 1, _ };
+    const Patern = Channel.Pattern;
 
     pub const Packet = union(OpCode) {
         whois: Address,
-        solid: struct {
-            color: Color,
-        },
+        solid: struct { color: Color },
         start: struct { pattern: Patern },
         /// No operand
         stop: @TypeOf(null),
@@ -309,6 +308,10 @@ pub const Sync = union(State) {
                 else => null, // unhandled packet from client
             },
         };
+    }
+
+    pub fn state_run(self: *@This()) void {
+        _ = self;
     }
 
     test {
