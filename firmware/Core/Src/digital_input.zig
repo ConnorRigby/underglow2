@@ -72,12 +72,15 @@ pub fn state_run(self: *@This()) void {
     if (self.needs_service.*) switch (self.mode.?) {
         .disabled => self.needs_service.* = false,
         .pattern_start => if (self.channel) |channel| if (self.pattern) |pattern| {
+            std.log.info("pattern_start {s}", .{@tagName(pattern)});
             channel.pattern_push(pattern);
             self.mode = .pattern_stop;
             self.needs_service.* = false;
         },
         .pattern_stop => if (self.channel) |channel| {
+            std.log.info("pattern_stop", .{});
             channel.pattern_pop();
+            self.mode = .pattern_start;
             self.needs_service.* = false;
         },
         .pattern_next => if (self.channel) |channel| {

@@ -1,3 +1,18 @@
 [submodule "firmware/Lib/btstack"]
 	path = firmware/Lib/btstack
 	url = https://github.com/bluekitchen/btstack.git
+[submodule "firmware/Lib/mach-freetype"]
+	path = firmware/Lib/mach-freetype
+	url = https://github.com/hexops/mach-freetype.git
+[submodule "firmware/Lib/mach-glfw"]
+	path = firmware/Lib/mach-glfw
+	url = https://github.com/hexops/mach-glfw
+[submodule "firmware/Lib/zgl"]
+	path = firmware/Lib/zgl
+	url = https://github.com/ziglibs/zgl.git
+[submodule "firmware/Lib/imgui"]
+	path = firmware/Lib/imgui
+	url = https://github.com/ocornut/imgui.git
+[submodule "firmware/Lib/dear_bindings"]
+	path = firmware/Lib/dear_bindings
+	url = https://github.com/dearimgui/dear_bindings.git

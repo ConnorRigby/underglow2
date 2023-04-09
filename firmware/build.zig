@@ -1,9 +1,11 @@
 const std = @import("std");
+const glfw = @import("Lib/mach-glfw/build.zig");
+const freetype = @import("Lib/mach-freetype/build.zig");
 
 // Although this function looks imperative, note that its job is to
 // declaratively construct a build graph that will be executed by an external
 // runner.
-pub fn build(b: *std.Build) void {
+pub fn build(b: *std.Build) !void {
     // Standard target options allows the person running `zig build` to choose
     // what target to build for. Here we do not override the defaults, which
     // means any target is allowed, and the default is native. Other options
@@ -24,6 +26,28 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    const imgui = b.addStaticLibrary(.{ .name = "imgui", .version = null, .root_source_file = null, .target = target, .optimize = optimize });
+    imgui.addIncludePath("Lib/dear_bindings/");
+    imgui.addIncludePath("Lib/imgui/");
+    imgui.addIncludePath("Lib/imgui/backends");
+    imgui.addCSourceFiles(
+        &[_][]const u8{
+            "Lib/imgui/imgui_demo.cpp",
+            "Lib/imgui/imgui_draw.cpp",
+            "Lib/imgui/imgui_tables.cpp",
+            "Lib/imgui/imgui_widgets.cpp",
+            "Lib/imgui/imgui.cpp",
+            "Lib/imgui/backends/imgui_impl_glfw.cpp",
+            "Lib/imgui/backends/imgui_impl_opengl3.cpp",
+            "Core/Src/dear_bindings/imgui_theme.cpp",
+            "Core/Src/dear_bindings/cimgui.cpp",
+        },
+        &[_][]const u8{ "-fno-sanitize=undefined", "-ffunction-sections", "-DIMGUI_DISABLE_OBSOLETE_FUNCTIONS", "-DIMGUI_DISABLE_OBSOLETE_KEYIO", "-DIMGUI_IMPL_API=extern \"C\"", "-std=c++17", "-Wno-error=macro-redefined" },
+    );
+    imgui.linkLibCpp();
+    imgui.linkLibC();
+    imgui.install();
+
     // This declares intent for the executable to be installed into the
     // standard location when the user invokes the "install" step (the default
     // step when running `zig build`).
@@ -37,7 +61,6 @@ pub fn build(b: *std.Build) void {
     exe.addIncludePath("Core/Inc");
     exe.linkSystemLibrary("libusb-1.0");
     // b.addSystemCommand("python3 Lib/btstack/tool/compile_gatt.py");
-    exe.linkLibC();
     exe.addCSourceFiles(&[_][]const u8{
         "Lib/btstack/platform/libusb/hci_transport_h2_libusb.c",
         "Lib/btstack/src/btstack_memory.c",
@@ -79,6 +102,29 @@ pub fn build(b: *std.Build) void {
         "Lib/btstack/platform/posix/btstack_signal.c",
         "Lib/btstack/src/ble/gatt-service/device_information_service_server.c",
     }, &[_][]const u8{ "-std=c99", "-Wall", "-Wmissing-prototypes", "-Wstrict-prototypes", "-Wshadow", "-Wunused-parameter", "-Wredundant-decls", "-Wsign-compare", "-Wswitch-default" });
+
+    // imgui
+    exe.addIncludePath("Core/Src/dear_bindings");
+    exe.addIncludePath("Lib/imgui");
+    exe.linkLibrary(imgui);
+
+    // imgui glfw and  require libc and libcpp
+    exe.linkLibC();
+    exe.linkLibCpp();
+
+    // glfw
+    exe.addModule("glfw", glfw.module(b));
+    try glfw.link(b, exe, .{});
+
+    // freetype
+    exe.addModule("freetype", freetype.module(b));
+    freetype.link(b, exe, .{});
+
+    // zgl
+    const zgl = b.createModule(.{
+        .source_file = .{ .path = "Lib/zgl/zgl.zig" },
+    });
+    exe.addModule("zgl", zgl);
     exe.install();
 
     // This *creates* a RunStep in the build graph, to be executed when another
