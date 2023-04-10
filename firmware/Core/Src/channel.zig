@@ -33,29 +33,75 @@ pub fn handle_read_rgb(self: *@This(), buffer: []u8) u16 {
 pub fn handle_write_rgb(self: *@This(), buffer: []u8) u16 {
     if (buffer.len < 4) return 0;
     self.rgb.raw = std.mem.readIntLittle(u32, buffer[0..4]);
-    return buffer[0..4].len;
+    return 0;
 }
 
 pub fn handle_read_nzr(self: *@This(), buffer: []u8) u16 {
-    _ = buffer;
-    _ = self;
+    if (self.pattern) |pattern| switch (pattern) {
+        .off => {
+            std.mem.writeIntLittle(u8, buffer[0..1], @enumToInt(@as(Pattern, pattern)));
+            return 1;
+        },
+        .rainbow => |p| {
+            std.mem.writeIntLittle(u8, buffer[0..1], @enumToInt(@as(Pattern, pattern)));
+            std.mem.writeIntLittle(u32, buffer[1..5], p.color.raw);
+            return 5;
+        },
+        .snake => |p| {
+            std.mem.writeIntLittle(u8, buffer[0..1], @enumToInt(@as(Pattern, pattern)));
+            std.mem.writeIntLittle(u32, buffer[1..5], p.color.raw);
+            return 5;
+        },
+        .fill => |p| {
+            std.mem.writeIntLittle(u8, buffer[0..1], @enumToInt(@as(Pattern, pattern)));
+            std.mem.writeIntLittle(u32, buffer[1..5], p.color.raw);
+            return 5;
+        },
+        else => {},
+    };
+
     return 0;
 }
 
 pub fn handle_write_nzr(self: *@This(), buffer: []u8) u16 {
-    _ = buffer;
-    _ = self;
+    const pattern = @intToEnum(Pattern, std.mem.readIntLittle(u8, buffer[0..1]));
+    switch (pattern) {
+        .off => {
+            self.pattern = .{ .off = {} };
+        },
+        .rainbow => {
+            if (buffer.len < 4) return 0;
+            const color = std.mem.readIntLittle(u32, buffer[1..5]);
+            _ = color;
+            self.pattern = .{ .rainbow = .{} };
+        },
+        .snake => {
+            if (buffer.len < 4) return 0;
+            const color = std.mem.readIntLittle(u32, buffer[1..5]);
+            self.pattern = .{ .snake = .{ .color = @bitCast(Color, color) } };
+        },
+        .fill => {
+            if (buffer.len < 4) return 0;
+            const color = std.mem.readIntLittle(u32, buffer[1..5]);
+            self.pattern = .{ .fill = .{ .color = @bitCast(Color, color) } };
+        },
+        else => {
+            self.pattern = null;
+        },
+    }
+    self.operation_state = .start;
+
     return 0;
 }
 
 pub fn pattern_push(self: *@This(), pattern: Pattern) void {
     self.stack_index +%= 1;
     self.stack[self.stack_index] = switch (pattern) {
-        .off => null,
+        .off => .{ .off = {} },
         .rainbow => .{ .rainbow = .{} },
         .snake => .{ .snake = .{} },
         .fill => .{ .fill = .{} },
-        else => unreachable,
+        else => null,
     };
     self.operation_state = .start;
 }
@@ -67,11 +113,25 @@ pub fn pattern_pop(self: *@This()) void {
 }
 
 pub fn pattern_prev(self: *@This()) void {
-    _ = self;
+    if (self.pattern) |pattern| switch (pattern) {
+        .off => return,
+        .rainbow => self.pattern = .{ .snake = .{} },
+        .snake => self.pattern = .{ .fill = .{} },
+        .fill => self.pattern = .{ .rainbow = .{} },
+        else => self.pattern = null,
+    };
+    self.operation_state = .start;
 }
 
 pub fn pattern_next(self: *@This()) void {
-    _ = self;
+    if (self.pattern) |pattern| switch (pattern) {
+        .off => return,
+        .rainbow => self.pattern = .{ .fill = .{} },
+        .fill => self.pattern = .{ .snake = .{} },
+        .snake => self.pattern = .{ .rainbow = .{} },
+        else => self.pattern = null,
+    };
+    self.operation_state = .start;
 }
 
 pub fn pattern_trigger(self: *@This(), pattern: Pattern) void {

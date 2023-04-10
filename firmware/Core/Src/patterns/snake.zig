@@ -1,6 +1,7 @@
 const Color = @import("../color.zig").Color;
 const OperationState = @import("../channel.zig").OperationState;
 index: usize = 1,
+color: Color = Color.off,
 
 pub fn state_run(self: *@This(), pixel_buffer: []Color) OperationState {
     if (self.index == 0) {
@@ -10,7 +11,7 @@ pub fn state_run(self: *@This(), pixel_buffer: []Color) OperationState {
         return .complete;
     } else {
         var snake = pixel_buffer[self.index - 1 .. self.index + 1];
-        for (snake) |*c| c.*.raw = 0xff00ffff;
+        for (snake) |*c| c.* = self.color;
         for (0..self.index - 1) |i| {
             pixel_buffer[i].raw = 0;
         }
