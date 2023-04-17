@@ -4,4 +4,6 @@
   (lib (name "Button")(type "KiCad")(uri "${KIPRJMOD}/library/Button.pretty")(options "")(descr ""))
   (lib (name "LCSC_Antenna")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Antenna.pretty")(options "")(descr ""))
   (lib (name "Enclosure")(type "KiCad")(uri "${KIPRJMOD}/library/Enclosure.pretty")(options "")(descr ""))
+  (lib (name "LCSC_Connector")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Connector.pretty")(options "")(descr ""))
+  (lib (name "LCSC_ESD")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_ESD.pretty")(options "")(descr ""))
 )

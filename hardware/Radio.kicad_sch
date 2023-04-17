@@ -2615,7 +2615,7 @@
     (property "Value" "AS193-73LF" (at 219.71 110.49 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6" (at 215.9 107.95 0)
+    (property "Footprint" "Package_TO_SOT_SMD:SOT-23-6" (at 215.9 107.95 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "https://datasheet.lcsc.com/lcsc/1805301207_Skyworks-Solutions-AS193-73LF_C6199.pdf" (at 214.63 107.95 0)

@@ -8,7 +8,6 @@
   (lib (name "LCSC_Fuse")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Fuse.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_MOSFET")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_MOSFET.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_LED")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_LED.kicad_sym")(options "")(descr ""))
-  (lib (name "LCSC_ESD")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_ESD.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Communication_Interface_Chip_UART_485_232")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Communication_Interface_Chip_UART_485_232.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Regulator")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Regulator.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Power_Inductor")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Power_Inductor.kicad_sym")(options "")(descr ""))
@@ -18,4 +17,5 @@
   (lib (name "LCSC_Tactile_Switch")(type "KiCad")(uri "${KIPRJMOD}/library/work/Schematic/LCSC_Tactile_Switch.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Antenna")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Antenna.kicad_sym")(options "")(descr ""))
   (lib (name "LCSC_Transistor1")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_Transistor.kicad_sym")(options "")(descr ""))
+  (lib (name "LCSC_ESD")(type "KiCad")(uri "${KIPRJMOD}/library/LCSC_ESD.kicad_sym")(options "")(descr ""))
 )
