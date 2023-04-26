@@ -27,8 +27,8 @@ pub const Port = enum {
     D,
     E,
     F,
-    H,
-    G,
+    // H,
+    // G,
 };
 
 pub const Mode = enum(u32) {
@@ -87,8 +87,8 @@ pub const Init = union(Port) {
     D: InitInner,
     E: InitInner,
     F: InitInner,
-    G: InitInner,
-    H: InitInner,
+    // G: InitInner,
+    // H: InitInner,
 };
 
 pin: Pin,
@@ -102,8 +102,8 @@ pub fn init(gpio_init: Init) @This() {
         .D => c.GPIOD,
         .E => c.GPIOE,
         .F => c.GPIOF,
-        .G => c.GPIOG,
-        .H => c.GPIOH,
+        // .G => c.GPIOG,
+        // .H => c.GPIOH,
     };
     switch (gpio_init) {
         inline else => |inner| {

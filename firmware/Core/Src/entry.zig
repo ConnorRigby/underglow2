@@ -44,5 +44,36 @@ pub fn panic(msg: []const u8, error_return_trace: ?*std.builtin.StackTrace, retu
 
 /// Main entry point, called from main.c
 export fn entry() callconv(.C) void {
+    var tx = hal.gpio.init(.{ .B = .{ .pin = .@"6", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
+    tx.write(.Set);
+
+    var rx = hal.gpio.init(.{ .B = .{ .pin = .@"7", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
+    rx.write(.Set);
     std.log.info("hello, from {s}", .{"logger"});
+
+    var ch1_en = hal.gpio.init(.{ .A = .{ .pin = .@"3", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
+    ch1_en.write(.Reset);
+
+    var ch1_r = hal.gpio.init(.{ .A = .{ .pin = .@"7", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
+    ch1_r.write(.Set);
+
+    var ch2_en = hal.gpio.init(.{ .A = .{ .pin = .@"2", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
+    ch2_en.write(.Reset);
+
+    var ch2_r = hal.gpio.init(.{ .B = .{ .pin = .@"1", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
+    ch2_r.write(.Set);
+    var ch2_g = hal.gpio.init(.{ .C = .{ .pin = .@"11", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
+    ch2_g.write(.Set);
+
+    while (true) {
+        hal.delay(1000);
+        tx.write(.Reset);
+        rx.write(.Reset);
+        // ch1_en.write(.Set);
+
+        hal.delay(1000);
+        tx.write(.Set);
+        rx.write(.Set);
+        // ch1_en.write(.Reset);
+    }
 }

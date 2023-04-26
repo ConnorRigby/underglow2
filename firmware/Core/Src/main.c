@@ -123,7 +123,7 @@ int main(void)
   MX_TIM8_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
-  port_main();
+  // port_main();
   entry();
 
   /* USER CODE END 2 */
