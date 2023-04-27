@@ -65,15 +65,43 @@ export fn entry() callconv(.C) void {
     var ch2_g = hal.gpio.init(.{ .C = .{ .pin = .@"11", .mode = .OutputPushPull, .pull = .Down, .speed = .Low } });
     ch2_g.write(.Set);
 
+    std.log.info("radio reset", .{});
+
+    var spi1 = hal.spi.init(handles.hspi1);
+    var nss = hal.gpio.init(.{ .A = .{ .pin = .@"4", .mode = .OutputPushPull, .pull = .Up, .speed = .Low } });
+    var reset = hal.gpio.init(.{ .B = .{ .pin = .@"0", .mode = .OutputPushPull, .pull = .Up, .speed = .Low } });
+
+    var radio = rf69.Rf69.init(&spi1, &reset, &nss);
+    var value = radio.read_register(.RegOpMode);
+    std.log.info("register: {any}", .{value});
+
     while (true) {
         hal.delay(1000);
-        tx.write(.Reset);
-        rx.write(.Reset);
-        // ch1_en.write(.Set);
+        // tx.write(.Reset);
+        // rx.write(.Reset);
 
-        hal.delay(1000);
-        tx.write(.Set);
-        rx.write(.Set);
-        // ch1_en.write(.Reset);
+        // hal.delay(1000);
+        // tx.write(.Set);
+        // rx.write(.Set);
     }
 }
+
+// nss.write(.Set);
+// reset.write(.Reset);
+// hal.delay(10);
+// reset.write(.Set);
+
+// std.log.info("radio transaction start", .{});
+// nss.write(.Set);
+// var spi1 = hal.spi.init(handles.hspi1);
+// var tx_buffer: [2]u8 = .{ 0, 0 };
+// var rx_buffer: [2]u8 = .{ 0, 0 };
+// for (1..@as(u8, 0x4f)) |i| {
+//     nss.write(.Reset);
+//     tx_buffer[0] = @intCast(u8, i) & 0x7f;
+//     spi1.transcieve(&tx_buffer, &rx_buffer, 1000) catch {
+//         @panic("spi transfer fail");
+//     };
+//     std.log.info("tx[0]={x} tx[1]={x} rx[0]={x} rx[1]={x}", .{ tx_buffer[0], tx_buffer[1], rx_buffer[0], rx_buffer[1] });
+// }
+// nss.write(.Set);

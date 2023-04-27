@@ -90,7 +90,7 @@ pub const Name = enum(u8) {
     RegTestPIIBW = 0x5F,
     RegTestDagc = 0x6F,
     RegTestAfc = 0x71,
-    _,
+    // _,
 };
 
 pub const Value = union(Name) {
