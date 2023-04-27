@@ -447,3 +447,25 @@ pub const Value = union(Name) {
 test {
     std.testing.refAllDeclsRecursive(@This());
 }
+
+pub fn handle_read(comptime name: Name, buffer: []u8) Value {
+    var fbs = std.io.fixedBufferStream(buffer);
+    return switch (name) {
+        inline else => |tag| blk: {
+            const T = std.meta.TagPayload(Value, tag);
+            const value = switch (@typeInfo(T)) {
+                .Int => fbs.reader().readIntLittle(T) catch @panic("readIntLittle"),
+                .Struct => fbs.reader().readStruct(T) catch @panic("readStruct"),
+                inline else => @compileError("invalid type" ++ @typeName(T)),
+            };
+            break :blk @unionInit(Value, @tagName(tag), value);
+        },
+    };
+}
+
+test {
+    const name = @intToEnum(Name, 0x01);
+    var buffer: [2]u8 = .{ 0, 0 };
+    const value = handle_read(name, &buffer);
+    std.debug.print("\nvalue={any} size={d}\n", .{ value, @sizeOf(Value) });
+}

@@ -94,6 +94,20 @@ pub const Init = union(Port) {
 pin: Pin,
 port: *c.GPIO_TypeDef,
 
+pub fn initDefault(p: Port, pin: Pin) @This() {
+    const port = switch (p) {
+        .A => c.GPIOA,
+        .B => c.GPIOB,
+        .C => c.GPIOC,
+        .D => c.GPIOD,
+        .E => c.GPIOE,
+        .F => c.GPIOF,
+        // .G => c.GPIOG,
+        // .H => c.GPIOH,
+    };
+    return .{ .port = port, .pin = pin };
+}
+
 pub fn init(gpio_init: Init) @This() {
     const port = switch (gpio_init) {
         .A => c.GPIOA,

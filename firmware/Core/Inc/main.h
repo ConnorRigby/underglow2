@@ -58,6 +58,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN EFP */
 
 void entry(void);
+void entry_error_handler(void);
 
 /* USER CODE END EFP */
 
