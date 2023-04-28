@@ -4,16 +4,16 @@ pub const Name = enum(u8) {
     RegFifo = 0x00,
     RegOpMode = 0x01,
     RegDataModul = 0x02,
-    RegBitrate = 0x03,
-    // RegBitrateMsb = 0x03,
-    // RegBitrateLsb = 0x04,
-    RegFdev = 0x05,
-    // RegFdevMsb = 0x05,
-    // RegFdevLsb = 0x06,
-    RegFrf = 0x07,
-    // RegFrfMsb = 0x07,
-    // RegFrMid = 0x08,
-    // RegFrfLsb = 0x09,
+    // RegBitrate = 0x03,
+    RegBitrateMsb = 0x03,
+    RegBitrateLsb = 0x04,
+    // RegFdev = 0x05,
+    RegFdevMsb = 0x05,
+    RegFdevLsb = 0x06,
+    // RegFrf = 0x07,
+    RegFrfMsb = 0x07,
+    RegFrMid = 0x08,
+    RegFrfLsb = 0x09,
     RegOsc1 = 0x0A,
     RegAfcCtl = 0x0B,
     RegLowBat = 0x0C,
@@ -50,15 +50,15 @@ pub const Name = enum(u8) {
     // RegPreambleMsb = 0x2C,
     // RegPreambleLsb = 0x2D,
     RegSyncConfig = 0x2E,
-    RegSyncValue = 0x2F,
-    // RegSyncValue1 = 0x2F,
-    // RegSyncValue2 = 0x30,
-    // RegSyncValue3 = 0x31,
-    // RegSyncValue4 = 0x32,
-    // RegSyncValue5 = 0x33,
-    // RegSyncValue6 = 0x34,
-    // RegSyncValue7 = 0x35,
-    // RegSyncValue8 = 0x36,
+    // RegSyncValue = 0x2F,
+    RegSyncValue1 = 0x2F,
+    RegSyncValue2 = 0x30,
+    RegSyncValue3 = 0x31,
+    RegSyncValue4 = 0x32,
+    RegSyncValue5 = 0x33,
+    RegSyncValue6 = 0x34,
+    RegSyncValue7 = 0x35,
+    RegSyncValue8 = 0x36,
     RegPacketConfig1 = 0x37,
     RegPayloadLength = 0x38,
     RegNodeAdrs = 0x39,
@@ -91,11 +91,7 @@ pub const Name = enum(u8) {
     RegTestDagc = 0x6F,
     RegTestAfc = 0x71,
     // _,
-    pub fn get_size(name: *const Name) usize {
-        return switch (name.*) {
-            inline else => |tag| @sizeOf(@TypeOf(tag)),
-        };
-    }
+
 };
 
 pub const Value = union(Name) {
@@ -142,13 +138,21 @@ pub const Value = union(Name) {
             ContinuousModeWithoutBitSyncronizer = 0b11,
         },
     },
-    RegBitrate: u16,
-    RegFdev: packed struct {
-        /// not used
-        reserved: u2 = 0,
-        FrequencyDivision: u14,
-    },
-    RegFrf: u24,
+    // RegBitrate: u16,
+    RegBitrateMsb: u8,
+    RegBitrateLsb: u8,
+    // RegFdev: packed struct {
+    //     /// not used
+    //     reserved: u2 = 0,
+    //     FrequencyDivision: u14,
+    // },
+    RegFdevMsb: u8,
+    RegFdevLsb: u8,
+    
+    // RegFrf: u24,
+    RegFrfMsb: u8,
+    RegFrMid: u8,
+    RegFrfLsb: u8,
     RegOsc1: packed struct {
         /// not used
         reserved: u5 = 0,
@@ -219,13 +223,14 @@ pub const Value = union(Name) {
         listen_coef_rx: u8 = 0x20,
     },
     RegVersion: u8,
-    RegPaLevel: packed struct {
-        //
-        output_power: u5,
-        pa2: u1,
-        pa1: u1,
-        oa0: u1,
-    },
+    // RegPaLevel: packed struct {
+    //     //
+    //     output_power: u5,
+    //     pa2: u1,
+    //     pa1: u1,
+    //     oa0: u1,
+    // },
+    RegPaLevel: u8,
     RegPaRamp: packed struct {
         //
         ramp: enum(u4) {
@@ -249,12 +254,13 @@ pub const Value = union(Name) {
         },
         reserved: u4 = 0b0000,
     },
-    RegOcp: packed struct {
-        //
-        ocp_trim: u4,
-        enabled: u1,
-        reserved: u3 = 0,
-    },
+    // RegOcp: packed struct {
+    //     //
+    //     ocp_trim: u4,
+    //     enabled: u1,
+    //     reserved: u3 = 0,
+    // },
+    RegOcp: u8,
     RegLna: packed struct {
         //
         gain_select: enum(u3) {
@@ -348,20 +354,22 @@ pub const Value = union(Name) {
         reserved: u6 = 0,
     },
     RegRssiValue: u8,
-    RegDioMapping1: packed struct {
-        //
-        dio3: u2,
-        dio2: u2,
-        dio1: u2,
-        dio0: u2,
-    },
-    RegDioMapping2: packed struct {
-        //
-        clk_out: u3,
-        reserved: u1 = 0,
-        dio5: u2,
-        dio4: u2,
-    },
+    // RegDioMapping1: packed struct {
+    //     //
+    //     dio0: u2,
+    //     dio1: u2,
+    //     dio2: u2,
+    //     dio3: u2,
+    // },
+    // RegDioMapping2: packed struct {
+    //     //
+    //     clk_out: u3,
+    //     reserved: u1 = 0,
+    //     dio5: u2,
+    //     dio4: u2,
+    // },
+    RegDioMapping1: u8,
+    RegDioMapping2: u8,
     RegIrqFlags1: packed struct {
         //
         sync_address_match: u1,
@@ -394,23 +402,33 @@ pub const Value = union(Name) {
         timeout_rssi_thresh: u8,
     },
     RegPreamble: u16,
-    RegSyncConfig: packed struct {
-        //
-        tol: u3,
-        size: u3,
-        fill_condition: u1,
-        on: u1,
-    },
-    RegSyncValue: u32,
-    RegPacketConfig1: packed struct {
-        //
-        reserved: u1 = 0,
-        address_filtering: u2,
-        crc_auto_clear_off: u1,
-        crc_on: u1,
-        dc_free: u2,
-        packet_format: u1,
-    },
+    // RegSyncConfig: packed struct {
+    //     //
+    //     tol: u3,
+    //     size: u3,
+    //     fill_condition: u1,
+    //     on: u1,
+    // },
+    RegSyncConfig: u8,
+    // RegSyncValue: u64,
+    RegSyncValue1: u8,
+    RegSyncValue2: u8,
+    RegSyncValue3: u8,
+    RegSyncValue4: u8,
+    RegSyncValue5: u8,
+    RegSyncValue6: u8,
+    RegSyncValue7: u8,
+    RegSyncValue8: u8,
+    // RegPacketConfig1: packed struct {
+    //     //
+    //     reserved: u1 = 0,
+    //     address_filtering: u2,
+    //     crc_auto_clear_off: u1,
+    //     crc_on: u1,
+    //     dc_free: u2,
+    //     packet_format: u1,
+    // },
+    RegPacketConfig1: u8,
     RegPayloadLength: u8,
     RegNodeAdrs: u8,
     RegBroadcastAdrs: u8,
@@ -425,14 +443,15 @@ pub const Value = union(Name) {
         fifo_threshold: u7,
         tx_start_condition: u1,
     },
-    RegPacketConfig2: packed struct {
-        //
-        aes_on: u1,
-        auto_rx_restart_on: u1,
-        restart_rx: u1,
-        reserved: u1 = 0,
-        inter_packet_rx_delay: u4,
-    },
+    // RegPacketConfig2: packed struct {
+    //     //
+    //     aes_on: u1,
+    //     auto_rx_restart_on: u1,
+    //     restart_rx: u1,
+    //     reserved: u1 = 0,
+    //     inter_packet_rx_delay: u4,
+    // },
+    RegPacketConfig2: u8,
     RegAesKey: [16]u8,
     RegTemp1: packed struct {
         //
@@ -455,6 +474,16 @@ pub const Value = union(Name) {
     }
 };
 
+    pub fn get_size(comptime name: Name) usize {
+        return switch (name) {
+
+            inline else => |tag| blk: {
+                const T = std.meta.TagPayload(Value, tag);
+                break :blk @sizeOf(T);
+            },
+        };
+    }
+
 test {
     std.testing.refAllDeclsRecursive(@This());
 }
@@ -465,7 +494,7 @@ pub fn handle_read(comptime name: Name, buffer: []u8) Value {
         inline else => |tag| blk: {
             const T = std.meta.TagPayload(Value, tag);
             const value = switch (@typeInfo(T)) {
-                .Int => fbs.reader().readIntLittle(T) catch @panic("readIntLittle"),
+                .Int => fbs.reader().readIntLittle(T) catch @panic("readIntLittle" ++ @tagName(name)),
                 .Struct => fbs.reader().readStruct(T) catch @panic("readStruct"),
                 .Array => fbs.reader().readAll(buffer) catch @panic("readAll"),
                 inline else => @compileError("invalid type" ++ @typeName(T)),
@@ -488,6 +517,7 @@ pub fn handle_write(value: Value, buffer: []u8) void {
             inline else => @compileError("invalid type" ++ @typeName(@TypeOf(tag))),
         },
     }
+    std.log.info("write {x}={x}", .{@enumToInt(@as(Name, value)), std.fmt.fmtSliceHexLower(buffer[1..])});
 }
 
 test {

@@ -46,8 +46,11 @@ export fn entry_error_handler() callconv(.C) void {
     @panic("unhandled error occurred");
 }
 
+var irq_ready: bool = false;
+
 export fn HAL_GPIO_EXTI_Callback(gpio: u16) callconv(.C) void {
     std.log.info("gpio irq: {d}", .{gpio});
+    irq_ready = true;
 }
 
 /// Main entry point, called from main.c
@@ -81,14 +84,25 @@ export fn entry() callconv(.C) void {
 
     var radio = rf69.Rf69.init(&spi1, &reset, &nss);
     radio.reset();
+    radio.write_register(.{.RegDioMapping1 = 0x40});
+    radio.set_mode(.Rx);
 
     while (true) {
-        hal.delay(1000);
-        tx.write(.Reset);
+        if(irq_ready) {
         rx.write(.Reset);
+    radio.write_register(.{.RegDioMapping1 = 0x40});
+    radio.set_mode(.Standby);
+    radio.set_mode(.Rx);
 
-        hal.delay(1000);
-        tx.write(.Set);
         rx.write(.Set);
+            irq_ready = false;
+        }
+        hal.delay(1000);
+        // tx.write(.Reset);
+        // rx.write(.Reset);
+
+        // hal.delay(1000);
+        // tx.write(.Set);
+        // rx.write(.Set);
     }
 }
