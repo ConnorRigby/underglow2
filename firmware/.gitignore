@@ -2,3 +2,6 @@ build
 zig-cache
 zig-out
 tlv.db
+Booting_DA14531_with_Codeless_through_STM32
+SDK_*
+STM32_Software*

@@ -91,6 +91,11 @@ pub const Name = enum(u8) {
     RegTestDagc = 0x6F,
     RegTestAfc = 0x71,
     // _,
+    pub fn get_size(name: *const Name) usize {
+        return switch (name.*) {
+            inline else => |tag| @sizeOf(@TypeOf(tag)),
+        };
+    }
 };
 
 pub const Value = union(Name) {
@@ -248,7 +253,7 @@ pub const Value = union(Name) {
         //
         ocp_trim: u4,
         enabled: u1,
-        reserved: u3,
+        reserved: u3 = 0,
     },
     RegLna: packed struct {
         //
@@ -396,7 +401,7 @@ pub const Value = union(Name) {
         fill_condition: u1,
         on: u1,
     },
-    RegSyncValue: u64,
+    RegSyncValue: u32,
     RegPacketConfig1: packed struct {
         //
         reserved: u1 = 0,
@@ -442,6 +447,12 @@ pub const Value = union(Name) {
     RegTestPIIBW: u8,
     RegTestDagc: u8,
     RegTestAfc: u8,
+
+    pub fn get_size(value: *const Value) usize {
+        return switch (value.*) {
+            inline else => |tag| @sizeOf(@TypeOf(tag)),
+        };
+    }
 };
 
 test {
@@ -456,11 +467,27 @@ pub fn handle_read(comptime name: Name, buffer: []u8) Value {
             const value = switch (@typeInfo(T)) {
                 .Int => fbs.reader().readIntLittle(T) catch @panic("readIntLittle"),
                 .Struct => fbs.reader().readStruct(T) catch @panic("readStruct"),
+                .Array => fbs.reader().readAll(buffer) catch @panic("readAll"),
                 inline else => @compileError("invalid type" ++ @typeName(T)),
             };
             break :blk @unionInit(Value, @tagName(tag), value);
         },
     };
+}
+
+/// Fills `buffer` with the payload to transver
+pub fn handle_write(value: Value, buffer: []u8) void {
+    buffer[0] = @enumToInt(@as(Name, value)) | 0x80;
+    var fbs = std.io.fixedBufferStream(buffer[1..]);
+    const writer = fbs.writer();
+    switch (value) {
+        inline else => |tag| switch (@typeInfo(@TypeOf(tag))) {
+            .Int => writer.writeIntLittle(@TypeOf(tag), tag) catch @panic("writeIntLittle"),
+            .Struct => writer.writeStruct(tag) catch @panic("writeStruct"),
+            .Array => writer.writeAll(&tag) catch @panic("writeAll"),
+            inline else => @compileError("invalid type" ++ @typeName(@TypeOf(tag))),
+        },
+    }
 }
 
 test {
