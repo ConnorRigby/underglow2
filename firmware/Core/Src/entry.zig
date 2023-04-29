@@ -7,6 +7,69 @@ const handles = @import("handles.zig");
 const hal = @import("stm32g4xx_hal.zig");
 const rf69 = @import("lib/rf69/src/main.zig");
 
+const ChannelState = @import("channel.zig");
+const DigitalInputState = @import("digital_input.zig");
+
+const IrqEvent = enum(u16) {
+    Radio = 4,
+    Di1 = c.DI1_Pin,
+    Di2 = c.DI2_Pin,
+    Di3 = c.DI3_Pin,
+    Di4 = c.DI4_Pin,
+};
+
+const IrqEventData = union(IrqEvent) {
+    Radio: bool,
+    Di1: hal.gpio.State,
+    Di2: hal.gpio.State,
+    Di3: hal.gpio.State,
+    Di4: hal.gpio.State,
+};
+
+const Irq = struct {
+    radio: bool = false,
+    di1: ?hal.gpio.State = null,
+    di2: ?hal.gpio.State = null,
+    di3: ?hal.gpio.State = null,
+    di4: ?hal.gpio.State = null,
+    pub fn next(self: *Irq) ?IrqEventData {
+        if (self.radio) {
+            self.radio = false;
+            return .{ .Radio = true };
+        }
+        if (self.di1) |di1| {
+            self.di1 = null;
+            return .{ .Di1 = di1 };
+        }
+        if (self.di2) |di2| {
+            self.di2 = null;
+            return .{ .Di3 = di2 };
+        }
+        if (self.di3) |di3| {
+            self.di3 = null;
+            return .{ .Di3 = di3 };
+        }
+        if (self.di4) |di4| {
+            self.di4 = null;
+            return .{ .Di4 = di4 };
+        }
+        return null;
+    }
+};
+var irq: Irq = .{};
+
+var channel1_state: ChannelState = .{};
+var channel2_state: ChannelState = .{};
+
+var digital_input1_needs_service: bool = false;
+var digital_input2_needs_service: bool = false;
+var digital_input3_needs_service: bool = false;
+var digital_input4_needs_service: bool = false;
+var digital_input1: DigitalInputState = .{ .needs_service = &digital_input1_needs_service };
+var digital_input2: DigitalInputState = .{ .needs_service = &digital_input2_needs_service };
+var digital_input3: DigitalInputState = .{ .needs_service = &digital_input3_needs_service };
+var digital_input4: DigitalInputState = .{ .needs_service = &digital_input4_needs_service };
+
 var log_buffer: [1024]u8 = undefined;
 
 pub const std_options = struct {
@@ -46,11 +109,16 @@ export fn entry_error_handler() callconv(.C) void {
     @panic("unhandled error occurred");
 }
 
-var irq_ready: bool = false;
-
+/// Overrides the default from HAL
 export fn HAL_GPIO_EXTI_Callback(gpio: u16) callconv(.C) void {
     std.log.info("gpio irq: {d}", .{gpio});
-    if (gpio == 4) irq_ready = true;
+    switch (@intToEnum(IrqEvent, gpio)) {
+        .Radio => irq.radio = true,
+        .Di1 => irq.di1 = hal.gpio.initIrq(c.DI1_GPIO_Port, c.DI1_Pin).read(),
+        .Di2 => irq.di2 = hal.gpio.initIrq(c.DI2_GPIO_Port, c.DI2_Pin).read(),
+        .Di3 => irq.di3 = hal.gpio.initIrq(c.DI3_GPIO_Port, c.DI3_Pin).read(),
+        .Di4 => irq.di4 = hal.gpio.initIrq(c.DI4_GPIO_Port, c.DI4_Pin).read(),
+    }
 }
 
 /// Main entry point, called from main.c
@@ -93,12 +161,18 @@ export fn entry() callconv(.C) void {
     // var di4 = hal.gpio.initDefault(.A, .@"15");
 
     while (true) {
-        if (irq_ready) {
-            rx.write(.Reset);
-            radio.service_interrupt();
-            rx.write(.Set);
-            irq_ready = false;
-        }
+        while (irq.next()) |event| switch (event) {
+            .Radio => {
+                rx.write(.Reset);
+                radio.service_interrupt();
+                rx.write(.Set);
+            },
+            .Di1 => digital_input1_needs_service = true,
+            .Di2 => digital_input2_needs_service = true,
+            .Di3 => digital_input3_needs_service = true,
+            .Di4 => digital_input4_needs_service = true,
+        };
+
         if (radio.receive_done()) |packet| {
             std.log.info("received packet: {any}", .{packet});
             // std.log.info("payload: {x}", .{std.fmt.fmtSliceHexLower(packet.payload)});
@@ -107,15 +181,5 @@ export fn entry() callconv(.C) void {
             // var payload = [_]u8{'h'};
             radio.send(0x03, &payload, false, false);
         }
-        hal.delay(250);
-        // std.log.info("di1={any} di2={any} di3={any} di4={any}", .{ di1.read(), di2.read(), di3.read(), di4.read() });
-        // var payload = [_]u8{'h'};
-        // radio.send(0x02, &payload, false, false);
-        // tx.write(.Reset);
-        // rx.write(.Reset);
-
-        // hal.delay(1000);
-        // tx.write(.Set);
-        // rx.write(.Set);
     }
 }

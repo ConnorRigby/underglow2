@@ -94,6 +94,10 @@ pub const Init = union(Port) {
 pin: Pin,
 port: *c.GPIO_TypeDef,
 
+pub fn initIrq(port: *c.GPIO_TypeDef, pin: u16) @This() {
+    return .{.port = port, .pin = @intToEnum(Pin, pin)};
+}
+
 pub fn initDefault(p: Port, pin: Pin) @This() {
     const port = switch (p) {
         .A => c.GPIOA,
