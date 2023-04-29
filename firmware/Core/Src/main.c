@@ -54,6 +54,7 @@ TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim3;
 TIM_HandleTypeDef htim8;
 DMA_HandleTypeDef hdma_tim2_ch2;
+DMA_HandleTypeDef hdma_tim3_ch1;
 DMA_HandleTypeDef hdma_tim8_ch1;
 
 PCD_HandleTypeDef hpcd_USB_FS;
@@ -81,6 +82,51 @@ static void MX_USB_PCD_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+#define RGB_LEN (24 * 10)
+#define numberofpixels 10
+#define bytesperpixel 3
+#define bitHightimercount 58
+#define bitLowtimercount 22
+
+// #define bitHightimercount 120
+// #define bitLowtimercount 30
+
+uint32_t loadArrayOnePixel(uint8_t R, uint8_t G, uint8_t B,
+		uint8_t *buffer, //address of our buffer
+		uint8_t pixelnumber //pixel index inside buffer
+		) {
+	if(pixelnumber>numberofpixels){return -1;}//in case we mess up
+
+	for (uint32_t i = 0; i < bytesperpixel * 8; ++i) { //we need to store every bit
+
+		if (i < 8) { //this means first byte R
+			if (R & (0x80 >> i)) { //this is a mask for reading every bit inside the byte R
+				buffer[i + pixelnumber * bytesperpixel * 8] = bitHightimercount;
+			} else {
+				buffer[i + pixelnumber * bytesperpixel * 8] = bitLowtimercount;
+			}
+		}
+
+		if ((i >= 8) & (i < 16)) { //this means second byte G
+			if (G & (0x80 >> (i - 8))) {
+				buffer[i + pixelnumber * bytesperpixel * 8] = bitHightimercount;
+			} else {
+				buffer[i + pixelnumber * bytesperpixel * 8] = bitLowtimercount;
+			}
+		}
+
+		if ((i >= 16) & (i < 24)) { //this means third byte B
+			if (B & (0x80 >> (i - 16))) {
+				buffer[i + pixelnumber * bytesperpixel * 8] = bitHightimercount;
+			} else {
+				buffer[i + pixelnumber * bytesperpixel * 8] = bitLowtimercount;
+			}
+		}
+
+	}
+	return 1;
+}
 
 /* USER CODE END 0 */
 
@@ -123,6 +169,84 @@ int main(void)
   MX_TIM8_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
+  // TIM3->CCR1=77; // 64%
+  // TIM3->CCR1=38; // 32%
+  /*
+  uint8_t rgb[RGB_LEN+1] = {
+    // 1
+    58, 58, 58, 58, 58, 58, 58, 58,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    // 2
+    22, 22, 22, 22, 22, 22, 22, 22,
+    58, 58, 58, 58, 58, 58, 58, 58,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    // 3
+    22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    58, 58, 58, 58, 58, 58, 58, 58,
+    // 4
+    58, 58, 58, 58, 58, 58, 58, 58,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    // 5
+    22, 22, 22, 22, 22, 22, 22, 22,
+    58, 58, 58, 58, 58, 58, 58, 58,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    // 6
+    22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    58, 58, 58, 58, 58, 58, 58, 58,
+    // 7
+    58, 58, 58, 58, 58, 58, 58, 58,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    // 8
+    22, 22, 22, 22, 22, 22, 22, 22,
+    58, 58, 58, 58, 58, 58, 58, 58,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    // 9
+    22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    58, 58, 58, 58, 58, 58, 58, 58,
+    // 10
+    58, 58, 58, 58, 58, 58, 58, 58,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    22, 22, 22, 22, 22, 22, 22, 22,
+    0
+  };
+  */
+  uint8_t rgb[RGB_LEN + 1] = {0};
+  for(int i = 0; i < RGB_LEN; i++) {
+    rgb[i] = bitHightimercount;
+  }
+  rgb[RGB_LEN] = 0;
+  // for (int i = 0; i < numberofpixels; ++i) {
+  //     loadArrayOnePixel(0,0,255, &rgb, i);
+  // }
+
+	uint8_t counter=0;
+	uint8_t flag=0;
+
+  while(1) {
+    HAL_TIM_PWM_Stop_DMA(&htim3, TIM_CHANNEL_1);
+    for (int i = 0; i < numberofpixels; ++i) {
+        loadArrayOnePixel(counter,0,counter, &rgb, i);
+    }
+    HAL_TIM_PWM_Start_DMA(&htim3, TIM_CHANNEL_1, rgb, sizeof(uint8_t) * RGB_LEN+1);
+
+		if(counter==0xFF){flag=0;}
+
+		if(counter==0x00){flag=1;}
+
+		if(flag){
+			counter++;
+		}else{
+			counter--;
+		}
+
+    HAL_Delay(10);
+  }
   // port_main();
   entry();
 
@@ -173,12 +297,12 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_2) != HAL_OK)
   {
     Error_Handler();
   }
@@ -517,6 +641,7 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 0 */
 
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
   TIM_OC_InitTypeDef sConfigOC = {0};
 
@@ -526,9 +651,18 @@ static void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
+  htim3.Init.Period = 119;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim3, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)
   {
     Error_Handler();
@@ -684,6 +818,9 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel1_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel1_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel1_IRQn);
+  /* DMA1_Channel2_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel2_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel2_IRQn);
   /* DMA1_Channel4_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel4_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel4_IRQn);
@@ -739,19 +876,25 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin : DI1_Pin */
   GPIO_InitStruct.Pin = DI1_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(DI1_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : DI2_Pin DI3_Pin DI4_Pin */
   GPIO_InitStruct.Pin = DI2_Pin|DI3_Pin|DI4_Pin;
-  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_PULLDOWN;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI2_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI9_5_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI9_5_IRQn);
+
+  HAL_NVIC_SetPriority(EXTI15_10_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 }
 

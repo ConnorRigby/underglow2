@@ -87,6 +87,8 @@ pub const Name = enum(u8) {
     RegTemp2 = 0x4F,
     RegTestLna = 0x58,
     RegTestTcxo = 0x59,
+    RegTestPa1 = 0x5A,
+    RegTestPa2 = 0x5C,
     RegTestPIIBW = 0x5F,
     RegTestDagc = 0x6F,
     RegTestAfc = 0x71,
@@ -148,7 +150,7 @@ pub const Value = union(Name) {
     // },
     RegFdevMsb: u8,
     RegFdevLsb: u8,
-    
+
     // RegFrf: u24,
     RegFrfMsb: u8,
     RegFrMid: u8,
@@ -347,12 +349,13 @@ pub const Value = union(Name) {
     },
     RegAfc: u16,
     RegFei: u16,
-    RegRssiConfig: packed struct {
-        //
-        start: u1,
-        done: u1,
-        reserved: u6 = 0,
-    },
+    // RegRssiConfig: packed struct {
+    //     //
+    //     reserved: u6 = 0,
+    //     done: u1,
+    //     start: u1,
+    // },
+    RegRssiConfig: u8,
     RegRssiValue: u8,
     // RegDioMapping1: packed struct {
     //     //
@@ -463,6 +466,8 @@ pub const Value = union(Name) {
     RegTemp2: u8,
     RegTestLna: u8,
     RegTestTcxo: u8,
+    RegTestPa1: u8,
+    RegTestPa2: u8,
     RegTestPIIBW: u8,
     RegTestDagc: u8,
     RegTestAfc: u8,
@@ -474,15 +479,14 @@ pub const Value = union(Name) {
     }
 };
 
-    pub fn get_size(comptime name: Name) usize {
-        return switch (name) {
-
-            inline else => |tag| blk: {
-                const T = std.meta.TagPayload(Value, tag);
-                break :blk @sizeOf(T);
-            },
-        };
-    }
+pub fn get_size(comptime name: Name) usize {
+    return switch (name) {
+        inline else => |tag| blk: {
+            const T = std.meta.TagPayload(Value, tag);
+            break :blk @sizeOf(T);
+        },
+    };
+}
 
 test {
     std.testing.refAllDeclsRecursive(@This());
@@ -517,7 +521,7 @@ pub fn handle_write(value: Value, buffer: []u8) void {
             inline else => @compileError("invalid type" ++ @typeName(@TypeOf(tag))),
         },
     }
-    std.log.info("write {x}={x}", .{@enumToInt(@as(Name, value)), std.fmt.fmtSliceHexLower(buffer[1..])});
+    std.log.info("write {x}={x}", .{ @enumToInt(@as(Name, value)), std.fmt.fmtSliceHexLower(buffer[1..]) });
 }
 
 test {

@@ -50,7 +50,7 @@ var irq_ready: bool = false;
 
 export fn HAL_GPIO_EXTI_Callback(gpio: u16) callconv(.C) void {
     std.log.info("gpio irq: {d}", .{gpio});
-    irq_ready = true;
+    if (gpio == 4) irq_ready = true;
 }
 
 /// Main entry point, called from main.c
@@ -82,22 +82,35 @@ export fn entry() callconv(.C) void {
 
     var reset = hal.gpio.initDefault(.B, .@"0");
 
-    var radio = rf69.Rf69.init(&spi1, &reset, &nss);
+    var radio = rf69.Rf69.init(&spi1, &reset, &nss, 4);
     radio.reset();
-    radio.write_register(.{.RegDioMapping1 = 0x40});
-    radio.set_mode(.Rx);
+    var payload = [_]u8{ 'a', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd' };
+    radio.send(0x02, &payload, false, false);
+
+    // var di1 = hal.gpio.initDefault(.C, .@"6");
+    // var di2 = hal.gpio.initDefault(.A, .@"8");
+    // var di3 = hal.gpio.initDefault(.A, .@"9");
+    // var di4 = hal.gpio.initDefault(.A, .@"15");
 
     while (true) {
-        if(irq_ready) {
-        rx.write(.Reset);
-    radio.write_register(.{.RegDioMapping1 = 0x40});
-    radio.set_mode(.Standby);
-    radio.set_mode(.Rx);
-
-        rx.write(.Set);
+        if (irq_ready) {
+            rx.write(.Reset);
+            radio.service_interrupt();
+            rx.write(.Set);
             irq_ready = false;
         }
-        hal.delay(1000);
+        if (radio.receive_done()) |packet| {
+            std.log.info("received packet: {any}", .{packet});
+            // std.log.info("payload: {x}", .{std.fmt.fmtSliceHexLower(packet.payload)});
+            // std.log.info("payload: {s}", .{packet.payload});
+            std.log.info("rssi={d}", .{radio.rssi});
+            // var payload = [_]u8{'h'};
+            radio.send(0x03, &payload, false, false);
+        }
+        hal.delay(250);
+        // std.log.info("di1={any} di2={any} di3={any} di4={any}", .{ di1.read(), di2.read(), di3.read(), di4.read() });
+        // var payload = [_]u8{'h'};
+        // radio.send(0x02, &payload, false, false);
         // tx.write(.Reset);
         // rx.write(.Reset);
 

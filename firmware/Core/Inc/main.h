@@ -95,12 +95,16 @@ void entry_error_handler(void);
 #define CH1_B_GPIO_Port GPIOB
 #define DI1_Pin GPIO_PIN_6
 #define DI1_GPIO_Port GPIOC
+#define DI1_EXTI_IRQn EXTI9_5_IRQn
 #define DI2_Pin GPIO_PIN_8
 #define DI2_GPIO_Port GPIOA
+#define DI2_EXTI_IRQn EXTI9_5_IRQn
 #define DI3_Pin GPIO_PIN_9
 #define DI3_GPIO_Port GPIOA
+#define DI3_EXTI_IRQn EXTI9_5_IRQn
 #define DI4_Pin GPIO_PIN_15
 #define DI4_GPIO_Port GPIOA
+#define DI4_EXTI_IRQn EXTI15_10_IRQn
 #define CH2_B_Pin GPIO_PIN_10
 #define CH2_B_GPIO_Port GPIOC
 #define CH2_G_Pin GPIO_PIN_11
