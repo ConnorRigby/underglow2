@@ -1,3 +1,6 @@
 fp-info-cache
 *-backups
 *.bak
+/firmware_f4
+underglow2-dongle
+underglow2-remote
