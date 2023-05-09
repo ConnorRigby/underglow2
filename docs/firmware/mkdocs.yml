@@ -1,0 +1,12 @@
+site_name: coneRGB
+site_url: https://connorrigby.github.io/underglow2/
+nav:
+    - Home: index.md
+    - BLE: ble.md
+    - CAN: can.md
+    - Bootloader: bootloader.md
+theme: readthedocs
+plugins:
+   - plantuml:
+        puml_url: https://www.plantuml.com/plantuml/
+        num_workers: 8

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://connorrigby.github.io/underglow2/bootloader/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Bootloader - coneRGB</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Bootloader";
+        var mkdocs_page_input_path = "bootloader.md";
+        var mkdocs_page_url = "/underglow2/bootloader/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> coneRGB
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../ble/">BLE</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../can/">CAN</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Bootloader</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#over-the-air-update-procedure">Over The Air Update Procedure</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">coneRGB</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Bootloader</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="conergb-stm32-bootloader">coneRGB STM32 Bootloader</h1>
+<p>To facilitate over the air updates, coneRGB implements a custom bootloader.</p>
+<div class="puml"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="269px" preserveAspectRatio="true" style="background: #ffffff" version="1.1" viewBox="0 0 516 269" width="516px" zoomAndPan="magnify"><defs/><g><ellipse cx="203" cy="16" fill="#222222" rx="10" ry="10" style="stroke:none;stroke-width:1.0;"/><rect fill="#F1F1F1" height="33.9688" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="116" x="145" y="67"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="96" x="155" y="88.1387">Power On Reset</text><g id="elem_#5"><polygon fill="#F1F1F1" points="203,147,215,159,203,171,191,159,203,147" style="stroke:#181818;stroke-width:0.5;"/></g><rect fill="#F1F1F1" height="33.9688" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="122" x="7" y="142"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="102" x="17" y="163.1387">Enter Bootloader</text><rect fill="#F1F1F1" height="33.9688" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="154" x="27" y="230"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="134" x="37" y="251.1387">copy update into flash</text><ellipse cx="357" cy="247" fill="none" rx="10" ry="10" style="stroke:#222222;stroke-width:1.0;"/><ellipse cx="357.5" cy="247.5" fill="#222222" rx="6" ry="6" style="stroke:none;stroke-width:1.0;"/><rect fill="#F1F1F1" height="33.9688" rx="12.5" ry="12.5" style="stroke:#181818;stroke-width:0.5;" width="162" x="295" y="142"/><text fill="#000000" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="142" x="305" y="163.1387">Increment boot counter</text><g id="link_start_Power On Reset"><path d="M203,26.177 C203,35.269 203,49.527 203,61.485 " fill="none" id="start-to-Power On Reset" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="203,66.791,207,57.791,203,61.791,199,57.791,203,66.791" style="stroke:#181818;stroke-width:1.0;"/></g><g id="link_Power On Reset_#5"><path d="M203,101.201 C203,113.149 203,129.351 203,141.394 " fill="none" id="Power On Reset-to-#5" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="203,146.604,207,137.604,203,141.604,199,137.604,203,146.604" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="81" x="117.7122" y="131.4789">Update Status</text></g><g id="link_Enter Bootloader_#5"><path d="M134.38,159 C156.034,159 177.842,159 190.886,159 " fill="none" id="Enter Bootloader-backto-#5" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="129.18,159,138.18,163,134.18,159,138.18,155,129.18,159" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="40" x="140" y="153.2104">started</text></g><g id="link_Enter Bootloader_copy update into flash"><path d="M74.7713,176.1759 C80.5539,189.9898 88.9106,209.9531 95.2088,224.9987 " fill="none" id="Enter Bootloader-to-copy update into flash" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="97.259,229.8966,97.4735,220.0501,95.3283,225.2844,90.094,223.1392,97.259,229.8966" style="stroke:#181818;stroke-width:1.0;"/></g><g id="link_copy update into flash_end"><path d="M181.283,247 C237.92,247 310.15,247 341.416,247 " fill="none" id="copy update into flash-to-end" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="346.764,247,337.764,243,341.764,247,337.764,251,346.764,247" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="140" x="194" y="241.2104">jump to main application</text></g><g id="link_#5_Increment boot counter"><path d="M215.165,159 C231.087,159 260.429,159 289.735,159 " fill="none" id="#5-to-Increment boot counter" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="294.818,159,285.818,155,289.818,159,285.818,163,294.818,159" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="58" x="226" y="153.2104">no update</text></g><g id="link_Increment boot counter_end"><path d="M372.426,176.1759 C368.903,192.1231 363.569,216.2657 360.187,231.5766 " fill="none" id="Increment boot counter-to-end" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="359.036,236.7863,364.8838,228.8614,360.1149,231.9041,357.0722,227.1352,359.036,236.7863" style="stroke:#181818;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="140" x="368" y="207.2104">jump to main application</text></g></g></svg></div>
+
+<h2 id="over-the-air-update-procedure">Over The Air Update Procedure</h2>
+<ul>
+<li>Initiate a firmware update over a supported transport (BLE, CAN)</li>
+<li>Write the entire update binary</li>
+<li>Initiate a reset</li>
+<li>The bootloader will now copy the update payload into flash</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../can/" class="btn btn-neutral float-left" title="CAN"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../can/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

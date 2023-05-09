@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://connorrigby.github.io/underglow2/ble/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>BLE - coneRGB</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "BLE";
+        var mkdocs_page_input_path = "ble.md";
+        var mkdocs_page_url = "/underglow2/ble/";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> coneRGB
+        </a>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">BLE</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#implemented-services">Implemented Services</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#rgb-channel-1-and-2">RGB Channel 1 and 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#nzr-neopixel">NZR (Neopixel)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rgb">RGB</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sync-config">Sync Config</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#network-id">Network ID</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#role">Role</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#status">Status</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#node-id">Node ID</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#programmable-input">Programmable Input</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#proogrammable-input-channel-config">Proogrammable Input Channel Config</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../can/">CAN</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../bootloader/">Bootloader</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">coneRGB</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>BLE</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="conergb-ble-profile">coneRGB BLE Profile</h1>
+<h2 id="implemented-services">Implemented Services</h2>
+<p>Each service is based on a root UUID: <code>000069XY-0000-1000-8000-00805F9B34FB</code></p>
+<p>Where XY encodes the <code>Service</code> and <code>Characteristic</code> respectively.</p>
+<table>
+<thead>
+<tr>
+<th>service</th>
+<th>characteristic</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00006910</td>
+<td></td>
+<td><a href="#rgb-channel-1-and-2">RGB Channel 1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006911</td>
+<td><a href="#nzr-neopixel">NZR Channel 1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006912</td>
+<td><a href="#rgb">RGB Channel 1</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>00006920</td>
+<td></td>
+<td><a href="#rgb-channel-1-and-2">RGB Channel 2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006921</td>
+<td><a href="#nzr-neopixel">NZR Channel 2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006922</td>
+<td><a href="#rgb">RGB Channel 2</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>00006930</td>
+<td></td>
+<td><a href="#sync-config">sync config</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006931</td>
+<td><a href="#network-id">Network ID</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006932</td>
+<td><a href="#role">Role</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006933</td>
+<td><a href="#status">Status</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006934</td>
+<td><a href="#node-id">Node ID</a></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>00006940</td>
+<td></td>
+<td><a href="#programmable-input">Programmable Input Config</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006941</td>
+<td><a href="#proogrammable-input-channel-config">Programmable Input 1</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006942</td>
+<td><a href="#proogrammable-input-channel-config">Programmable Input 2</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006943</td>
+<td><a href="#proogrammable-input-channel-config">Programmable Input 3</a></td>
+</tr>
+<tr>
+<td></td>
+<td>00006944</td>
+<td><a href="#proogrammable-input-channel-config">Programmable Input 4</a></td>
+</tr>
+</tbody>
+</table>
+<h2 id="rgb-channel-1-and-2">RGB Channel 1 and 2</h2>
+<p>These services are both exactly the same, the only difference is the hardware configuration on the device.</p>
+<h3 id="nzr-neopixel">NZR (Neopixel)</h3>
+<p><strong>Payload size</strong>: 4 bytes</p>
+<table>
+<thead>
+<tr>
+<th>byte</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>pattern</td>
+<td>Red</td>
+<td>Green</td>
+<td>Blue</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>id</th>
+<th>pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x00</td>
+<td>off</td>
+</tr>
+<tr>
+<td>0x01</td>
+<td>rainbow</td>
+</tr>
+<tr>
+<td>0x02</td>
+<td>snake</td>
+</tr>
+<tr>
+<td>0x03</td>
+<td>fill</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rgb">RGB</h3>
+<p><strong>Payload size</strong>: 3 bytes</p>
+<table>
+<thead>
+<tr>
+<th>byte</th>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>red</td>
+<td>green</td>
+<td>blue</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sync-config">Sync Config</h2>
+<h3 id="network-id">Network ID</h3>
+<h3 id="role">Role</h3>
+<h3 id="status">Status</h3>
+<h3 id="node-id">Node ID</h3>
+<h2 id="programmable-input">Programmable Input</h2>
+<h3 id="proogrammable-input-channel-config">Proogrammable Input Channel Config</h3>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../can/" class="btn btn-neutral float-right" title="CAN">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../can/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
