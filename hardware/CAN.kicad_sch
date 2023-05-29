@@ -2,7 +2,7 @@
 
   (uuid 139ec05e-a9eb-4214-881f-e7003f910248)
 
-  (paper "A4")
+  (paper "A5")
 
   (title_block
     (title "coneRGB2")
