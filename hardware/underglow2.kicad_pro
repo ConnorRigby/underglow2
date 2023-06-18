@@ -34,9 +34,9 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 1.0,
-          "height": 1.524003,
-          "width": 1.524003
+          "drill": 3.8,
+          "height": 3.8,
+          "width": 3.8
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -45,7 +45,6 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "45_degree_only": false,
           "min_clearance": 0.3
         }
       },
@@ -111,8 +110,6 @@
         "zones_intersect": "error"
       },
       "rules": {
-        "allow_blind_buried_vias": false,
-        "allow_microvias": false,
         "max_error": 0.005,
         "min_clearance": 0.15,
         "min_connection": 0.0,
@@ -141,7 +138,7 @@
           "td_on_pad_in_zone": false,
           "td_onpadsmd": true,
           "td_onroundshapesonly": false,
-          "td_ontrackend": true,
+          "td_ontrackend": false,
           "td_onviapad": true
         }
       ],
@@ -193,19 +190,10 @@
           "drill": 0.0
         }
       ],
-      "zones_allow_external_fillets": true,
-      "zones_use_no_outline": true
+      "zones_allow_external_fillets": true
     },
     "layer_presets": [],
-    "viewports": [
-      {
-        "h": 16865934.3207592,
-        "name": "color",
-        "w": 44028753.27462227,
-        "x": 46295698.59228196,
-        "y": 60277108.06917208
-      }
-    ]
+    "viewports": []
   },
   "boards": [],
   "cvpcb": {
@@ -415,7 +403,7 @@
       "pin_to_pin": "error",
       "power_pin_not_driven": "error",
       "similar_labels": "warning",
-      "simulation_model_issue": "ignore",
+      "simulation_model_issue": "error",
       "unannotated": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
@@ -423,27 +411,8 @@
     }
   },
   "libraries": {
-    "pinned_footprint_libs": [
-      "Button",
-      "LCSC_Antenna",
-      "LCSC_Microcontroller"
-    ],
-    "pinned_symbol_libs": [
-      "LCSC_Capacitor",
-      "LCSC_Crystal",
-      "LCSC_DCDC_Converter",
-      "LCSC_Fuse",
-      "LCSC_Inductor",
-      "LCSC_LED",
-      "LCSC_Microcontroller",
-      "LCSC_MOSFET",
-      "LCSC_Power_Inductor",
-      "LCSC_Regulator",
-      "LCSC_Resistor",
-      "LCSC_RF_Transciever_ICs",
-      "LCSC_Transistor",
-      "LCSC_Antenna"
-    ]
+    "pinned_footprint_libs": [],
+    "pinned_symbol_libs": []
   },
   "meta": {
     "filename": "underglow2.kicad_pro",
@@ -453,7 +422,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -470,7 +439,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -487,7 +456,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -504,7 +473,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -521,7 +490,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -538,7 +507,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -555,7 +524,7 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -572,34 +541,17 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.18,
+        "clearance": 0.2,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "SPI",
+        "name": "RF",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
-        "via_diameter": 0.8,
-        "via_drill": 0.4,
-        "wire_width": 6
-      },
-      {
-        "bus_width": 12,
-        "clearance": 0.18,
-        "diff_pair_gap": 0.25,
-        "diff_pair_via_gap": 0.25,
-        "diff_pair_width": 0.2,
-        "line_style": 0,
-        "microvia_diameter": 0.3,
-        "microvia_drill": 0.1,
-        "name": "UART",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.2,
+        "track_width": 0.3,
         "via_diameter": 0.8,
         "via_drill": 0.4,
         "wire_width": 6
@@ -610,57 +562,32 @@
     },
     "net_colors": null,
     "netclass_assignments": {
-      "/Application/B_PWM": "PWM",
-      "/Application/CAN_RX": "CAN",
-      "/Application/CAN_TX": "CAN",
-      "/Application/G_PWM": "PWM",
-      "/Application/HCI.CTS": "UART",
-      "/Application/HCI.RTS": "UART",
-      "/Application/HCI.RX": "UART",
-      "/Application/HCI.TX": "UART",
-      "/Application/JT.DO": "JTAG",
-      "/Application/NZR1_PWM": "PWM",
-      "/Application/NZR2_PWM": "PWM",
-      "/Application/PI1": "GPIO",
-      "/Application/PI2": "GPIO",
-      "/Application/PI3": "GPIO",
-      "/Application/PI4": "GPIO",
-      "/Application/RCC_OSC32_IN": "RCC",
-      "/Application/RCC_OSC32_OUT": "RCC",
-      "/Application/RCC_OSC_IN": "RCC",
-      "/Application/RCC_OSC_OUT": "RCC",
-      "/Application/RX_LED": "GPIO",
-      "/Application/R_PWM": "PWM",
-      "/Application/TX_LED": "GPIO",
-      "/BLE/FLASH_HOLD": "SPI",
-      "/BLE/FLASH_SCK": "SPI",
-      "/BLE/FLASH_WP": "SPI",
-      "/BLE/RCC_OSC32_IN": "RCC",
-      "/BLE/RCC_OSC32_OUT": "RCC",
-      "/BLE/RCC_OSC_IN": "RCC",
-      "/BLE/RCC_OSC_OUT": "RCC",
-      "/BLE/SPI1.MISO": "SPI",
-      "/BLE/SPI1.MOSI": "SPI",
-      "/BLE/SPI1.NSS": "SPI",
-      "/BLE/SPI1.SCK": "SPI",
-      "/B_PWM_OUT": "PWM",
-      "/Debugger/VCP.RX": "UART",
-      "/Debugger/VCP.TX": "UART",
-      "/G_PWM_OUT": "PWM",
-      "/JT.CK": "JTAG",
-      "/JT.DI": "JTAG",
-      "/JT.DO": "JTAG",
-      "/JT.MS": "JTAG",
-      "/JT.RST": "JTAG",
-      "/JT{MS DI DO CK RST}": "JTAG",
-      "/NZR1_OUT": "PWM",
-      "/NZR2_OUT": "PWM",
-      "/R_PWM_OUT": "PWM",
-      "/VCP1.RX": "UART",
-      "/VCP1.TX": "UART",
-      "/VCP2.RX": "UART",
-      "/VCP2.TX": "UART",
-      "/~{RESET}": "GPIO"
+      "/B_GATE": "PWM",
+      "/CAN_H": "CAN",
+      "/CAN_L": "CAN",
+      "/CAN_RXD": "CAN",
+      "/CAN_TXD": "CAN",
+      "/EN": "GPIO",
+      "/G_GATE": "PWM",
+      "/JTRST": "JTAG",
+      "/LNA_IN": "RF",
+      "/MTCK": "JTAG",
+      "/MTDI": "JTAG",
+      "/MTDO": "JTAG",
+      "/MTMS": "JTAG",
+      "/NRZ1": "PWM",
+      "/PI1_DIV": "GPIO",
+      "/PI2_DIV": "GPIO",
+      "/PI3_DIV": "GPIO",
+      "/PI4_DIV": "GPIO",
+      "/RF_ANT": "RF",
+      "/R_GATE": "PWM",
+      "/VCP_RX": "UART",
+      "/VCP_TX": "UART",
+      "/V_GATE": "PWM",
+      "/XTAL_N": "RCC",
+      "/XTAL_P": "RCC",
+      "/_XTAL_P": "RCC"
     },
     "netclass_patterns": []
   },
@@ -670,8 +597,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "underglow2.step",
-      "vrml": "underglow2.wrl"
+      "step": "",
+      "vrml": ""
     },
     "page_layout_descr_file": ""
   },
@@ -699,18 +626,8 @@
       "version": 1
     },
     "net_format_name": "",
-    "ngspice": {
-      "fix_include_paths": true,
-      "fix_passive_vals": false,
-      "meta": {
-        "version": 0
-      },
-      "model_mode": 0,
-      "workbook_filename": ""
-    },
     "page_layout_descr_file": "",
-    "plot_directory": "./",
-    "spice_adjust_passive_values": false,
+    "plot_directory": "",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
@@ -721,36 +638,8 @@
   },
   "sheets": [
     [
-      "dcbdf88a-d6ac-4b1d-9514-0b0ce113d90b",
+      "a5fd29c3-15b2-4640-b24d-0c295022c79f",
       ""
-    ],
-    [
-      "51e4e0b8-920f-4548-a9c8-d97d830c9625",
-      "Power"
-    ],
-    [
-      "d698d388-4189-4a55-a8ce-744fe305194e",
-      "RGB"
-    ],
-    [
-      "d5721a02-112a-4ac6-b068-821a8e1fc3da",
-      "CAN"
-    ],
-    [
-      "f11066f7-65e1-4360-b792-c6d8a0045fba",
-      "Application"
-    ],
-    [
-      "f6dd0682-1649-403c-b931-941640049f3a",
-      "BLE"
-    ],
-    [
-      "3a8e0646-c833-45b3-b944-10815ae65a47",
-      "Digital Input"
-    ],
-    [
-      "9418424b-eb9c-479e-91b0-89b970f1e2a8",
-      "Debugger"
     ]
   ],
   "text_variables": {}
