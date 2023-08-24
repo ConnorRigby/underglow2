@@ -1,0 +1,32 @@
+Item;Qty;Reference(s);Value;LibPart;Footprint;Datasheet;DNP;Capacitance;Color;Frequency;LCSC;MOSFET_TYPE;MPN;Resistance;Sim.Enable;Temperature;Tolerance;Voltage
+1;1;AE101;Antenna_Chip;Device:Antenna_Chip;LCSC_Antenna:ANT-SMD_L3.2-W1.6;~;;;;;C293767;;;;;;;
+2;1;C1;22uF;Device:C_Polarized_Small;Capacitor_SMD:CP_Elec_4x5.4;~;;;;;C72502;;RVT1C220M0405;;;;;
+3;3;C2, C108, C117;C_0805_10u_X5R;LCSC_Capacitor:C_0805_10u_X5R;Capacitor_SMD:C_0805_2012Metric;https://datasheet.lcsc.com/lcsc/1810201234_Murata-Electronics-GRM21BR6YA106KE43L_C162422.pdf;;10uF;;;C162422;;GRM21BR6YA106KE43L;;;X5R;10%;35V
+4;2;C3, C116;4.7uF;Device:C_Small;Capacitor_SMD:C_0805_2012Metric;~;;;;;C2857997;;;;;;;
+5;8;C103, C109, C110, C114, C115, C118, C119, C120;C_0402_100nf_X7R;LCSC_Capacitor:C_0402_100nf_X7R;Capacitor_SMD:C_0402_1005Metric;https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf;;100nf;;;C110251;;0402B104K500NT;;;X7R;;50V
+6;4;C104, C105, C111, C112;C_0402_DNP;LCSC_Capacitor:C_0402_DNP;Capacitor_SMD:C_0402_1005Metric;~;;18pF;;;C106202;;;;;;;
+7;2;C106, C113;C_0805_1u_X7R;LCSC_Capacitor:C_0805_1u_X7R;Capacitor_SMD:C_0805_2012Metric;https://datasheet.lcsc.com/lcsc/1809221221_Samsung-Electro-Mechanics-CL21B105KOFNNNE_C24123.pdf;;1uF;;;C24123;;CL21B105KOFNNNE;;;X7R;10%;16V
+8;1;C107;C_0402_10n_C0G;LCSC_Capacitor:C_0402_10n_C0G;Capacitor_SMD:C_0402_1005Metric;https://datasheet.lcsc.com/lcsc/2107290630_Murata-Electronics-GRM1555CYA103JE01D_C1518210.pdf;;10nf;;;C1518210;;GRM1555CYA103JE01D;;;C0G;±5%;35V
+9;4;D101, D104, D105, D106;LED_0603_RED;LCSC_LED:LED_0603_RED;LED_SMD:LED_0603_1608Metric;https://datasheet.lcsc.com/lcsc/1912111437_MEIHUA-MHT192CRCT_C389517.pdf;;;Red;;C389517;;MHT192CRCT;;;;;
+10;7;D102, D107, D108, D109, D110, D111, D112;1N5819WS;Diode:1N5819WS;Diode_SMD:D_SOD-323;https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf;;;;;C2927280;;;;;;;
+11;1;FB101;70mΩ ±25% 330Ω@100MH;Device:FerriteBead_Small;Inductor_SMD:L_0805_2012Metric;~;;;;;C74764;;;;;;;
+12;1;J102; ZE05H-16DP-2H;Connector_Generic_MountingPin:Conn_01x16_MountingPin;LCSC_Connector:ZE05H-16DP-2H;~;;;;;C5242960;;;;;;;
+13;1;J103;ZE05-16DS-HU/R;Connector_Generic_MountingPin:Conn_01x16_MountingPin;LCSC_Connector:ZE05H-16DP-2H;~;;;;;C3267442;;;;0;;;
+14;1;L101;2nH;Device:L_Small;Inductor_SMD:L_0402_1005Metric;https://datasheet.lcsc.com/lcsc/2304140030_Chilisin-Elec-CLH1005T-2N0S-S-NP_C142239.pdf;;;;;C142239;;;;;;;
+15;1;L102;2.2nH;Device:L_Small;Inductor_SMD:L_0402_1005Metric;https://datasheet.lcsc.com/lcsc/2304140030_Chilisin-Elec-CLH1005T-2N2S-S-NP_C142238.pdf;;;;;C142238;;;;;;;
+16;1;Q101;AO3401A;Transistor_FET:AO3401A;Package_TO_SOT_SMD:SOT-23;http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf;;;;;C306862;P-Channel;;;;;;
+17;3;Q102, Q103, Q104;AO3400A;Transistor_FET:AO3400A;Package_TO_SOT_SMD:SOT-23;http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf;;;;;C344010;N-Channel;;;;;;
+18;4;R101, R108, R109, R110;100;LCSC_Resistor:R_0805_DNP;Resistor_SMD:R_0805_2012Metric;~;;;;;C17408;;;;;;;
+19;4;R102, R113, R115, R116;R_0805_10k;LCSC_Resistor:R_0805_10k;Resistor_SMD:R_0805_2012Metric;https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0805W8F1002T5E_C17414.pdf;;;;;C17414;;0805W8F1002T5E;10kΩ;;;;
+20;4;R103, R114, R117, R118;1k;LCSC_Resistor:R_0603_DNP;Resistor_SMD:R_0603_1608Metric;~;;;;;C21190;;;;;;;
+21;4;R104, R105, R106, R107;100;LCSC_Resistor:R_0603_DNP;Resistor_SMD:R_0603_1608Metric;~;;;;;C22775;;;;;;;
+22;1;R111;220;LCSC_Resistor:R_0805_DNP;Resistor_SMD:R_0805_2012Metric;~;;;;;C107696;;;;;;;
+23;4;R119, R123, R124, R125;R_0402_1k;LCSC_Resistor:R_0402_1k;Resistor_SMD:R_0402_1005Metric;https://datasheet.lcsc.com/lcsc/2004211032_Resistor-Today-PTFR0402B1K00P9_C478866.pdf;;;;;C478866;;PTFR0402B1K00P9;1kΩ;;;;
+24;1;R121;0R;LCSC_Resistor:R_0402_DNP;Resistor_SMD:R_0402_1005Metric;~;;;;;C17168;;;;;;;
+25;1;R122;R_0402_499;LCSC_Resistor:R_0402_499;Resistor_SMD:R_0402_1005Metric;https://datasheet.lcsc.com/lcsc/2202281730_YAGEO-RT0402BRD07499RL_C852807.pdf;;;;;C852807;;RT0402BRD07499RL;499Ω;;;;
+26;16;T101, T102, T103, T104, T105, T106, T107, T108, T109, T110, T111, T112, T113, T114, T115, T116; ZE05-2022SCF;Connector:Conn_01x01_Pin;;~;;;;;C570453;;;;0;;;
+27;1;U1;SPX3819M5-L-3-3/TR;Regulator_Linear:SPX3819M5-L-3-3;Package_TO_SOT_SMD:SOT-23-5;https://datasheet.lcsc.com/lcsc/2304140030_MaxLinear-SPX3819M5-L-3-3-TR_C9055.pdf;;;;;C9055;;;;;;;
+28;1;U101;ESP32-C3FH4;LCSC_Microcontroller:ESP32-C3FH4;LCSC_Microcontroller:QFN50P500X500X90-33N;https://www.mouser.com/datasheet/2/891/esp32_c3_datasheet_en-1989865.pdf;;;;;C2858491;;;;;;;
+29;1;U102;SN65HVD230;Interface_CAN_LIN:SN65HVD230;Package_SO:SOIC-8_3.9x4.9mm_P1.27mm;http://www.ti.com/lit/ds/symlink/sn65hvd230.pdf;;;;;C12084;;;;;;;
+30;1;U103;SPX1117M3-L-5-0/TR ;Regulator_Linear:AP1117-50;Package_TO_SOT_SMD:SOT-223-3_TabPin2;https://datasheet.lcsc.com/lcsc/2304140030_MaxLinear-SPX1117M3-L-5-0-TR_C21946.pdf;;;;;C21946;;;;;;;
+31;1;Y101;40_Mhz;LCSC_Crystal:40_Mhz;Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm;https://datasheet.lcsc.com/lcsc/2110101030_Shenzhen-SCTF-Elec-SX3B40-000F1210F30_C2901712.pdf;;;;40Mhz;C2901712;;SX3B40.000F1210F30;;;;;

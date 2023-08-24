@@ -597,7 +597,7 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "underglow2.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
