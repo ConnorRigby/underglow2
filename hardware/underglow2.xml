@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\konno\Desktop\workspace\connorrigby\underglow2\hardware\underglow2.kicad_sch</source>
-    <date>8/24/2023 2:26:22 PM</date>
+    <date>8/25/2023 8:19:05 AM</date>
     <tool>Eeschema 7.0.5</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -27,11 +27,14 @@
     <comp ref="AE101">
       <value>Antenna_Chip</value>
       <footprint>LCSC_Antenna:ANT-SMD_L3.2-W1.6</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/1810241140_YAGEO-ANT3216LL00R2400A_C293767.pdf</datasheet>
       <fields>
         <field name="LCSC">C293767</field>
+        <field name="MPN">C293767</field>
       </fields>
       <libsource lib="Device" part="Antenna_Chip" description="Ceramic chip antenna with pin for PCB trace"/>
       <property name="LCSC" value="C293767"/>
+      <property name="MPN" value="C293767"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Ceramic chip antenna with pin for PCB trace"/>
@@ -42,6 +45,7 @@
     <comp ref="C1">
       <value>22uF</value>
       <footprint>Capacitor_SMD:CP_Elec_4x5.4</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_ROQANG-RVT1C220M0405_C72502.pdf</datasheet>
       <fields>
         <field name="LCSC">C72502</field>
         <field name="MPN">RVT1C220M0405</field>
@@ -85,11 +89,14 @@
     <comp ref="C3">
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2108150230_FH--Guangdong-Fenghua-Advanced-Tech-0805X475M160NT_C2857997.pdf</datasheet>
       <fields>
         <field name="LCSC">C2857997</field>
+        <field name="MPN">0805X475M160NT</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="LCSC" value="C2857997"/>
+      <property name="MPN" value="0805X475M160NT"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -122,15 +129,18 @@
       <tstamps>1a35374d-11d6-4c42-a0f8-8911def75ed7</tstamps>
     </comp>
     <comp ref="C104">
-      <value>C_0402_DNP</value>
+      <value>C_0402_18p_NP0</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_YAGEO-CC0402JRNPO9BN180_C106202.pdf</datasheet>
       <fields>
         <field name="Capacitance">18pF</field>
         <field name="LCSC">C106202</field>
+        <field name="MPN">CC0402JRNPO9BN180</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="18pF"/>
       <property name="LCSC" value="C106202"/>
+      <property name="MPN" value="CC0402JRNPO9BN180"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -139,15 +149,18 @@
       <tstamps>7b0b2afa-0687-47d4-bd64-a8e55ae0b1b0</tstamps>
     </comp>
     <comp ref="C105">
-      <value>C_0402_DNP</value>
+      <value>C_0402_18p_NP0</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_YAGEO-CC0402JRNPO9BN180_C106202.pdf</datasheet>
       <fields>
         <field name="Capacitance">18pF</field>
         <field name="LCSC">C106202</field>
+        <field name="MPN">CC0402JRNPO9BN180</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="18pF"/>
       <property name="LCSC" value="C106202"/>
+      <property name="MPN" value="CC0402JRNPO9BN180"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -282,16 +295,18 @@
       <tstamps>266d816a-4d32-423f-9b3f-d11ddaea787a</tstamps>
     </comp>
     <comp ref="C111">
-      <value>C_0402_DNP</value>
+      <value>C_0402_3p3_C0G</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Murata-Electronics-GJM1555C1H3R3WB01D_C88892.pdf</datasheet>
       <fields>
         <field name="Capacitance">3.3pF</field>
         <field name="LCSC">C88892</field>
+        <field name="MPN">GJM1555C1H3R3WB01D</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="3.3pF"/>
       <property name="LCSC" value="C88892"/>
+      <property name="MPN" value="GJM1555C1H3R3WB01D"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -300,16 +315,18 @@
       <tstamps>0edb245b-634b-4210-9d38-920e24144865</tstamps>
     </comp>
     <comp ref="C112">
-      <value>C_0402_DNP</value>
+      <value>C_0402_3p3_C0G</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Murata-Electronics-GJM1555C1H3R3WB01D_C88892.pdf</datasheet>
       <fields>
         <field name="Capacitance">3.3pF</field>
         <field name="LCSC">C88892</field>
+        <field name="MPN">GJM1555C1H3R3WB01D</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="3.3pF"/>
       <property name="LCSC" value="C88892"/>
+      <property name="MPN" value="GJM1555C1H3R3WB01D"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -394,11 +411,14 @@
     <comp ref="C116">
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2108150230_FH--Guangdong-Fenghua-Advanced-Tech-0805X475M160NT_C2857997.pdf</datasheet>
       <fields>
         <field name="LCSC">C2857997</field>
+        <field name="MPN">0805X475M160NT</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="LCSC" value="C2857997"/>
+      <property name="MPN" value="0805X475M160NT"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -531,9 +551,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
         <field name="LCSC">C2927280</field>
+        <field name="MPN">1N5819WS S4</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
       <property name="LCSC" value="C2927280"/>
+      <property name="MPN" value="1N5819WS S4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -610,9 +632,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
         <field name="LCSC">C2927280</field>
+        <field name="MPN">1N5819WS S4</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
       <property name="LCSC" value="C2927280"/>
+      <property name="MPN" value="1N5819WS S4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -626,9 +650,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
         <field name="LCSC">C2927280</field>
+        <field name="MPN">1N5819WS S4</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
       <property name="LCSC" value="C2927280"/>
+      <property name="MPN" value="1N5819WS S4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -642,9 +668,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
         <field name="LCSC">C2927280</field>
+        <field name="MPN">1N5819WS S4</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
       <property name="LCSC" value="C2927280"/>
+      <property name="MPN" value="1N5819WS S4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -658,9 +686,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
         <field name="LCSC">C2927280</field>
+        <field name="MPN">1N5819WS S4</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
       <property name="LCSC" value="C2927280"/>
+      <property name="MPN" value="1N5819WS S4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -674,9 +704,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
         <field name="LCSC">C2927280</field>
+        <field name="MPN">1N5819WS S4</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
       <property name="LCSC" value="C2927280"/>
+      <property name="MPN" value="1N5819WS S4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -690,9 +722,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
         <field name="LCSC">C2927280</field>
+        <field name="MPN">1N5819WS S4</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
       <property name="LCSC" value="C2927280"/>
+      <property name="MPN" value="1N5819WS S4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -703,11 +737,14 @@
     <comp ref="FB101">
       <value>70mΩ ±25% 330Ω@100MH</value>
       <footprint>Inductor_SMD:L_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Murata-Electronics-BLM21PG331SN1D_C74764.pdf</datasheet>
       <fields>
         <field name="LCSC">C74764</field>
+        <field name="MPN">BLM21PG331SN1D</field>
       </fields>
       <libsource lib="Device" part="FerriteBead_Small" description="Ferrite bead, small symbol"/>
       <property name="LCSC" value="C74764"/>
+      <property name="MPN" value="BLM21PG331SN1D"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Ferrite bead, small symbol"/>
@@ -718,11 +755,14 @@
     <comp ref="J102">
       <value> ZE05H-16DP-2H</value>
       <footprint>LCSC_Connector:ZE05H-16DP-2H</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2211031030_HRS-Hirose-ZE05H-16DP-2H_C5242960.pdf</datasheet>
       <fields>
         <field name="LCSC">C5242960</field>
+        <field name="MPN">ZE05H-16DP-2H</field>
       </fields>
       <libsource lib="Connector_Generic_MountingPin" part="Conn_01x16_MountingPin" description="Generic connectable mounting pin connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="LCSC" value="C5242960"/>
+      <property name="MPN" value="ZE05H-16DP-2H"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Generic connectable mounting pin connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
@@ -735,11 +775,13 @@
       <footprint>LCSC_Connector:ZE05H-16DP-2H</footprint>
       <fields>
         <field name="LCSC">C3267442</field>
+        <field name="MPN">ZE05-16DS-HU/R</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector_Generic_MountingPin" part="Conn_01x16_MountingPin" description="Generic connectable mounting pin connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="LCSC" value="C3267442"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-16DS-HU/R"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -754,9 +796,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Chilisin-Elec-CLH1005T-2N0S-S-NP_C142239.pdf</datasheet>
       <fields>
         <field name="LCSC">C142239</field>
+        <field name="MPN">CLH1005T-2N0S-S-NP</field>
       </fields>
       <libsource lib="Device" part="L_Small" description="Inductor, small symbol"/>
       <property name="LCSC" value="C142239"/>
+      <property name="MPN" value="CLH1005T-2N0S-S-NP"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Inductor, small symbol"/>
@@ -770,9 +814,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Chilisin-Elec-CLH1005T-2N2S-S-NP_C142238.pdf</datasheet>
       <fields>
         <field name="LCSC">C142238</field>
+        <field name="MPN">CLH1005T-2N2S-S-NP</field>
       </fields>
       <libsource lib="Device" part="L_Small" description="Inductor, small symbol"/>
       <property name="LCSC" value="C142238"/>
+      <property name="MPN" value="CLH1005T-2N2S-S-NP"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Inductor, small symbol"/>
@@ -787,10 +833,12 @@
       <fields>
         <field name="LCSC">C306862</field>
         <field name="MOSFET_TYPE">P-Channel</field>
+        <field name="MPN">AO3401A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3401A" description="-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"/>
       <property name="LCSC" value="C306862"/>
       <property name="MOSFET_TYPE" value="P-Channel"/>
+      <property name="MPN" value="AO3401A"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"/>
@@ -805,10 +853,12 @@
       <fields>
         <field name="LCSC">C344010</field>
         <field name="MOSFET_TYPE">N-Channel</field>
+        <field name="MPN">AO3400A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
       <property name="LCSC" value="C344010"/>
       <property name="MOSFET_TYPE" value="N-Channel"/>
+      <property name="MPN" value="AO3400A"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
@@ -823,10 +873,12 @@
       <fields>
         <field name="LCSC">C344010</field>
         <field name="MOSFET_TYPE">N-Channel</field>
+        <field name="MPN">AO3400A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
       <property name="LCSC" value="C344010"/>
       <property name="MOSFET_TYPE" value="N-Channel"/>
+      <property name="MPN" value="AO3400A"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
@@ -841,10 +893,12 @@
       <fields>
         <field name="LCSC">C344010</field>
         <field name="MOSFET_TYPE">N-Channel</field>
+        <field name="MPN">AO3400A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
       <property name="LCSC" value="C344010"/>
       <property name="MOSFET_TYPE" value="N-Channel"/>
+      <property name="MPN" value="AO3400A"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
@@ -853,13 +907,16 @@
       <tstamps>f9753855-389a-4963-9e1d-0682bf9b83f9</tstamps>
     </comp>
     <comp ref="R101">
-      <value>100</value>
+      <value>R_0805_100</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0805W8F1000T5E_C17408.pdf</datasheet>
       <fields>
         <field name="LCSC">C17408</field>
+        <field name="MPN">0805W8F1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
+      <property name="MPN" value="0805W8F1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -888,13 +945,16 @@
       <tstamps>300fd132-3e7b-4c7c-8579-e6b44b04ef79</tstamps>
     </comp>
     <comp ref="R103">
-      <value>1k</value>
+      <value>R_0603_1k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf</datasheet>
       <fields>
         <field name="LCSC">C21190</field>
+        <field name="MPN">0603WAF1001T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
+      <property name="MPN" value="0603WAF1001T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -903,13 +963,16 @@
       <tstamps>ca12eae9-052a-4d64-95b3-e29a4ee1d559</tstamps>
     </comp>
     <comp ref="R104">
-      <value>100</value>
+      <value>R_0603_100</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1000T5E_C22775.pdf</datasheet>
       <fields>
         <field name="LCSC">C22775</field>
+        <field name="MPN">0603WAF1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
+      <property name="MPN" value="0603WAF1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -918,13 +981,16 @@
       <tstamps>88b5aabc-3af3-41ef-a347-fb5fc953340e</tstamps>
     </comp>
     <comp ref="R105">
-      <value>100</value>
+      <value>R_0603_100</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1000T5E_C22775.pdf</datasheet>
       <fields>
         <field name="LCSC">C22775</field>
+        <field name="MPN">0603WAF1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
+      <property name="MPN" value="0603WAF1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -933,13 +999,16 @@
       <tstamps>6089b7c0-f7a6-400b-8478-54388e5e525b</tstamps>
     </comp>
     <comp ref="R106">
-      <value>100</value>
+      <value>R_0603_100</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1000T5E_C22775.pdf</datasheet>
       <fields>
         <field name="LCSC">C22775</field>
+        <field name="MPN">0603WAF1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
+      <property name="MPN" value="0603WAF1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -948,13 +1017,16 @@
       <tstamps>3ea5fb71-8e10-409f-9dce-66d22ecb53f9</tstamps>
     </comp>
     <comp ref="R107">
-      <value>100</value>
+      <value>R_0603_100</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1000T5E_C22775.pdf</datasheet>
       <fields>
         <field name="LCSC">C22775</field>
+        <field name="MPN">0603WAF1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
+      <property name="MPN" value="0603WAF1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -963,13 +1035,16 @@
       <tstamps>481e2748-30e5-484f-8c65-ea6b69a875f7</tstamps>
     </comp>
     <comp ref="R108">
-      <value>100</value>
+      <value>R_0805_100</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0805W8F1000T5E_C17408.pdf</datasheet>
       <fields>
         <field name="LCSC">C17408</field>
+        <field name="MPN">0805W8F1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
+      <property name="MPN" value="0805W8F1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -978,13 +1053,16 @@
       <tstamps>3292259c-d572-4dc2-bfc9-5088b62973a2</tstamps>
     </comp>
     <comp ref="R109">
-      <value>100</value>
+      <value>R_0805_100</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0805W8F1000T5E_C17408.pdf</datasheet>
       <fields>
         <field name="LCSC">C17408</field>
+        <field name="MPN">0805W8F1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
+      <property name="MPN" value="0805W8F1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -993,13 +1071,16 @@
       <tstamps>4f3745fa-df20-4cec-b504-5b33b8f38439</tstamps>
     </comp>
     <comp ref="R110">
-      <value>100</value>
+      <value>R_0805_100</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0805W8F1000T5E_C17408.pdf</datasheet>
       <fields>
         <field name="LCSC">C17408</field>
+        <field name="MPN">0805W8F1000T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
+      <property name="MPN" value="0805W8F1000T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1008,13 +1089,16 @@
       <tstamps>e68bee85-8998-439b-acd9-f7e71f5ff37c</tstamps>
     </comp>
     <comp ref="R111">
-      <value>220</value>
+      <value>R_0603_220</value>
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_YAGEO-RC0603FR-07220RL_C107696.pdf</datasheet>
       <fields>
         <field name="LCSC">C107696</field>
+        <field name="MPN">RC0603FR-07220RL</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C107696"/>
+      <property name="MPN" value="RC0603FR-07220RL"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1043,13 +1127,16 @@
       <tstamps>84ff6ba8-9a52-4cfc-a4cc-a6068435c3b7</tstamps>
     </comp>
     <comp ref="R114">
-      <value>1k</value>
+      <value>R_0603_1k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf</datasheet>
       <fields>
         <field name="LCSC">C21190</field>
+        <field name="MPN">0603WAF1001T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
+      <property name="MPN" value="0603WAF1001T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1098,13 +1185,16 @@
       <tstamps>86c97564-70d7-40e0-a8d1-3a2911a48bff</tstamps>
     </comp>
     <comp ref="R117">
-      <value>1k</value>
+      <value>R_0603_1k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf</datasheet>
       <fields>
         <field name="LCSC">C21190</field>
+        <field name="MPN">0603WAF1001T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
+      <property name="MPN" value="0603WAF1001T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1113,13 +1203,16 @@
       <tstamps>a7cefdd9-ad9a-47b5-8829-4bc3d322433f</tstamps>
     </comp>
     <comp ref="R118">
-      <value>1k</value>
+      <value>R_0603_1k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010130_UNI-ROYAL-Uniroyal-Elec-0603WAF1001T5E_C21190.pdf</datasheet>
       <fields>
         <field name="LCSC">C21190</field>
+        <field name="MPN">0603WAF1001T5E</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
+      <property name="MPN" value="0603WAF1001T5E"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1148,13 +1241,16 @@
       <tstamps>b6a94b41-6633-468e-aa7c-a5d4df2c2f77</tstamps>
     </comp>
     <comp ref="R121">
-      <value>0R</value>
+      <value>R_0402_0</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0402WGF0000TCE_C17168.pdf</datasheet>
       <fields>
         <field name="LCSC">C17168</field>
+        <field name="MPN">0402WGF0000TCE</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0402_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17168"/>
+      <property name="MPN" value="0402WGF0000TCE"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1246,11 +1342,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1263,11 +1361,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1280,11 +1380,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1297,11 +1399,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1314,11 +1418,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1331,11 +1437,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1348,11 +1456,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1365,11 +1475,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1382,11 +1494,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1399,11 +1513,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1416,11 +1532,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1433,11 +1551,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1450,11 +1570,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1467,11 +1589,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1484,11 +1608,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1501,11 +1627,13 @@
       <value> ZE05-2022SCF</value>
       <fields>
         <field name="LCSC">C570453</field>
+        <field name="MPN">ZE05-2022SCF</field>
         <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
       <property name="Sim.Enable" value="0"/>
+      <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="exclude_from_board"/>
@@ -1520,9 +1648,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_MaxLinear-SPX3819M5-L-3-3-TR_C9055.pdf</datasheet>
       <fields>
         <field name="LCSC">C9055</field>
+        <field name="MPN">SPX3819M5-L-3-3/TR</field>
       </fields>
       <libsource lib="Regulator_Linear" part="SPX3819M5-L-3-3" description="500mA Low drop-out regulator, Fixed Output 3.3V, SOT-23-5"/>
       <property name="LCSC" value="C9055"/>
+      <property name="MPN" value="SPX3819M5-L-3-3/TR"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="500mA Low drop-out regulator, Fixed Output 3.3V, SOT-23-5"/>
@@ -1536,9 +1666,11 @@
       <datasheet>https://www.mouser.com/datasheet/2/891/esp32_c3_datasheet_en-1989865.pdf</datasheet>
       <fields>
         <field name="LCSC">C2858491</field>
+        <field name="MPN">ESP32-C3FH4</field>
       </fields>
       <libsource lib="LCSC_Microcontroller" part="ESP32-C3FH4" description=""/>
       <property name="LCSC" value="C2858491"/>
+      <property name="MPN" value="ESP32-C3FH4"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <sheetpath names="/" tstamps="/"/>
@@ -1550,9 +1682,11 @@
       <datasheet>http://www.ti.com/lit/ds/symlink/sn65hvd230.pdf</datasheet>
       <fields>
         <field name="LCSC">C12084</field>
+        <field name="MPN">SN65HVD230DR</field>
       </fields>
       <libsource lib="Interface_CAN_LIN" part="SN65HVD230" description="CAN Bus Transceivers, 3.3V, 1Mbps, Low-Power capabilities, SOIC-8"/>
       <property name="LCSC" value="C12084"/>
+      <property name="MPN" value="SN65HVD230DR"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="CAN Bus Transceivers, 3.3V, 1Mbps, Low-Power capabilities, SOIC-8"/>
@@ -1566,9 +1700,11 @@
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_MaxLinear-SPX1117M3-L-5-0-TR_C21946.pdf</datasheet>
       <fields>
         <field name="LCSC">C21946</field>
+        <field name="MPN">SPX1117M3-L-5-0/TR</field>
       </fields>
       <libsource lib="Regulator_Linear" part="AP1117-50" description="1A Low Dropout regulator, positive, 5.0V fixed output, SOT-223"/>
       <property name="LCSC" value="C21946"/>
+      <property name="MPN" value="SPX1117M3-L-5-0/TR"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="1A Low Dropout regulator, positive, 5.0V fixed output, SOT-223"/>
@@ -2275,21 +2411,6 @@
     </library>
     <library logical="Interface_CAN_LIN">
       <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Interface_CAN_LIN.kicad_sym</uri>
-    </library>
-    <library logical="LCSC_Capacitor">
-      <uri>C:\Users\konno\Documents\KiCad\7.0\template\/kicad-library/library/LCSC_Capacitor.kicad_sym</uri>
-    </library>
-    <library logical="LCSC_Crystal">
-      <uri>C:\Users\konno\Documents\KiCad\7.0\template\/kicad-library/library/LCSC_Crystal.kicad_sym</uri>
-    </library>
-    <library logical="LCSC_LED">
-      <uri>C:\Users\konno\Documents\KiCad\7.0\template\/kicad-library/library/LCSC_LED.kicad_sym</uri>
-    </library>
-    <library logical="LCSC_Microcontroller">
-      <uri>C:\Users\konno\Documents\KiCad\7.0\template\/kicad-library/library/LCSC_Microcontroller.kicad_sym</uri>
-    </library>
-    <library logical="LCSC_Resistor">
-      <uri>C:\Users\konno\Documents\KiCad\7.0\template\/kicad-library/library/LCSC_Resistor.kicad_sym</uri>
     </library>
     <library logical="Mechanical">
       <uri>C:\Program Files\KiCad\7.0\share\kicad\symbols\/Mechanical.kicad_sym</uri>
