@@ -2,7 +2,7 @@
 <export version="E">
   <design>
     <source>C:\Users\konno\Desktop\workspace\connorrigby\underglow2\hardware\underglow2.kicad_sch</source>
-    <date>8/25/2023 8:19:05 AM</date>
+    <date>9/7/2023 12:42:00 PM</date>
     <tool>Eeschema 7.0.5</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -63,19 +63,19 @@
     <comp ref="C2">
       <value>C_0805_10u_X5R</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1810201234_Murata-Electronics-GRM21BR6YA106KE43L_C162422.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL21A106KAYNNNE_C15850.pdf</datasheet>
       <fields>
         <field name="Capacitance">10uF</field>
-        <field name="LCSC">C162422</field>
-        <field name="MPN">GRM21BR6YA106KE43L</field>
+        <field name="LCSC">C15850</field>
+        <field name="MPN">CL21A106KAYNNNE</field>
         <field name="Temperature">X5R</field>
         <field name="Tolerance">10%</field>
         <field name="Voltage">35V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0805_10u_X5R" description="35V 10uF X5R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"/>
       <property name="Capacitance" value="10uF"/>
-      <property name="LCSC" value="C162422"/>
-      <property name="MPN" value="GRM21BR6YA106KE43L"/>
+      <property name="LCSC" value="C15850"/>
+      <property name="MPN" value="CL21A106KAYNNNE"/>
       <property name="Voltage" value="35V"/>
       <property name="Tolerance" value="10%"/>
       <property name="Temperature" value="X5R"/>
@@ -89,14 +89,14 @@
     <comp ref="C3">
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2108150230_FH--Guangdong-Fenghua-Advanced-Tech-0805X475M160NT_C2857997.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL21A475KAQNNNE_C1779.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2857997</field>
-        <field name="MPN">0805X475M160NT</field>
+        <field name="LCSC">C1779</field>
+        <field name="MPN">CL21A475KAQNNNE</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
-      <property name="LCSC" value="C2857997"/>
-      <property name="MPN" value="0805X475M160NT"/>
+      <property name="LCSC" value="C1779"/>
+      <property name="MPN" value="CL21A475KAQNNNE"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -107,17 +107,17 @@
     <comp ref="C103">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -131,16 +131,16 @@
     <comp ref="C104">
       <value>C_0402_18p_NP0</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_YAGEO-CC0402JRNPO9BN180_C106202.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_FH--Guangdong-Fenghua-Advanced-Tech-0402CG180J500NT_C1549.pdf</datasheet>
       <fields>
         <field name="Capacitance">18pF</field>
-        <field name="LCSC">C106202</field>
-        <field name="MPN">CC0402JRNPO9BN180</field>
+        <field name="LCSC">C1549</field>
+        <field name="MPN">0402CG180J500NT</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="18pF"/>
-      <property name="LCSC" value="C106202"/>
-      <property name="MPN" value="CC0402JRNPO9BN180"/>
+      <property name="LCSC" value="C1549"/>
+      <property name="MPN" value="0402CG180J500NT"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -151,16 +151,16 @@
     <comp ref="C105">
       <value>C_0402_18p_NP0</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_YAGEO-CC0402JRNPO9BN180_C106202.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_FH--Guangdong-Fenghua-Advanced-Tech-0402CG180J500NT_C1549.pdf</datasheet>
       <fields>
         <field name="Capacitance">18pF</field>
-        <field name="LCSC">C106202</field>
-        <field name="MPN">CC0402JRNPO9BN180</field>
+        <field name="LCSC">C1549</field>
+        <field name="MPN">0402CG180J500NT</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="18pF"/>
-      <property name="LCSC" value="C106202"/>
-      <property name="MPN" value="CC0402JRNPO9BN180"/>
+      <property name="LCSC" value="C1549"/>
+      <property name="MPN" value="0402CG180J500NT"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -171,19 +171,19 @@
     <comp ref="C106">
       <value>C_0805_1u_X7R</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1809221221_Samsung-Electro-Mechanics-CL21B105KOFNNNE_C24123.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL21B105KBFNNNE_C28323.pdf</datasheet>
       <fields>
         <field name="Capacitance">1uF</field>
-        <field name="LCSC">C24123</field>
-        <field name="MPN">CL21B105KOFNNNE</field>
+        <field name="LCSC">C28323</field>
+        <field name="MPN">CL21B105KBFNNNE</field>
         <field name="Temperature">X7R</field>
         <field name="Tolerance">10%</field>
         <field name="Voltage">16V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0805_1u_X7R" description="16V 1uF X7R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS "/>
       <property name="Capacitance" value="1uF"/>
-      <property name="LCSC" value="C24123"/>
-      <property name="MPN" value="CL21B105KOFNNNE"/>
+      <property name="LCSC" value="C28323"/>
+      <property name="MPN" value="CL21B105KBFNNNE"/>
       <property name="Voltage" value="16V"/>
       <property name="Tolerance" value="10%"/>
       <property name="Temperature" value="X7R"/>
@@ -197,19 +197,19 @@
     <comp ref="C107">
       <value>C_0402_10n_C0G</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2107290630_Murata-Electronics-GRM1555CYA103JE01D_C1518210.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B103KB5NNNC_C15195.pdf</datasheet>
       <fields>
         <field name="Capacitance">10nf</field>
-        <field name="LCSC">C1518210</field>
-        <field name="MPN">GRM1555CYA103JE01D</field>
+        <field name="LCSC">C15195</field>
+        <field name="MPN">CL05B103KB5NNNC</field>
         <field name="Temperature">C0G</field>
         <field name="Tolerance">±5%</field>
         <field name="Voltage">35V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_10n_C0G" description="35V 10nF C0G ±5% 0402 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS "/>
       <property name="Capacitance" value="10nf"/>
-      <property name="LCSC" value="C1518210"/>
-      <property name="MPN" value="GRM1555CYA103JE01D"/>
+      <property name="LCSC" value="C15195"/>
+      <property name="MPN" value="CL05B103KB5NNNC"/>
       <property name="Voltage" value="35V"/>
       <property name="Tolerance" value="±5%"/>
       <property name="Temperature" value="C0G"/>
@@ -223,19 +223,19 @@
     <comp ref="C108">
       <value>C_0805_10u_X5R</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1810201234_Murata-Electronics-GRM21BR6YA106KE43L_C162422.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL21A106KAYNNNE_C15850.pdf</datasheet>
       <fields>
         <field name="Capacitance">10uF</field>
-        <field name="LCSC">C162422</field>
-        <field name="MPN">GRM21BR6YA106KE43L</field>
+        <field name="LCSC">C15850</field>
+        <field name="MPN">CL21A106KAYNNNE</field>
         <field name="Temperature">X5R</field>
         <field name="Tolerance">10%</field>
         <field name="Voltage">35V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0805_10u_X5R" description="35V 10uF X5R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"/>
       <property name="Capacitance" value="10uF"/>
-      <property name="LCSC" value="C162422"/>
-      <property name="MPN" value="GRM21BR6YA106KE43L"/>
+      <property name="LCSC" value="C15850"/>
+      <property name="MPN" value="CL21A106KAYNNNE"/>
       <property name="Voltage" value="35V"/>
       <property name="Tolerance" value="10%"/>
       <property name="Temperature" value="X5R"/>
@@ -249,17 +249,17 @@
     <comp ref="C109">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -273,17 +273,17 @@
     <comp ref="C110">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -297,16 +297,16 @@
     <comp ref="C111">
       <value>C_0402_3p3_C0G</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Murata-Electronics-GJM1555C1H3R3WB01D_C88892.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_FH--Guangdong-Fenghua-Advanced-Tech-0402CG3R3C500NT_C1565.pdf</datasheet>
       <fields>
         <field name="Capacitance">3.3pF</field>
-        <field name="LCSC">C88892</field>
-        <field name="MPN">GJM1555C1H3R3WB01D</field>
+        <field name="LCSC">C1565</field>
+        <field name="MPN">0402CG3R3C500NT</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="3.3pF"/>
-      <property name="LCSC" value="C88892"/>
-      <property name="MPN" value="GJM1555C1H3R3WB01D"/>
+      <property name="LCSC" value="C1565"/>
+      <property name="MPN" value="0402CG3R3C500NT"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -317,16 +317,16 @@
     <comp ref="C112">
       <value>C_0402_3p3_C0G</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Murata-Electronics-GJM1555C1H3R3WB01D_C88892.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_FH--Guangdong-Fenghua-Advanced-Tech-0402CG3R3C500NT_C1565.pdf</datasheet>
       <fields>
         <field name="Capacitance">3.3pF</field>
-        <field name="LCSC">C88892</field>
-        <field name="MPN">GJM1555C1H3R3WB01D</field>
+        <field name="LCSC">C1565</field>
+        <field name="MPN">0402CG3R3C500NT</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_DNP" description="Unpolarized capacitor, small symbol"/>
       <property name="Capacitance" value="3.3pF"/>
-      <property name="LCSC" value="C88892"/>
-      <property name="MPN" value="GJM1555C1H3R3WB01D"/>
+      <property name="LCSC" value="C1565"/>
+      <property name="MPN" value="0402CG3R3C500NT"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -337,19 +337,19 @@
     <comp ref="C113">
       <value>C_0805_1u_X7R</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1809221221_Samsung-Electro-Mechanics-CL21B105KOFNNNE_C24123.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL21B105KBFNNNE_C28323.pdf</datasheet>
       <fields>
         <field name="Capacitance">1uF</field>
-        <field name="LCSC">C24123</field>
-        <field name="MPN">CL21B105KOFNNNE</field>
+        <field name="LCSC">C28323</field>
+        <field name="MPN">CL21B105KBFNNNE</field>
         <field name="Temperature">X7R</field>
         <field name="Tolerance">10%</field>
         <field name="Voltage">16V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0805_1u_X7R" description="16V 1uF X7R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS "/>
       <property name="Capacitance" value="1uF"/>
-      <property name="LCSC" value="C24123"/>
-      <property name="MPN" value="CL21B105KOFNNNE"/>
+      <property name="LCSC" value="C28323"/>
+      <property name="MPN" value="CL21B105KBFNNNE"/>
       <property name="Voltage" value="16V"/>
       <property name="Tolerance" value="10%"/>
       <property name="Temperature" value="X7R"/>
@@ -363,17 +363,17 @@
     <comp ref="C114">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -387,17 +387,17 @@
     <comp ref="C115">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -411,14 +411,14 @@
     <comp ref="C116">
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2108150230_FH--Guangdong-Fenghua-Advanced-Tech-0805X475M160NT_C2857997.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL21A475KAQNNNE_C1779.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2857997</field>
-        <field name="MPN">0805X475M160NT</field>
+        <field name="LCSC">C1779</field>
+        <field name="MPN">CL21A475KAQNNNE</field>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
-      <property name="LCSC" value="C2857997"/>
-      <property name="MPN" value="0805X475M160NT"/>
+      <property name="LCSC" value="C1779"/>
+      <property name="MPN" value="CL21A475KAQNNNE"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Unpolarized capacitor, small symbol"/>
@@ -429,19 +429,19 @@
     <comp ref="C117">
       <value>C_0805_10u_X5R</value>
       <footprint>Capacitor_SMD:C_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1810201234_Murata-Electronics-GRM21BR6YA106KE43L_C162422.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL21A106KAYNNNE_C15850.pdf</datasheet>
       <fields>
         <field name="Capacitance">10uF</field>
-        <field name="LCSC">C162422</field>
-        <field name="MPN">GRM21BR6YA106KE43L</field>
+        <field name="LCSC">C15850</field>
+        <field name="MPN">CL21A106KAYNNNE</field>
         <field name="Temperature">X5R</field>
         <field name="Tolerance">10%</field>
         <field name="Voltage">35V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0805_10u_X5R" description="35V 10uF X5R ±10% 0805 Multilayer Ceramic Capacitors MLCC - SMD/SMT ROHS"/>
       <property name="Capacitance" value="10uF"/>
-      <property name="LCSC" value="C162422"/>
-      <property name="MPN" value="GRM21BR6YA106KE43L"/>
+      <property name="LCSC" value="C15850"/>
+      <property name="MPN" value="CL21A106KAYNNNE"/>
       <property name="Voltage" value="35V"/>
       <property name="Tolerance" value="10%"/>
       <property name="Temperature" value="X5R"/>
@@ -455,17 +455,17 @@
     <comp ref="C118">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -479,17 +479,17 @@
     <comp ref="C119">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -503,17 +503,17 @@
     <comp ref="C120">
       <value>C_0402_100nf_X7R</value>
       <footprint>Capacitor_SMD:C_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/1811141731_FH--Guangdong-Fenghua-Advanced-Tech-0402B104K500NT_C110251.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Samsung-Electro-Mechanics-CL05B104KO5NNNC_C1525.pdf</datasheet>
       <fields>
         <field name="Capacitance">100nf</field>
-        <field name="LCSC">C110251</field>
-        <field name="MPN">0402B104K500NT</field>
+        <field name="LCSC">C1525</field>
+        <field name="MPN">CL05B104KO5NNNC</field>
         <field name="Temperature">X7R</field>
         <field name="Voltage">50V</field>
       </fields>
       <libsource lib="LCSC_Capacitor" part="C_0402_100nf_X7R" description="Unpolarized capacitor, small symbol"/>
-      <property name="MPN" value="0402B104K500NT"/>
-      <property name="LCSC" value="C110251"/>
+      <property name="MPN" value="CL05B104KO5NNNC"/>
+      <property name="LCSC" value="C1525"/>
       <property name="Capacitance" value="100nf"/>
       <property name="Voltage" value="50V"/>
       <property name="Temperature" value="X7R"/>
@@ -550,12 +550,12 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2927280</field>
-        <field name="MPN">1N5819WS S4</field>
+        <field name="LCSC">C191023</field>
+        <field name="MPN">1N5819WS</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
-      <property name="LCSC" value="C2927280"/>
-      <property name="MPN" value="1N5819WS S4"/>
+      <property name="LCSC" value="C191023"/>
+      <property name="MPN" value="1N5819WS"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -631,12 +631,12 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2927280</field>
-        <field name="MPN">1N5819WS S4</field>
+        <field name="LCSC">C191023</field>
+        <field name="MPN">1N5819WS</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
-      <property name="LCSC" value="C2927280"/>
-      <property name="MPN" value="1N5819WS S4"/>
+      <property name="LCSC" value="C191023"/>
+      <property name="MPN" value="1N5819WS"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -649,12 +649,12 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2927280</field>
-        <field name="MPN">1N5819WS S4</field>
+        <field name="LCSC">C191023</field>
+        <field name="MPN">1N5819WS</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
-      <property name="LCSC" value="C2927280"/>
-      <property name="MPN" value="1N5819WS S4"/>
+      <property name="LCSC" value="C191023"/>
+      <property name="MPN" value="1N5819WS"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -667,12 +667,12 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2927280</field>
-        <field name="MPN">1N5819WS S4</field>
+        <field name="LCSC">C191023</field>
+        <field name="MPN">1N5819WS</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
-      <property name="LCSC" value="C2927280"/>
-      <property name="MPN" value="1N5819WS S4"/>
+      <property name="LCSC" value="C191023"/>
+      <property name="MPN" value="1N5819WS"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -685,12 +685,12 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2927280</field>
-        <field name="MPN">1N5819WS S4</field>
+        <field name="LCSC">C191023</field>
+        <field name="MPN">1N5819WS</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
-      <property name="LCSC" value="C2927280"/>
-      <property name="MPN" value="1N5819WS S4"/>
+      <property name="LCSC" value="C191023"/>
+      <property name="MPN" value="1N5819WS"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -703,12 +703,12 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2927280</field>
-        <field name="MPN">1N5819WS S4</field>
+        <field name="LCSC">C191023</field>
+        <field name="MPN">1N5819WS</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
-      <property name="LCSC" value="C2927280"/>
-      <property name="MPN" value="1N5819WS S4"/>
+      <property name="LCSC" value="C191023"/>
+      <property name="MPN" value="1N5819WS"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -721,12 +721,12 @@
       <footprint>Diode_SMD:D_SOD-323</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2204281430_Guangdong-Hottech-1N5819WS_C191023.pdf</datasheet>
       <fields>
-        <field name="LCSC">C2927280</field>
-        <field name="MPN">1N5819WS S4</field>
+        <field name="LCSC">C191023</field>
+        <field name="MPN">1N5819WS</field>
       </fields>
       <libsource lib="Diode" part="1N5819WS" description="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
-      <property name="LCSC" value="C2927280"/>
-      <property name="MPN" value="1N5819WS S4"/>
+      <property name="LCSC" value="C191023"/>
+      <property name="MPN" value="1N5819WS"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="40V 600mV@1A 1A SOD-323 Schottky Barrier Diodes, SOD-323"/>
@@ -735,16 +735,16 @@
       <tstamps>09a7b369-1cd9-4d33-9c31-b6c0b199af44</tstamps>
     </comp>
     <comp ref="FB101">
-      <value>70mΩ ±25% 330Ω@100MH</value>
+      <value>300mΩ ±25% 600Ω@100MHz</value>
       <footprint>Inductor_SMD:L_0805_2012Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_Murata-Electronics-BLM21PG331SN1D_C74764.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2109181830_Sunlord-GZ2012D601TF_C1017.pdf</datasheet>
       <fields>
-        <field name="LCSC">C74764</field>
-        <field name="MPN">BLM21PG331SN1D</field>
+        <field name="LCSC">C1017</field>
+        <field name="MPN">GZ2012D601TF</field>
       </fields>
       <libsource lib="Device" part="FerriteBead_Small" description="Ferrite bead, small symbol"/>
-      <property name="LCSC" value="C74764"/>
-      <property name="MPN" value="BLM21PG331SN1D"/>
+      <property name="LCSC" value="C1017"/>
+      <property name="MPN" value="GZ2012D601TF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Ferrite bead, small symbol"/>
@@ -753,8 +753,8 @@
       <tstamps>c5af9a46-e701-437c-8927-8f884358670c</tstamps>
     </comp>
     <comp ref="J102">
-      <value> ZE05H-16DP-2H</value>
-      <footprint>LCSC_Connector:ZE05H-16DP-2H</footprint>
+      <value>ZE05H-16DP-2H</value>
+      <footprint>Harness:ZE05-16DS-HU</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2211031030_HRS-Hirose-ZE05H-16DP-2H_C5242960.pdf</datasheet>
       <fields>
         <field name="LCSC">C5242960</field>
@@ -772,15 +772,13 @@
     </comp>
     <comp ref="J103">
       <value>ZE05-16DS-HU/R</value>
-      <footprint>LCSC_Connector:ZE05H-16DP-2H</footprint>
+      <footprint>Harness:ZE05-16DS-HU</footprint>
       <fields>
         <field name="LCSC">C3267442</field>
         <field name="MPN">ZE05-16DS-HU/R</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector_Generic_MountingPin" part="Conn_01x16_MountingPin" description="Generic connectable mounting pin connector, single row, 01x16, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="LCSC" value="C3267442"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-16DS-HU/R"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -831,12 +829,12 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <datasheet>http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf</datasheet>
       <fields>
-        <field name="LCSC">C306862</field>
+        <field name="LCSC">C15127</field>
         <field name="MOSFET_TYPE">P-Channel</field>
         <field name="MPN">AO3401A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3401A" description="-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23"/>
-      <property name="LCSC" value="C306862"/>
+      <property name="LCSC" value="C15127"/>
       <property name="MOSFET_TYPE" value="P-Channel"/>
       <property name="MPN" value="AO3401A"/>
       <property name="Sheetname" value=""/>
@@ -851,12 +849,12 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <datasheet>http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf</datasheet>
       <fields>
-        <field name="LCSC">C344010</field>
+        <field name="LCSC">C20917</field>
         <field name="MOSFET_TYPE">N-Channel</field>
         <field name="MPN">AO3400A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
-      <property name="LCSC" value="C344010"/>
+      <property name="LCSC" value="C20917"/>
       <property name="MOSFET_TYPE" value="N-Channel"/>
       <property name="MPN" value="AO3400A"/>
       <property name="Sheetname" value=""/>
@@ -871,12 +869,12 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <datasheet>http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf</datasheet>
       <fields>
-        <field name="LCSC">C344010</field>
+        <field name="LCSC">C20917</field>
         <field name="MOSFET_TYPE">N-Channel</field>
         <field name="MPN">AO3400A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
-      <property name="LCSC" value="C344010"/>
+      <property name="LCSC" value="C20917"/>
       <property name="MOSFET_TYPE" value="N-Channel"/>
       <property name="MPN" value="AO3400A"/>
       <property name="Sheetname" value=""/>
@@ -891,12 +889,12 @@
       <footprint>Package_TO_SOT_SMD:SOT-23</footprint>
       <datasheet>http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf</datasheet>
       <fields>
-        <field name="LCSC">C344010</field>
+        <field name="LCSC">C20917</field>
         <field name="MOSFET_TYPE">N-Channel</field>
         <field name="MPN">AO3400A</field>
       </fields>
       <libsource lib="Transistor_FET" part="AO3400A" description="30V Vds, 5.7A Id, N-Channel MOSFET, SOT-23"/>
-      <property name="LCSC" value="C344010"/>
+      <property name="LCSC" value="C20917"/>
       <property name="MOSFET_TYPE" value="N-Channel"/>
       <property name="MPN" value="AO3400A"/>
       <property name="Sheetname" value=""/>
@@ -913,10 +911,12 @@
       <fields>
         <field name="LCSC">C17408</field>
         <field name="MPN">0805W8F1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
       <property name="MPN" value="0805W8F1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -951,10 +951,12 @@
       <fields>
         <field name="LCSC">C21190</field>
         <field name="MPN">0603WAF1001T5E</field>
+        <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
       <property name="MPN" value="0603WAF1001T5E"/>
+      <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -969,10 +971,12 @@
       <fields>
         <field name="LCSC">C22775</field>
         <field name="MPN">0603WAF1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
       <property name="MPN" value="0603WAF1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -987,10 +991,12 @@
       <fields>
         <field name="LCSC">C22775</field>
         <field name="MPN">0603WAF1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
       <property name="MPN" value="0603WAF1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1005,10 +1011,12 @@
       <fields>
         <field name="LCSC">C22775</field>
         <field name="MPN">0603WAF1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
       <property name="MPN" value="0603WAF1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1023,10 +1031,12 @@
       <fields>
         <field name="LCSC">C22775</field>
         <field name="MPN">0603WAF1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C22775"/>
       <property name="MPN" value="0603WAF1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1041,10 +1051,12 @@
       <fields>
         <field name="LCSC">C17408</field>
         <field name="MPN">0805W8F1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
       <property name="MPN" value="0805W8F1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1059,10 +1071,12 @@
       <fields>
         <field name="LCSC">C17408</field>
         <field name="MPN">0805W8F1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
       <property name="MPN" value="0805W8F1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1077,10 +1091,12 @@
       <fields>
         <field name="LCSC">C17408</field>
         <field name="MPN">0805W8F1000T5E</field>
+        <field name="Resistance">100Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17408"/>
       <property name="MPN" value="0805W8F1000T5E"/>
+      <property name="Resistance" value="100Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1093,12 +1109,14 @@
       <footprint>Resistor_SMD:R_0805_2012Metric</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_YAGEO-RC0603FR-07220RL_C107696.pdf</datasheet>
       <fields>
-        <field name="LCSC">C107696</field>
-        <field name="MPN">RC0603FR-07220RL</field>
+        <field name="LCSC">C17557</field>
+        <field name="MPN">0805W8F2200T5E</field>
+        <field name="Resistance">220Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0805_DNP" description="Resistor, small symbol"/>
-      <property name="LCSC" value="C107696"/>
-      <property name="MPN" value="RC0603FR-07220RL"/>
+      <property name="LCSC" value="C17557"/>
+      <property name="MPN" value="0805W8F2200T5E"/>
+      <property name="Resistance" value="220Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1133,10 +1151,12 @@
       <fields>
         <field name="LCSC">C21190</field>
         <field name="MPN">0603WAF1001T5E</field>
+        <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
       <property name="MPN" value="0603WAF1001T5E"/>
+      <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1191,10 +1211,12 @@
       <fields>
         <field name="LCSC">C21190</field>
         <field name="MPN">0603WAF1001T5E</field>
+        <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
       <property name="MPN" value="0603WAF1001T5E"/>
+      <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1209,10 +1231,12 @@
       <fields>
         <field name="LCSC">C21190</field>
         <field name="MPN">0603WAF1001T5E</field>
+        <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0603_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C21190"/>
       <property name="MPN" value="0603WAF1001T5E"/>
+      <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1223,15 +1247,15 @@
     <comp ref="R119">
       <value>R_0402_1k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2004211032_Resistor-Today-PTFR0402B1K00P9_C478866.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0402WGF1001TCE_C11702.pdf</datasheet>
       <fields>
-        <field name="LCSC">C478866</field>
-        <field name="MPN">PTFR0402B1K00P9</field>
+        <field name="LCSC">C11702</field>
+        <field name="MPN">0402WGF1001TCE</field>
         <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0402_1k" description="60mW Thin Film Resistor 75V ±25ppm/℃ ±0.1% -55℃~+125℃ 1kΩ 0402 Chip Resistor - Surface Mount ROHS"/>
-      <property name="MPN" value="PTFR0402B1K00P9"/>
-      <property name="LCSC" value="C478866"/>
+      <property name="MPN" value="0402WGF1001TCE"/>
+      <property name="LCSC" value="C11702"/>
       <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1247,10 +1271,12 @@
       <fields>
         <field name="LCSC">C17168</field>
         <field name="MPN">0402WGF0000TCE</field>
+        <field name="Resistance">0Ω</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0402_DNP" description="Resistor, small symbol"/>
       <property name="LCSC" value="C17168"/>
       <property name="MPN" value="0402WGF0000TCE"/>
+      <property name="Resistance" value="0Ω"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
       <property name="ki_description" value="Resistor, small symbol"/>
@@ -1281,15 +1307,15 @@
     <comp ref="R123">
       <value>R_0402_1k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2004211032_Resistor-Today-PTFR0402B1K00P9_C478866.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0402WGF1001TCE_C11702.pdf</datasheet>
       <fields>
-        <field name="LCSC">C478866</field>
-        <field name="MPN">PTFR0402B1K00P9</field>
+        <field name="LCSC">C11702</field>
+        <field name="MPN">0402WGF1001TCE</field>
         <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0402_1k" description="60mW Thin Film Resistor 75V ±25ppm/℃ ±0.1% -55℃~+125℃ 1kΩ 0402 Chip Resistor - Surface Mount ROHS"/>
-      <property name="MPN" value="PTFR0402B1K00P9"/>
-      <property name="LCSC" value="C478866"/>
+      <property name="MPN" value="0402WGF1001TCE"/>
+      <property name="LCSC" value="C11702"/>
       <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1301,15 +1327,15 @@
     <comp ref="R124">
       <value>R_0402_1k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2004211032_Resistor-Today-PTFR0402B1K00P9_C478866.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0402WGF1001TCE_C11702.pdf</datasheet>
       <fields>
-        <field name="LCSC">C478866</field>
-        <field name="MPN">PTFR0402B1K00P9</field>
+        <field name="LCSC">C11702</field>
+        <field name="MPN">0402WGF1001TCE</field>
         <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0402_1k" description="60mW Thin Film Resistor 75V ±25ppm/℃ ±0.1% -55℃~+125℃ 1kΩ 0402 Chip Resistor - Surface Mount ROHS"/>
-      <property name="MPN" value="PTFR0402B1K00P9"/>
-      <property name="LCSC" value="C478866"/>
+      <property name="MPN" value="0402WGF1001TCE"/>
+      <property name="LCSC" value="C11702"/>
       <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1321,15 +1347,15 @@
     <comp ref="R125">
       <value>R_0402_1k</value>
       <footprint>Resistor_SMD:R_0402_1005Metric</footprint>
-      <datasheet>https://datasheet.lcsc.com/lcsc/2004211032_Resistor-Today-PTFR0402B1K00P9_C478866.pdf</datasheet>
+      <datasheet>https://datasheet.lcsc.com/lcsc/2206010216_UNI-ROYAL-Uniroyal-Elec-0402WGF1001TCE_C11702.pdf</datasheet>
       <fields>
-        <field name="LCSC">C478866</field>
-        <field name="MPN">PTFR0402B1K00P9</field>
+        <field name="LCSC">C11702</field>
+        <field name="MPN">0402WGF1001TCE</field>
         <field name="Resistance">1kΩ</field>
       </fields>
       <libsource lib="LCSC_Resistor" part="R_0402_1k" description="60mW Thin Film Resistor 75V ±25ppm/℃ ±0.1% -55℃~+125℃ 1kΩ 0402 Chip Resistor - Surface Mount ROHS"/>
-      <property name="MPN" value="PTFR0402B1K00P9"/>
-      <property name="LCSC" value="C478866"/>
+      <property name="MPN" value="0402WGF1001TCE"/>
+      <property name="LCSC" value="C11702"/>
       <property name="Resistance" value="1kΩ"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1339,15 +1365,14 @@
       <tstamps>7ae39fc0-1e61-4b9f-8c32-d046916375bf</tstamps>
     </comp>
     <comp ref="T101">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1358,15 +1383,14 @@
       <tstamps>b8635c6c-0103-4f22-aa5e-4748b5ed7bc5</tstamps>
     </comp>
     <comp ref="T102">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1377,15 +1401,14 @@
       <tstamps>1f05b285-f4d4-43b3-b0ea-d6654ba19e71</tstamps>
     </comp>
     <comp ref="T103">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1396,15 +1419,14 @@
       <tstamps>d8174219-1e31-4fdd-ac27-529452c78c97</tstamps>
     </comp>
     <comp ref="T104">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1415,15 +1437,14 @@
       <tstamps>79c84ce2-fdf6-4a50-9eed-833c90e8c777</tstamps>
     </comp>
     <comp ref="T105">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1434,15 +1455,14 @@
       <tstamps>5b858076-251d-4778-a4f4-fbb875a2c064</tstamps>
     </comp>
     <comp ref="T106">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1453,15 +1473,14 @@
       <tstamps>5491914c-6a88-4f93-b4e9-3be4a5750057</tstamps>
     </comp>
     <comp ref="T107">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1472,15 +1491,14 @@
       <tstamps>07d2b64d-1231-4279-bca0-1acbbdba77ff</tstamps>
     </comp>
     <comp ref="T108">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1491,15 +1509,14 @@
       <tstamps>7181b9b9-8c27-4318-b558-edf8ef9931c1</tstamps>
     </comp>
     <comp ref="T109">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1510,15 +1527,14 @@
       <tstamps>fa7efdc7-d56a-4780-96fa-145e9165cf42</tstamps>
     </comp>
     <comp ref="T110">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1529,15 +1545,14 @@
       <tstamps>78215b51-0d18-4258-b53e-858b1a26d25b</tstamps>
     </comp>
     <comp ref="T111">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1548,15 +1563,14 @@
       <tstamps>014720b3-08ae-4742-bf1f-c5aeb597c6e5</tstamps>
     </comp>
     <comp ref="T112">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1567,15 +1581,14 @@
       <tstamps>86ac2524-232f-4a08-9d09-0a2a66866c2f</tstamps>
     </comp>
     <comp ref="T113">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1586,15 +1599,14 @@
       <tstamps>1147c195-4ad1-471e-989f-44f9099ef39b</tstamps>
     </comp>
     <comp ref="T114">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1605,15 +1617,14 @@
       <tstamps>b2fc0163-9cb4-4c27-9b75-75a03e15adb8</tstamps>
     </comp>
     <comp ref="T115">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1624,15 +1635,14 @@
       <tstamps>0c41aca3-c6dd-4de8-add4-2b1ba8418d70</tstamps>
     </comp>
     <comp ref="T116">
-      <value> ZE05-2022SCF</value>
+      <value>ZE05-2022SCF</value>
+      <footprint>Harness:ZE05-2022SCF</footprint>
       <fields>
         <field name="LCSC">C570453</field>
         <field name="MPN">ZE05-2022SCF</field>
-        <field name="Sim.Enable">0</field>
       </fields>
       <libsource lib="Connector" part="Conn_01x01_Pin" description="Generic connector, single row, 01x01, script generated"/>
       <property name="LCSC" value="C570453"/>
-      <property name="Sim.Enable" value="0"/>
       <property name="MPN" value="ZE05-2022SCF"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -1699,11 +1709,11 @@
       <footprint>Package_TO_SOT_SMD:SOT-223-3_TabPin2</footprint>
       <datasheet>https://datasheet.lcsc.com/lcsc/2304140030_MaxLinear-SPX1117M3-L-5-0-TR_C21946.pdf</datasheet>
       <fields>
-        <field name="LCSC">C21946</field>
+        <field name="LCSC">C6187</field>
         <field name="MPN">SPX1117M3-L-5-0/TR</field>
       </fields>
       <libsource lib="Regulator_Linear" part="AP1117-50" description="1A Low Dropout regulator, positive, 5.0V fixed output, SOT-223"/>
-      <property name="LCSC" value="C21946"/>
+      <property name="LCSC" value="C6187"/>
       <property name="MPN" value="SPX1117M3-L-5-0/TR"/>
       <property name="Sheetname" value=""/>
       <property name="Sheetfile" value="underglow2.kicad_sch"/>
@@ -2755,112 +2765,112 @@
       <node ref="J102" pin="11" pinfunction="Pin_11" pintype="passive"/>
       <node ref="Q101" pin="3" pinfunction="D" pintype="passive"/>
     </net>
-    <net code="73" name="unconnected-(J102-MountPin-PadMP)">
+    <net code="70" name="unconnected-(J102-MountPin-PadMP)">
       <node ref="J102" pin="MP" pinfunction="MountPin" pintype="passive+no_connect"/>
     </net>
-    <net code="74" name="unconnected-(J103-MountPin-PadMP)">
+    <net code="71" name="unconnected-(J103-MountPin-PadMP)">
       <node ref="J103" pin="MP" pinfunction="MountPin" pintype="passive+no_connect"/>
     </net>
-    <net code="75" name="unconnected-(J103-Pin_1-Pad1)">
+    <net code="72" name="unconnected-(J103-Pin_1-Pad1)">
       <node ref="J103" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="76" name="unconnected-(J103-Pin_2-Pad2)">
+    <net code="73" name="unconnected-(J103-Pin_2-Pad2)">
       <node ref="J103" pin="2" pinfunction="Pin_2" pintype="passive+no_connect"/>
     </net>
-    <net code="77" name="unconnected-(J103-Pin_3-Pad3)">
+    <net code="74" name="unconnected-(J103-Pin_3-Pad3)">
       <node ref="J103" pin="3" pinfunction="Pin_3" pintype="passive+no_connect"/>
     </net>
-    <net code="78" name="unconnected-(J103-Pin_4-Pad4)">
+    <net code="75" name="unconnected-(J103-Pin_4-Pad4)">
       <node ref="J103" pin="4" pinfunction="Pin_4" pintype="passive+no_connect"/>
     </net>
-    <net code="79" name="unconnected-(J103-Pin_5-Pad5)">
+    <net code="76" name="unconnected-(J103-Pin_5-Pad5)">
       <node ref="J103" pin="5" pinfunction="Pin_5" pintype="passive+no_connect"/>
     </net>
-    <net code="80" name="unconnected-(J103-Pin_6-Pad6)">
+    <net code="77" name="unconnected-(J103-Pin_6-Pad6)">
       <node ref="J103" pin="6" pinfunction="Pin_6" pintype="passive+no_connect"/>
     </net>
-    <net code="81" name="unconnected-(J103-Pin_7-Pad7)">
+    <net code="78" name="unconnected-(J103-Pin_7-Pad7)">
       <node ref="J103" pin="7" pinfunction="Pin_7" pintype="passive+no_connect"/>
     </net>
-    <net code="82" name="unconnected-(J103-Pin_8-Pad8)">
+    <net code="79" name="unconnected-(J103-Pin_8-Pad8)">
       <node ref="J103" pin="8" pinfunction="Pin_8" pintype="passive+no_connect"/>
     </net>
-    <net code="83" name="unconnected-(J103-Pin_9-Pad9)">
+    <net code="80" name="unconnected-(J103-Pin_9-Pad9)">
       <node ref="J103" pin="9" pinfunction="Pin_9" pintype="passive+no_connect"/>
     </net>
-    <net code="84" name="unconnected-(J103-Pin_10-Pad10)">
+    <net code="81" name="unconnected-(J103-Pin_10-Pad10)">
       <node ref="J103" pin="10" pinfunction="Pin_10" pintype="passive+no_connect"/>
     </net>
-    <net code="85" name="unconnected-(J103-Pin_11-Pad11)">
+    <net code="82" name="unconnected-(J103-Pin_11-Pad11)">
       <node ref="J103" pin="11" pinfunction="Pin_11" pintype="passive+no_connect"/>
     </net>
-    <net code="86" name="unconnected-(J103-Pin_12-Pad12)">
+    <net code="83" name="unconnected-(J103-Pin_12-Pad12)">
       <node ref="J103" pin="12" pinfunction="Pin_12" pintype="passive+no_connect"/>
     </net>
-    <net code="87" name="unconnected-(J103-Pin_13-Pad13)">
+    <net code="84" name="unconnected-(J103-Pin_13-Pad13)">
       <node ref="J103" pin="13" pinfunction="Pin_13" pintype="passive+no_connect"/>
     </net>
-    <net code="88" name="unconnected-(J103-Pin_14-Pad14)">
+    <net code="85" name="unconnected-(J103-Pin_14-Pad14)">
       <node ref="J103" pin="14" pinfunction="Pin_14" pintype="passive+no_connect"/>
     </net>
-    <net code="89" name="unconnected-(J103-Pin_15-Pad15)">
+    <net code="86" name="unconnected-(J103-Pin_15-Pad15)">
       <node ref="J103" pin="15" pinfunction="Pin_15" pintype="passive+no_connect"/>
     </net>
-    <net code="90" name="unconnected-(J103-Pin_16-Pad16)">
+    <net code="87" name="unconnected-(J103-Pin_16-Pad16)">
       <node ref="J103" pin="16" pinfunction="Pin_16" pintype="passive+no_connect"/>
     </net>
-    <net code="92" name="unconnected-(T101-Pin_1-Pad1)">
+    <net code="89" name="unconnected-(T101-Pin_1-Pad1)">
       <node ref="T101" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="93" name="unconnected-(T102-Pin_1-Pad1)">
+    <net code="90" name="unconnected-(T102-Pin_1-Pad1)">
       <node ref="T102" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="94" name="unconnected-(T103-Pin_1-Pad1)">
+    <net code="91" name="unconnected-(T103-Pin_1-Pad1)">
       <node ref="T103" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="95" name="unconnected-(T104-Pin_1-Pad1)">
+    <net code="92" name="unconnected-(T104-Pin_1-Pad1)">
       <node ref="T104" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="96" name="unconnected-(T105-Pin_1-Pad1)">
+    <net code="93" name="unconnected-(T105-Pin_1-Pad1)">
       <node ref="T105" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="97" name="unconnected-(T106-Pin_1-Pad1)">
+    <net code="94" name="unconnected-(T106-Pin_1-Pad1)">
       <node ref="T106" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="98" name="unconnected-(T107-Pin_1-Pad1)">
+    <net code="95" name="unconnected-(T107-Pin_1-Pad1)">
       <node ref="T107" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="99" name="unconnected-(T108-Pin_1-Pad1)">
+    <net code="96" name="unconnected-(T108-Pin_1-Pad1)">
       <node ref="T108" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="100" name="unconnected-(T109-Pin_1-Pad1)">
+    <net code="97" name="unconnected-(T109-Pin_1-Pad1)">
       <node ref="T109" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="101" name="unconnected-(T110-Pin_1-Pad1)">
+    <net code="98" name="unconnected-(T110-Pin_1-Pad1)">
       <node ref="T110" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="102" name="unconnected-(T111-Pin_1-Pad1)">
+    <net code="99" name="unconnected-(T111-Pin_1-Pad1)">
       <node ref="T111" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="103" name="unconnected-(T112-Pin_1-Pad1)">
+    <net code="100" name="unconnected-(T112-Pin_1-Pad1)">
       <node ref="T112" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="104" name="unconnected-(T113-Pin_1-Pad1)">
+    <net code="101" name="unconnected-(T113-Pin_1-Pad1)">
       <node ref="T113" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="105" name="unconnected-(T114-Pin_1-Pad1)">
+    <net code="102" name="unconnected-(T114-Pin_1-Pad1)">
       <node ref="T114" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="106" name="unconnected-(T115-Pin_1-Pad1)">
+    <net code="103" name="unconnected-(T115-Pin_1-Pad1)">
       <node ref="T115" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="107" name="unconnected-(T116-Pin_1-Pad1)">
+    <net code="104" name="unconnected-(T116-Pin_1-Pad1)">
       <node ref="T116" pin="1" pinfunction="Pin_1" pintype="passive+no_connect"/>
     </net>
-    <net code="108" name="unconnected-(U1-BP-Pad4)">
+    <net code="105" name="unconnected-(U1-BP-Pad4)">
       <node ref="U1" pin="4" pinfunction="BP" pintype="input+no_connect"/>
     </net>
-    <net code="109" name="unconnected-(U102-Vref-Pad5)">
+    <net code="106" name="unconnected-(U102-Vref-Pad5)">
       <node ref="U102" pin="5" pinfunction="Vref" pintype="output+no_connect"/>
     </net>
   </nets>
